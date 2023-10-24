@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Initial Setup" />
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Initial Setup">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/Tuple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +26,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2XCqOK9rL8G4HrFeTP3VnoPs7ll" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -27,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Kiara-FunctionC",
     "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java"
   }
 }]]></component>

@@ -3,6 +3,7 @@ package Function_C;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -11,9 +12,9 @@ class Window extends JFrame{
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
 	public static int width = 20;
 	public static int height = 20;
-	public Window(){
+	public Window() throws IOException {
 		
-		
+
 		// Creates the arraylist that'll contain the threads
 		Grid = new ArrayList<ArrayList<DataOfSquare>>();
 		ArrayList<DataOfSquare> data;
@@ -37,22 +38,14 @@ class Window extends JFrame{
 				getContentPane().add(Grid.get(i).get(j).square);
 			}
 		}
-		
-		// initial position of the snake
-		Tuple position = new Tuple(10,10);
+
 		// passing this value to the controller
-		ThreadsController c = new ThreadsController(position);
-		//Let's start the game now..
+		ThreadsController c = new ThreadsController();
+		//Let's start the game now...
 		c.start();
 
 		// Links the window to the keyboardlistenner.
 		this.addKeyListener((KeyListener) new KeyboardListener());
-
-		//To do : handle multiplayers .. The above works, test it and see what happens
-		
-		//Tuple position2 = new Tuple(13,13);
-		//ControlleurThreads c2 = new ControlleurThreads(position2);
-		//c2.start();
 		
 	}
 }

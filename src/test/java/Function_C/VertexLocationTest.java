@@ -6,20 +6,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class VertexLocationTest {
     @Test
-    void mySort() {
-        int[] input = new int[] {2, 3, 1, 4, 5};
-        int[] expected = new int[] {1, 2, 3, 4, 5};
-        //int[] actual = Library.mySort(input);
-        //assertArrayEquals(expected, actual);
+    void updateLocation() {
+        VertexLocation loc1 = new VertexLocation(1,3);
+        loc1.updateLocation(1,2);
+        int updated_x = loc1.getX();
+        int updated_y = loc1.getY();
+        assertEquals(updated_x, 1);
+        assertEquals(updated_y, 2);
     }
-
     @Test
-    void detectEvent1() {
-        VertexLocation loc1 = VertexLocation(1,1);
-
-        boolean expect1 = true;
-        boolean actual1 = L;
-
-        assertEquals(expect1, actual1);
+    void isSame() {
+        VertexLocation loc1 = new VertexLocation(1,1);
+        VertexLocation loc2 = new VertexLocation(1,1);
+        boolean result = loc1.isSame(loc2);
+        assertEquals(result, true);
     }
 }

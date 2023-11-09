@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Initial Setup">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/Tuple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Adding snake game skeleton code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/1_Tom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/2_Jerry.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,15 +37,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Kiara-FunctionC",
-    "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Kiara-FunctionC&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Function_C" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="VertexLocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP3111F23G49" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Function_C.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Function_C" />
+      <option name="MAIN_CLASS_NAME" value="Function_C.VertexLocationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.VertexLocationTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698143619091</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding snake game skeleton code">
+      <option name="closed" value="true" />
+      <created>1698155072582</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698155072582</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,7 +122,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Setup" />
+    <MESSAGE value="Adding snake game skeleton code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding snake game skeleton code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -100,5 +135,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1698156003906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
   </component>
 </project>

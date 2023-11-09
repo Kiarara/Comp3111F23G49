@@ -6,38 +6,49 @@ import java.util.ArrayList;
 //Controls all the game logic .. most important class in this project.
 public class ThreadsController extends Thread {
 	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
-	 Tuple headSnakePos;
-	 int sizeSnake=3;
-	 long speed = 50;
-	 public static int directionSnake ;
+	 VertexLocation tomPos;
+	 VertexLocation jerryPos;
+	 long tomSpeed = 50;
+	 public static int directionJerry;
+	 // todo: the path of Jerry
 
-	 ArrayList<Tuple> positions = new ArrayList<Tuple>();
-	 Tuple foodPosition;
-	 
-	 //Constructor of ControlleurThread 
-	 ThreadsController(Tuple positionDepart){
+	 // todo: the format of maze TBD
+	 Maze m;
+
+	 // todo: import the shortest path
+	 ShortestPath tomPath;
+
+	 //Constructor of ControllerThread
+	 ThreadsController(){
 		//Get all the threads
 		Squares=Window.Grid;
-		
-		headSnakePos=new Tuple(positionDepart.x,positionDepart.y);
-		directionSnake = 1;
 
-		//!!! Pointer !!!!
-		Tuple headPos = new Tuple(headSnakePos.getX(),headSnakePos.getY());
-		positions.add(headPos);
-		
-		foodPosition= new Tuple(Window.height-1,Window.width-1);
-		spawnFood(foodPosition);
+		// todo: create a new maze
+		m = new Maze();
+
+		tomPos = new VertexLocation(m.getExit());
+		jerryPos = new VertexLocation(m.getEntry());
+		directionJerry = 1;
+
+		// todo: a shortest path
+		tomPath = new ShortestPath(tomPos, jerryPos);
 
 	 }
 	 
-	 //Important part :
+	 //Important part: Tom updates twice faster than Jerry (runs faster than Jerry)
 	 public void run() {
+		 boolean onlyTom = true;
+		 // todo: initialize maze
 		 while(true){
-			 moveInterne(directionSnake);
-			 checkCollision();
+			 clearObject();
+			 if (!onlyTom)
+			 {
+				 moveJerry(directionJerry);
+				 checkGameEnd();
+			 }
+			 moveTom(tomPath);
+			 checkGameEnd();
 			 moveExterne();
-			 deleteTail();
 			 pauser();
 		 }
 	 }
@@ -45,127 +56,77 @@ public class ThreadsController extends Thread {
 	 //delay between each move of the snake
 	 private void pauser(){
 		 try {
-				sleep(speed);
+			 sleep(tomSpeed);
 		 } catch (InterruptedException e) {
 				e.printStackTrace();
 		 }
 	 }
 	 
-	 //Checking if the snake bites itself or is eating
-	 private void checkCollision() {
-		 Tuple posCritique = positions.get(positions.size()-1);
-		 for(int i = 0;i<=positions.size()-2;i++){
-			 boolean biteItself = posCritique.getX()==positions.get(i).getX() && posCritique.getY()==positions.get(i).getY();
-			 if(biteItself){
-				stopTheGame();
-			 }
+	 //Checking if the Jerry get caught or Jerry reaches the exit point
+	 private void checkGameEnd() {
+		 VertexLocation exit = m.getExit();
+		 boolean gameWin = exit.isSame(jerryPos);
+		 if(gameWin) {
+			 System.out.println("Congratulations!");
+			 stopTheGame();
+			 return;
 		 }
-		 
-		 boolean eatingFood = posCritique.getX()==foodPosition.y && posCritique.getY()==foodPosition.x;
-		 if(eatingFood){
-			 System.out.println("Yummy!");
-			 sizeSnake=sizeSnake+1;
-			 	foodPosition = getValAleaNotInSnake();
 
-			 spawnFood(foodPosition);	
+		 boolean getCaught = jerryPos.isSame(tomPos);
+		 if(getCaught){
+			 System.out.println("GET CAUGHT!");
+			 stopTheGame();
+			 return;
 		 }
 	 }
 	 
 	 //Stops The Game
 	 private void stopTheGame(){
-		 System.out.println("COLISION! \n");
 		 while(true){
 			 pauser();
 		 }
 	 }
 	 
-	 //Put food in a position and displays it
-	 private void spawnFood(Tuple foodPositionIn){
-		 	Squares.get(foodPositionIn.x).get(foodPositionIn.y).lightMeUp(1);
-	 }
-	 
-	 //return a position not occupied by the snake
-	 private Tuple getValAleaNotInSnake(){
-		 Tuple p ;
-		 int ranX= 0 + (int)(Math.random()*19); 
-		 int ranY= 0 + (int)(Math.random()*19); 
-		 p=new Tuple(ranX,ranY);
-		 for(int i = 0;i<=positions.size()-1;i++){
-			 if(p.getY()==positions.get(i).getX() && p.getX()==positions.get(i).getY()){
-				 ranX= 0 + (int)(Math.random()*19); 
-				 ranY= 0 + (int)(Math.random()*19); 
-				 p=new Tuple(ranX,ranY);
-				 i=0;
-			 }
-		 }
-		 return p;
-	 }
-	 
 	 //Moves the head of the snake and refreshes the positions in the arraylist
 	 //1:right 2:left 3:top 4:bottom 0:nothing
-	 private void moveInterne(int dir){
+	 private void moveJerry(int dir){
 		 switch(dir){
-		 	case 4:
-				 headSnakePos.ChangeData(headSnakePos.x,(headSnakePos.y+1)%20);
-				 positions.add(new Tuple(headSnakePos.x,headSnakePos.y));
-		 		break;
-		 	case 3:
-		 		if(headSnakePos.y-1<0){
-		 			 headSnakePos.ChangeData(headSnakePos.x,19);
-		 		 }
-		 		else{
-				 headSnakePos.ChangeData(headSnakePos.x,Math.abs(headSnakePos.y-1)%20);
-		 		}
-				 positions.add(new Tuple(headSnakePos.x,headSnakePos.y));
-		 		break;
-		 	case 2:
-		 		 if(headSnakePos.x-1<0){
-		 			 headSnakePos.ChangeData(19,headSnakePos.y);
-		 		 }
-		 		 else{
-		 			 headSnakePos.ChangeData(Math.abs(headSnakePos.x-1)%20,headSnakePos.y);
-		 		 } 
-		 		positions.add(new Tuple(headSnakePos.x,headSnakePos.y));
+			 case 4:
+				 if(jerryPos.getY()+1<20){
+					 jerryPos.updateLocation(jerryPos.getX(), jerryPos.getY()+1);
+				 }
+				 break;
+			 case 3:
+				 if(jerryPos.getY()-1>=0)
+					 jerryPos.updateLocation(jerryPos.getX(), jerryPos.getY()-1);
+				 break;
+			 case 2:
+				 if(jerryPos.getX()-1>=0)
+					 jerryPos.updateLocation(jerryPos.getX()-1, jerryPos.getY());
+				 break;
+			 case 1:
+				 if(jerryPos.getX()+1<20)
+					 jerryPos.updateLocation(jerryPos.getX()+1, jerryPos.getY());
+				 break;
+		 }
+	 }
 
-		 		break;
-		 	case 1:
-				 headSnakePos.ChangeData(Math.abs(headSnakePos.x+1)%20,headSnakePos.y);
-				 positions.add(new Tuple(headSnakePos.x,headSnakePos.y));
-		 		 break;
-		 }
+	 // todo: update Tom
+	 private void moveTom(ShortestPath tomPath){
+
 	 }
-	 
-	 //Refresh the squares that needs to be 
+
+	 //Refresh the squares that needs to be updated
+	// need to revert the squares where Tom and Jerry were originally located
 	 private void moveExterne(){
-		 for(Tuple t : positions){
-			 int y = t.getX();
-			 int x = t.getY();
-			 Squares.get(x).get(y).lightMeUp(0);
-			 
-		 }
+		 // update Jerry
+		 Squares.get(tomPos.getX()).get(tomPos.getY()).changeObject(0);
+		 Squares.get(jerryPos.getX()).get(jerryPos.getY()).changeObject(1);
 	 }
-	 
-	 //Refreshes the tail of the snake, by removing the superfluous data in positions arraylist
-	 //and refreshing the display of the things that is removed
-	 private void deleteTail(){
-		 int cmpt = sizeSnake;
-		 for(int i = positions.size()-1;i>=0;i--){
-			 if(cmpt==0){
-				 Tuple t = positions.get(i);
-				 Squares.get(t.y).get(t.x).lightMeUp(2);
-			 }
-			 else{
-				 cmpt--;
-			 }
-		 }
-		 cmpt = sizeSnake;
-		 for(int i = positions.size()-1;i>=0;i--){
-			 if(cmpt==0){
-				 positions.remove(i);
-			 }
-			 else{
-				 cmpt--;
-			 }
-		 }
+
+	 private void clearObject(){
+		 Squares.get(jerryPos.getX()).get(jerryPos.getY()).clearObject();
+		 Squares.get(tomPos.getX()).get(tomPos.getY()).clearObject();
 	 }
+
 }

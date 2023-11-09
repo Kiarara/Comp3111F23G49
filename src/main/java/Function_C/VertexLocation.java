@@ -8,13 +8,13 @@ public class VertexLocation {
 	    this.x = x; 
 	    this.y = y; 
 	  } 
-	  public void UpdateLocation(int x, int y){
+	  public void updateLocation(int x, int y){
 		    this.x = x; 
 		    this.y = y; 
 	  }
 
-	  public boolean isSame(VertexLocation a, VertexLocation b){
-		  return (a.getX() == b.getX()) && (a.getY() == b.getY());
+	  public boolean isSame(VertexLocation other){
+		  return (this.x == other.getX()) && (this.y == other.getY());
 	  }
 	  public int getX(){
 		  return x;

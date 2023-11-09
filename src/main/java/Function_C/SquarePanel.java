@@ -4,13 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SquarePanel extends JPanel{
-
-	private Image image;
 	private static final long serialVersionUID = 1L;
 
 	public SquarePanel(Color d){
 		this.setBackground(d);
-		image = null;
 	}
 	
 	public void ChangeColor(Color d){

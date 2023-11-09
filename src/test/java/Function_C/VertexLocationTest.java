@@ -19,6 +19,6 @@ public class VertexLocationTest {
         VertexLocation loc1 = new VertexLocation(1,1);
         VertexLocation loc2 = new VertexLocation(1,1);
         boolean result = loc1.isSame(loc2);
-        assertEquals(result, true);
+        assertTrue(result);
     }
 }

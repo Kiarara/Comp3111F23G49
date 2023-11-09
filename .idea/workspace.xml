@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Adding snake game skeleton code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/1_Tom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_C/2_Jerry.png" afterDir="false" />
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Draft for function C with placeholders for inputs from function A and function B">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698155072582</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Draft for function C with placeholders for inputs from function A and function B">
+      <option name="closed" value="true" />
+      <created>1699524686888</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699524686888</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,7 +125,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Setup" />
     <MESSAGE value="Adding snake game skeleton code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding snake game skeleton code" />
+    <MESSAGE value="Draft for function C with placeholders for inputs from function A and function B" />
+    <option name="LAST_COMMIT_MESSAGE" value="Draft for function C with placeholders for inputs from function A and function B" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

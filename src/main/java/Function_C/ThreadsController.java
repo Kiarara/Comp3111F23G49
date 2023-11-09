@@ -76,7 +76,6 @@ public class ThreadsController extends Thread {
 		 if(getCaught){
 			 System.out.println("GET CAUGHT!");
 			 stopTheGame();
-			 return;
 		 }
 	 }
 	 
@@ -120,8 +119,8 @@ public class ThreadsController extends Thread {
 	// need to revert the squares where Tom and Jerry were originally located
 	 private void moveExterne(){
 		 // update Jerry
-		 Squares.get(tomPos.getX()).get(tomPos.getY()).changeObject(0);
-		 Squares.get(jerryPos.getX()).get(jerryPos.getY()).changeObject(1);
+		 Squares.get(tomPos.getX()).get(tomPos.getY()).changeObject(1);
+		 Squares.get(jerryPos.getX()).get(jerryPos.getY()).changeObject(2);
 	 }
 
 	 private void clearObject(){

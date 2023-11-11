@@ -12,11 +12,16 @@ public class SquarePanel extends JPanel{
 	
 	public void ChangeColor(Color d){
 		this.setBackground(d);
+		this.revalidate();
 		this.repaint();
 	}
 
-	public void setImage(JLabel l) {
-		this.add(l);
+	public void setImage(ImageIcon i) {
+		Image scaled = i.getImage().getScaledInstance(25,25,Image.SCALE_DEFAULT);
+		ImageIcon icon = new ImageIcon(scaled);
+		this.add(new JLabel(icon));
+		this.revalidate();
+		this.repaint();
 	}
 
 	public void clearObject(){

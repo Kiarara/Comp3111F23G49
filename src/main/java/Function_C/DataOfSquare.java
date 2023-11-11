@@ -1,8 +1,8 @@
 package Function_C;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class DataOfSquare {
@@ -10,13 +10,13 @@ public class DataOfSquare {
 	
 	//ArrayList that'll contain the colors
 	ArrayList<Color> C =new ArrayList<>();
-	ArrayList<JLabel> L = new ArrayList<>();
+	ArrayList<ImageIcon> I = new ArrayList<>();
 	int color; //2: snake , 1: food, 0:empty
 	int image; //
 	SquarePanel square;
 
 	// constructor
-	public DataOfSquare(int col) {
+	public DataOfSquare(int col) throws IOException {
 		
 		//Let's add the color to the arrayList
 		C.add(Color.darkGray);//0
@@ -26,19 +26,20 @@ public class DataOfSquare {
 		image=0;
 		square = new SquarePanel(C.get(color));
 
+
 		// add the images of Tom and Jerry to the arrayList
-		L.add(new JLabel());//0
-		L.add(new JLabel(new ImageIcon("1_Tom.png")));//1
-		L.add(new JLabel(new ImageIcon("2_Jerry.png")));//2
+		I.add(new ImageIcon());//0
+		I.add(new ImageIcon("1_Tom-min.png"));//1
+		I.add(new ImageIcon("2_Jerry-min.png"));//2
 
 	}
 	public void lightMeUp(int c){
 		square.ChangeColor(C.get(c));
 	}
 
-	public void changeObject(int l){
-		image = l;
-		square.setImage(L.get(l));
+	public void changeObject(int i){
+		image = i;
+		square.setImage(I.get(i));
 	}
 
 	public void clearObject(){

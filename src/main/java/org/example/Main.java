@@ -44,40 +44,40 @@ public class Main {
     }
 }
 
-class Paths {
-    static boolean[] print_path(int[] start, int[] end){
-        int start_x = start[0];
-        int start_y = start[1];
-        int end_x = end[0];
-        int end_y = end[1];
-
-        if ((start_x >end_x) || (start_y > end_y)){
-            System.out.printf("No possible path!");
-        }
-        System.out.printf("The path starts at [", start_x, ",", start_y, "]");
-        while (start_x < end_x){
-            start_x += 1;
-            System.out.printf("The point moves to [", start_x, ",", start_y, "]");
-        }
-        while (start_y < end_y){
-            start_y += 1;
-            System.out.printf("The point moves to [", start_x, ",", start_y, "]");
-        }
-        boolean [] result = {true, true};
-        return result;
-    }
-    static int[] calculate_distance(int[] start, int[] end) {
-        int start_x = start[0];
-        int start_y = start[1];
-        int end_x = end[0];
-        int end_y = end[1];
-        int total_distance = (end_x + end_y) - (start_x + start_y);
-        System.out.printf("The total distance is ", total_distance);
-        int [] result = {total_distance, 1};
-        return result;
-    }
-
-}
+//class Paths {
+//    static boolean[] print_path(int[] start, int[] end){
+//        int start_x = start[0];
+//        int start_y = start[1];
+//        int end_x = end[0];
+//        int end_y = end[1];
+//
+//        if ((start_x >end_x) || (start_y > end_y)){
+//            System.out.printf("No possible path!");
+//        }
+//        System.out.printf("The path starts at [", start_x, ",", start_y, "]");
+//        while (start_x < end_x){
+//            start_x += 1;
+//            System.out.printf("The point moves to [", start_x, ",", start_y, "]");
+//        }
+//        while (start_y < end_y){
+//            start_y += 1;
+//            System.out.printf("The point moves to [", start_x, ",", start_y, "]");
+//        }
+//        boolean [] result = {true, true};
+//        return result;
+//    }
+//    static int[] calculate_distance(int[] start, int[] end) {
+//        int start_x = start[0];
+//        int start_y = start[1];
+//        int end_x = end[0];
+//        int end_y = end[1];
+//        int total_distance = (end_x + end_y) - (start_x + start_y);
+//        System.out.printf("The total distance is ", total_distance);
+//        int [] result = {total_distance, 1};
+//        return result;
+//    }
+//
+//}
 
 class ShortestPathFinder {
     private int[][] map;

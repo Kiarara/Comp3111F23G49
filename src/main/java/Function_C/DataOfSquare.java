@@ -16,7 +16,7 @@ public class DataOfSquare {
 	SquarePanel square;
 
 	// constructor
-	public DataOfSquare(int col) throws IOException {
+	public DataOfSquare(int col) {
 		
 		//Let's add the color to the arrayList
 		C.add(Color.darkGray);//0

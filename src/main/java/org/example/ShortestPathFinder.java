@@ -111,7 +111,7 @@ public class ShortestPathFinder {
 
         int startRow = 12;
         int startCol = 0;
-        int endRow = 1;
+        int endRow = 1 ;
         int endCol = 29;
 
         List<int[]> shortestPath = pathFinder.findShortestPath(startRow, startCol, endRow, endCol);

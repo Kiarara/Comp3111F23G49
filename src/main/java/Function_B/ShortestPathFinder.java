@@ -1,10 +1,11 @@
+package Function_B;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 public class ShortestPathFinder {
     private int[][] map;
@@ -45,7 +46,7 @@ public class ShortestPathFinder {
                     map[i][j] = Integer.parseInt(elements[j].trim());
                 }
             }
-            System.out.println("x"); //test
+            //System.out.println("x"); //test
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -106,7 +107,7 @@ public class ShortestPathFinder {
     }
 
     public static void main(String[] args) {
-        String mapFile = "/Users/liumuyuan/Desktop/map.csv";
+        String mapFile = "MazeMap_SPT.csv";
         ShortestPathFinder pathFinder = new ShortestPathFinder(mapFile);
 
         int startRow = 12;

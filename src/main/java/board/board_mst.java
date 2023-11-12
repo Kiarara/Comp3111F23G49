@@ -1,5 +1,7 @@
 package board;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -121,7 +123,29 @@ public class board_mst {
         }
     }
 
+    public void saveMazeToFile() {
+        try {
+            FileWriter writer = new FileWriter("actual_maze.csv");
 
+            for (int row = 0; row < 30; row++) {
+                for (int col = 0; col < 30; col++) {
+                    writer.append(String.valueOf(grid[row][col]));
+
+                    if (col < 30 - 1) {
+                        writer.append(",");
+                    }
+                }
+                writer.append("\n");
+            }
+
+            writer.flush();
+            writer.close();
+            System.out.println("Maze saved to 'actual_maze.csv'.");
+        } catch (IOException e) {
+            System.out.println("Error occurredduring saving the maze to a file.");
+            e.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
         int []a = {1,3};
         int []b = {1,5};
@@ -129,6 +153,7 @@ public class board_mst {
         board_mst Board = new board_mst();
         Board.build_maze();
         Board.print();
+        Board.saveMazeToFile();
     }
 }
 

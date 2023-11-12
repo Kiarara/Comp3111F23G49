@@ -1,11 +1,8 @@
-package Function_B;
-
+package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class ShortestPathFinder {
     private int[][] map;
@@ -14,8 +11,6 @@ public class ShortestPathFinder {
     private boolean[][] visited;
     private int[][] distance;
     private int[][][] prev;
-    private int startRow;
-    private int startCol;
     private int endRow;
     private int endCol;
 
@@ -30,11 +25,9 @@ public class ShortestPathFinder {
         try (BufferedReader br = new BufferedReader(new FileReader(mapFile))) {
             List<String> lines = new ArrayList<>();
             String line;
-
             while ((line = br.readLine()) != null) {
                 lines.add(line);
             }
-
 
             numRows = lines.size();
             numCols = lines.get(0).split(",").length;
@@ -46,19 +39,16 @@ public class ShortestPathFinder {
                     map[i][j] = Integer.parseInt(elements[j].trim());
                 }
             }
-            //System.out.println("x"); //test
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public List<int[]> findShortestPath(int startRow, int startCol, int endRow, int endCol) {
-        this.startRow = startRow;
-        this.startCol = startCol;
         this.endRow = endRow;
         this.endCol = endCol;
 
-        dfs(startRow, startCol);
+        bfs(startRow, startCol);
 
         if (!visited[endRow][endCol]) {
             System.out.println("No path found.");
@@ -78,26 +68,37 @@ public class ShortestPathFinder {
         }
 
         path.addFirst(new int[]{startRow, startCol});
+        updateMapWithPath(path); // print out
         return path;
     }
 
-    private void dfs(int row, int col) {
-        visited[row][col] = true;
-
-        if (row == endRow && col == endCol) {
-            return;
-        }
+    private void bfs(int startRow, int startCol) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{startRow, startCol});
+        visited[startRow][startCol] = true;
+        distance[startRow][startCol] = 0;
 
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-        for (int[] dir : directions) {
-            int newRow = row + dir[0];
-            int newCol = col + dir[1];
+        while (!queue.isEmpty()) {
+            int[] vertex = queue.poll();
+            int row = vertex[0];
+            int col = vertex[1];
 
-            if (isValidMove(newRow, newCol)) {
-                prev[newRow][newCol] = new int[]{row, col};
-                distance[newRow][newCol] = distance[row][col] + 1;
-                dfs(newRow, newCol);
+            if (row == endRow && col == endCol) {
+                return;
+            }
+
+            for (int[] dir : directions) {
+                int newRow = row + dir[0];
+                int newCol = col + dir[1];
+
+                if (isValidMove(newRow, newCol)) {
+                    queue.offer(new int[]{newRow, newCol});
+                    visited[newRow][newCol] = true;
+                    distance[newRow][newCol] = distance[row][col] + 1;
+                    prev[newRow][newCol] = new int[]{row, col};
+                }
             }
         }
     }
@@ -105,9 +106,26 @@ public class ShortestPathFinder {
     private boolean isValidMove(int row, int col) {
         return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && !visited[row][col];
     }
+    // try to print out the map
+    private void updateMapWithPath(List<int[]> path) {
+        for (int[] position : path) {
+            int row = position[0];
+            int col = position[1];
+            map[row][col] = 2;
+        }
+    }
+
+    public void printMap() {
+        for (int[] row : map) {
+            for (int cell : row) {
+                System.out.print(cell + " ");
+            }
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
-        String mapFile = "MazeMap_SPT.csv";
+        String mapFile = "/Users/liumuyuan/Desktop/map.csv";
         ShortestPathFinder pathFinder = new ShortestPathFinder(mapFile);
 
         int startRow = 12;
@@ -117,11 +135,12 @@ public class ShortestPathFinder {
 
         List<int[]> shortestPath = pathFinder.findShortestPath(startRow, startCol, endRow, endCol);
 
-        if (shortestPath != null) {
+        /*if (shortestPath != null) {
             System.out.println("Shortest path:");
             for (int[] vertex : shortestPath) {
                 System.out.println("[" + vertex[0] + ", " + vertex[1] + "]");
             }
-        }
+            //pathFinder.printMap(); // print out a map
+        }*/
     }
 }

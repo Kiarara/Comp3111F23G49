@@ -1,11 +1,81 @@
 package board;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
+class edge{
+    Random rand = new Random();
+    int weight;
+    int [] left_or_up_vertex;
+    int [] right_or_down_vertex;
+    int [] middle_vertex;
+    boolean old_is_left_or_up=true;
+    public edge(int[] first_coor, int[] second_coor){
+        weight = rand.nextInt(30);
+        middle_vertex = new int[2];
+        if(first_coor[0]>second_coor[0]){
+            right_or_down_vertex = first_coor;
+            left_or_up_vertex = second_coor;
+            middle_vertex[0] = first_coor[0]-1;
+            middle_vertex[1] = first_coor[1];
+            old_is_left_or_up = false;
+        }
+        else if (second_coor[0]>first_coor[0]) {
+            right_or_down_vertex = second_coor;
+            left_or_up_vertex = first_coor;
+            middle_vertex[0] = first_coor[0]+1;
+            middle_vertex[1] = first_coor[1];
+            old_is_left_or_up = true;
+        }
+        else if (first_coor[1]>second_coor[1]){
+            right_or_down_vertex = first_coor;
+            left_or_up_vertex =second_coor;
+            middle_vertex[0] = first_coor[0];
+            middle_vertex[1] = first_coor[1]-1;
+            old_is_left_or_up = false;
+        }
+        else{
+            right_or_down_vertex = second_coor;
+            left_or_up_vertex = first_coor;
+            middle_vertex[0] = first_coor[0];
+            middle_vertex[1] = first_coor[1]+1;
+            old_is_left_or_up = true;
+        }
+    }
+    public int[] get_coor(int[] other_coor){
+        if(other_coor==left_or_up_vertex){
+            return right_or_down_vertex;
+        }
+        else if(other_coor==right_or_down_vertex) {
+            return left_or_up_vertex;
+        }
+        else {
+            int null_coor[] = {-1,-1};
+            return null_coor;
+        }
+    }
+    public int[] get_new_coor(){
+        if(old_is_left_or_up){
+            return right_or_down_vertex;
+        }
+        else return left_or_up_vertex;
+    }
+}
 
+class WeightComparator implements Comparator<edge> {
+    public int compare(edge a, edge b) {
+        if(a.weight>b.weight) {
+            return 1;
+        }
+        else if(a.weight==b.weight){
+            return 0;
+        }
+        else{
+            return -1;
+        }
+    }
+}
 public class board_mst {
     Random rand = new Random();
     private int[][] grid;
@@ -84,15 +154,15 @@ public class board_mst {
         }
     }
     public void remove_redundant(int[] coor){
-        for (edge edge:edge_list){
-            int[] expected_coor=edge.get_coor(coor);
+        for (edge Edge:edge_list){
+            int[] expected_coor=Edge.get_coor(coor);
             if(expected_coor[0]==-1){
                 continue;
             }
             else{
                 for(int[] existed_coor:mst){
                     if(expected_coor==existed_coor){
-                        edge_list.remove(edge);
+                        edge_list.remove(Edge);
                     }
                 }
             }
@@ -123,29 +193,7 @@ public class board_mst {
         }
     }
 
-    public void saveMazeToFile() {
-        try {
-            FileWriter writer = new FileWriter("actual_maze.csv");
 
-            for (int row = 0; row < 30; row++) {
-                for (int col = 0; col < 30; col++) {
-                    writer.append(String.valueOf(grid[row][col]));
-
-                    if (col < 30 - 1) {
-                        writer.append(",");
-                    }
-                }
-                writer.append("\n");
-            }
-
-            writer.flush();
-            writer.close();
-            System.out.println("Maze saved to 'actual_maze.csv'.");
-        } catch (IOException e) {
-            System.out.println("Error occurredduring saving the maze to a file.");
-            e.printStackTrace();
-        }
-    }
     public static void main(String[] args) {
         int []a = {1,3};
         int []b = {1,5};
@@ -153,7 +201,6 @@ public class board_mst {
         board_mst Board = new board_mst();
         Board.build_maze();
         Board.print();
-        Board.saveMazeToFile();
     }
 }
 

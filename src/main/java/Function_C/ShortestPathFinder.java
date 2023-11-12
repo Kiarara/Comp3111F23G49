@@ -1,4 +1,4 @@
-package org.example;
+package Function_C;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,17 +8,17 @@ public class ShortestPathFinder {
     private int[][] map;
     private int numRows;
     private int numCols;
-    private boolean[][] visited;
-    private int[][] distance;
-    private int[][][] prev;
-    private int endRow;
-    private int endCol;
+    private byte[][] visited;
+    private byte[][] distance;
+    private int[][] prevRow;
+    private int[][] prevCol;
 
     public ShortestPathFinder(String mapFile) {
         readMapFile(mapFile);
-        visited = new boolean[numRows][numCols];
-        distance = new int[numRows][numCols];
-        prev = new int[numRows][numCols][2];
+        visited = new byte[numRows][numCols];
+        distance = new byte[numRows][numCols];
+        prevRow = new int[numRows][numCols];
+        prevCol = new int[numRows][numCols];
     }
 
     private void readMapFile(String mapFile) {
@@ -45,12 +45,9 @@ public class ShortestPathFinder {
     }
 
     public List<int[]> findShortestPath(int startRow, int startCol, int endRow, int endCol) {
-        this.endRow = endRow;
-        this.endCol = endCol;
+        bfs(startRow, startCol, endRow, endCol);
 
-        bfs(startRow, startCol);
-
-        if (!visited[endRow][endCol]) {
+        if (visited[endRow][endCol] == 0) {
             System.out.println("No path found.");
             return null;
         }
@@ -61,10 +58,10 @@ public class ShortestPathFinder {
 
         while (row != startRow || col != startCol) {
             path.addFirst(new int[]{row, col});
-            int prevRow = prev[row][col][0];
-            int prevCol = prev[row][col][1];
-            row = prevRow;
-            col = prevCol;
+            int preRow = prevRow[row][col];
+            int preCol = prevCol[row][col];
+            row = preRow;
+            col = preCol;
         }
 
         path.addFirst(new int[]{startRow, startCol});
@@ -72,10 +69,10 @@ public class ShortestPathFinder {
         return path;
     }
 
-    private void bfs(int startRow, int startCol) {
+    private void bfs(int startRow, int startCol, int endRow, int endCol) {
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{startRow, startCol});
-        visited[startRow][startCol] = true;
+        visited[startRow][startCol] = 1;
         distance[startRow][startCol] = 0;
 
         int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -95,18 +92,26 @@ public class ShortestPathFinder {
 
                 if (isValidMove(newRow, newCol)) {
                     queue.offer(new int[]{newRow, newCol});
-                    visited[newRow][newCol] = true;
-                    distance[newRow][newCol] = distance[row][col] + 1;
-                    prev[newRow][newCol] = new int[]{row, col};
+                    visited[newRow][newCol] = 1;
+                    distance[newRow][newCol] = (byte) (distance[row][col] + 1);
+                    prevRow[newRow][newCol] = row;
+                    prevCol[newRow][newCol] = col;
                 }
             }
         }
     }
 
-    private boolean isValidMove(int row, int col) {
-        return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && !visited[row][col];
+    public int[] find_next(int startRow, int startCol, int endRow, int endCol){
+        List<int[]> path = findShortestPath(startRow, startCol, endRow, endCol);
+        int[] next = new int[2];
+        next[0] = path.get(path.size()-2)[0];
+        next[1] = path.get(path.size()-2)[1];
+        return next;
     }
-    // try to print out the map
+    private boolean isValidMove(int row, int col) {
+        return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && visited[row][col] == 0;
+    }
+
     private void updateMapWithPath(List<int[]> path) {
         for (int[] position : path) {
             int row = position[0];
@@ -122,25 +127,5 @@ public class ShortestPathFinder {
             }
             System.out.println();
         }
-    }
-
-    public static void main(String[] args) {
-        String mapFile = "/Users/liumuyuan/Desktop/map.csv";
-        ShortestPathFinder pathFinder = new ShortestPathFinder(mapFile);
-
-        int startRow = 12;
-        int startCol = 0;
-        int endRow = 1 ;
-        int endCol = 29;
-
-        List<int[]> shortestPath = pathFinder.findShortestPath(startRow, startCol, endRow, endCol);
-
-        /*if (shortestPath != null) {
-            System.out.println("Shortest path:");
-            for (int[] vertex : shortestPath) {
-                System.out.println("[" + vertex[0] + ", " + vertex[1] + "]");
-            }
-            //pathFinder.printMap(); // print out a map
-        }*/
     }
 }

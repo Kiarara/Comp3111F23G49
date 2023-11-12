@@ -4,18 +4,19 @@ package Function_C;
 import java.util.ArrayList;
 import java.util.List;
 
-import Function_B.ShortestPathFinder;
 
 //Controls all the game logic .. most important class in this project.
 public class ThreadsController extends Thread {
 	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
 	 VertexLocation tomPos;
 	 VertexLocation jerryPos;
-	 long tomSpeed = 200;
+	 long tomSpeed = 500;
 	 public static int directionJerry;
 
 	 Maze m;
 	 ShortestPathFinder finder;
+	 List<int[]> tomPath;
+	 int tom_pathloc;
 
 	 //Constructor of ControllerThread
 	 ThreadsController(){
@@ -29,7 +30,9 @@ public class ThreadsController extends Thread {
 		jerryPos = new VertexLocation(m.entry.x, m.entry.y);
 		directionJerry = 1;
 
-		 finder = new ShortestPathFinder(map_file);
+		finder = new ShortestPathFinder(map_file);
+		tomPath = finder.findShortestPath(jerryPos.x,jerryPos.y, tomPos.x, tomPos.y);
+		tom_pathloc = tomPath.size()-1;
 	 }
 	 
 	 //Important part: Tom updates twice more frequent than Jerry (runs faster than Jerry)
@@ -48,16 +51,6 @@ public class ThreadsController extends Thread {
 
 		 while(true){
 			 clearObject();
-			 /*
-			 if (clear_count<3){
-				 clear_count++;
-			 }
-			 else{
-				 clearObject();
-				 clear_count = 0;
-			 }
-
-		  */
 			 if (onlyTom) {
 				 onlyTom = false;
 			 }
@@ -133,8 +126,29 @@ public class ThreadsController extends Thread {
 	 }
 
 	 private void moveTom(){
-		 List<int[]> path = finder.findShortestPath(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
-		 tomPos.updateLocation(path.get(path.size()-2)[0], path.get(path.size()-2)[1]);
+		 int[] next = finder.find_next(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
+		 tomPos.updateLocation(next[0], next[1]);
+		 /*
+		 if (pathToUpdate()) {
+			 tomPath = null;
+			 tomPath = finder.findShortestPath(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
+			 tom_pathloc = tomPath.size() - 2;
+		 }
+		 else
+			 tom_pathloc --;
+		 System.out.println(tom_pathloc);
+		 if(tom_pathloc >= 0)
+			 tomPos.updateLocation(tomPath.get(tom_pathloc)[0], tomPath.get(tom_pathloc)[1]);
+		  */
+	 }
+
+	 private boolean pathToUpdate(){
+		 for (int i = 0; i< tomPath.size(); ++i)
+		 {
+			 if (jerryPos.x == tomPath.get(i)[0] && jerryPos.y == tomPath.get(i)[1])
+				 return false;
+		 }
+		 return true;
 	 }
 
 	 //Refresh the squares that needs to be updated
@@ -148,6 +162,11 @@ public class ThreadsController extends Thread {
 	 private void clearObject(){
 		 Squares.get(jerryPos.getX()).get(jerryPos.getY()).clearObject();
 		 Squares.get(tomPos.getX()).get(tomPos.getY()).clearObject();
+	 }
+
+	 private void displayTomPath() {
+		 for (int i = 0; i < tomPath.size(); i++)
+			 Squares.get(tomPath.get(i)[0]).get(tomPath.get(i)[1]).lightMeUp(1);
 	 }
 
 }

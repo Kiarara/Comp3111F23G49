@@ -4,14 +4,35 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
-class edge{
-    Random rand = new Random();
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+class association{
+
     int weight;
     int [] left_or_up_vertex;
     int [] right_or_down_vertex;
     int [] middle_vertex;
-    boolean old_is_left_or_up=true;
-    public edge(int[] first_coor, int[] second_coor){
+    boolean old_is_left_or_up;
+    /*
+    public association(int[] first_coor, int[] second_coor){
+        right_or_down_vertex = first_coor;
+        left_or_up_vertex = second_coor;
+        Random rand = new Random();
+        weight = rand.nextInt(30);
+        middle_vertex = new int[2];
+    }
+
+     */
+
+    public association(int[] first_coor, int[] second_coor){
+        right_or_down_vertex = first_coor;
+        left_or_up_vertex = second_coor;
+
+        Random rand = new Random();
         weight = rand.nextInt(30);
         middle_vertex = new int[2];
         if(first_coor[0]>second_coor[0]){
@@ -43,11 +64,14 @@ class edge{
             old_is_left_or_up = true;
         }
     }
+
+
+
     public int[] get_coor(int[] other_coor){
-        if(other_coor==left_or_up_vertex){
+        if(Arrays.equals(other_coor,left_or_up_vertex)){
             return right_or_down_vertex;
         }
-        else if(other_coor==right_or_down_vertex) {
+        else if(Arrays.equals(other_coor,left_or_up_vertex)) {
             return left_or_up_vertex;
         }
         else {
@@ -61,10 +85,12 @@ class edge{
         }
         else return left_or_up_vertex;
     }
+
+
 }
 
-class WeightComparator implements Comparator<edge> {
-    public int compare(edge a, edge b) {
+class WeightComparator implements Comparator<association> {
+    public int compare(association a, association b) {
         if(a.weight>b.weight) {
             return 1;
         }
@@ -76,10 +102,13 @@ class WeightComparator implements Comparator<edge> {
         }
     }
 }
+
+
 public class board_mst {
+
     Random rand = new Random();
     private int[][] grid;
-    private ArrayList<edge> edge_list;
+    private ArrayList<association> association_list;
     private ArrayList<int[]> mst;
 
     //initializing the board with all zeros
@@ -95,7 +124,7 @@ public class board_mst {
                 grid[2*i][2+2*j]=0;
             }
         }
-        edge_list = new ArrayList<edge>();
+        association_list = new ArrayList<association>();
         mst = new ArrayList<int[]>();
     }
     public void expand_coor(int[] coor){
@@ -103,85 +132,100 @@ public class board_mst {
             int[] up_coor={coor[0]-2,coor[1]};
             boolean existed = false;
             for(int []existed_coor:mst){
-                if(up_coor==existed_coor){
+                if(Arrays.equals(up_coor,existed_coor)){
                     existed=true;
                     break;
                 }
             }
             if (!existed){
-                edge new_edge = new edge(coor,up_coor);
-                edge_list.add(new_edge);
+                association Association = new association(coor,up_coor);
+                association_list.add(Association);
             }
         }
         if(coor[0]<28){
             int[] down_coor={coor[0]+2,coor[1]};
             boolean existed = false;
             for(int []existed_coor:mst){
-                if(down_coor==existed_coor){
+                if(Arrays.equals(down_coor,existed_coor)){
                     existed=true;
                     break;
                 }
             }
             if (!existed){
-                edge_list.add(new edge(coor,down_coor));
+                association Association = new association(coor,down_coor);
+                association_list.add(Association);
             }
         }
         if(coor[1]>2){
             int[] left_coor={coor[0],coor[1]-2};
             boolean existed = false;
             for(int []existed_coor:mst){
-                if(left_coor==existed_coor){
+                if(Arrays.equals(left_coor,existed_coor)){
                     existed=true;
                     break;
                 }
             }
             if (!existed){
-                edge_list.add(new edge(coor,left_coor));
+                association Association = new association(coor,left_coor);
+                association_list.add(Association);
             }
         }
         if(coor[1]<28){
             int[] right_coor={coor[0],coor[1]+2};
             boolean existed = false;
             for(int []existed_coor:mst){
-                if(right_coor==existed_coor){
+                if(Arrays.equals(right_coor,existed_coor)){
                     existed=true;
                     break;
                 }
             }
             if (!existed){
-                edge_list.add(new edge(coor,right_coor));
+                association Association = new association(coor,right_coor);
+                association_list.add(Association);
             }
         }
     }
     public void remove_redundant(int[] coor){
-        for (edge Edge:edge_list){
-            int[] expected_coor=Edge.get_coor(coor);
+        //ArrayList<Integer> redundant_index = new ArrayList<Integer>();
+        //int index=0;
+        //int num_of_associations = association_list.size();
+        for (int i=0;i<association_list.size();i++){
+            int[] expected_coor= association_list.get(i).get_coor(coor);
             if(expected_coor[0]==-1){
                 continue;
             }
             else{
                 for(int[] existed_coor:mst){
-                    if(expected_coor==existed_coor){
-                        edge_list.remove(Edge);
+                    if(Arrays.equals(expected_coor,existed_coor)){
+                        //redundant_index.add(index);
+                        association_list.remove(i);
+                        i--;
                     }
                 }
             }
+            //index++;
         }
     }
     public void build_maze(){
         //start with randomly choosing a 0
         int []coor={2*rand.nextInt(15),2*rand.nextInt(14)+2};
         mst.add(coor);
-        while(mst.size()!=210) {
-            //adding edges of that square into edges list
+        do {
+            //adding associationthat square into associationt
             expand_coor(coor);
-            Collections.sort(edge_list, new WeightComparator());
-            coor = edge_list.get(0).get_new_coor();
-            grid[edge_list.get(0).middle_vertex[0]][edge_list.get(0).middle_vertex[1]] = 0;
-            edge_list.remove(0);
+            Collections.sort(association_list, new WeightComparator());
+            coor = association_list.get(0).get_new_coor();
+            grid[association_list.get(0).middle_vertex[0]][association_list.get(0).middle_vertex[1]] = 0;
+            association_list.remove(0);
             mst.add(coor);
             remove_redundant(coor);
-        }
+        }while(!association_list.isEmpty());
+
+        int starting= 2*rand.nextInt(15);
+        int ending= 2*rand.nextInt(15);
+        grid[starting][0]=0;
+        grid[starting][1]=0;
+        grid[ending][29]=0;
     }
     public void print(){
         for(int i=0;i<30;i++){
@@ -193,14 +237,36 @@ public class board_mst {
         }
     }
 
+    public void saveMazeToFile() {
+        try {
+            FileWriter writer = new FileWriter("actual_maze.csv");
+
+            for (int row = 0; row < 30; row++) {
+                for (int col = 0; col < 30; col++) {
+                    writer.append(String.valueOf(grid[row][col]));
+
+                    if (col < 30 - 1) {
+                        writer.append(",");
+                    }
+                }
+                writer.append("\n");
+            }
+
+            writer.flush();
+            writer.close();
+            System.out.println("Maze saved to 'actual_maze.csv'.");
+        } catch (IOException e) {
+            System.out.println("Error occurredduring saving the maze to a file.");
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String[] args) {
-        int []a = {1,3};
-        int []b = {1,5};
-        edge hi = new edge(a,b);
         board_mst Board = new board_mst();
         Board.build_maze();
         Board.print();
+        Board.saveMazeToFile();
     }
 }
 

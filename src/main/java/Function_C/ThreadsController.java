@@ -3,6 +3,7 @@ package Function_C;
 
 import java.util.ArrayList;
 import java.util.List;
+import board.board_mst;
 
 
 //Controls all the game logic .. most important class in this project.
@@ -10,20 +11,25 @@ public class ThreadsController extends Thread {
 	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
 	 VertexLocation tomPos;
 	 VertexLocation jerryPos;
-	 long tomSpeed = 500;
+	 long tomSpeed = 200;
 	 public static int directionJerry;
 
 	 Maze m;
 	 ShortestPathFinder finder;
 	 List<int[]> tomPath;
-	 int tom_pathloc;
+
+	 public boolean running;
 
 	 //Constructor of ControllerThread
 	 ThreadsController(){
 		//Get all the threads
 		Squares=Window.Grid;
 
-		String map_file = "MazeMap_TnJ.csv";
+		board_mst Board = new board_mst();
+		Board.build_maze();
+		Board.saveMazeToFile();
+
+		String map_file = "actual_maze.csv";
 		m = new Maze(map_file);
 
 		tomPos = new VertexLocation(m.exit.x, m.exit.y);
@@ -31,14 +37,15 @@ public class ThreadsController extends Thread {
 		directionJerry = 1;
 
 		finder = new ShortestPathFinder(map_file);
-		tomPath = finder.findShortestPath(jerryPos.x,jerryPos.y, tomPos.x, tomPos.y);
-		tom_pathloc = tomPath.size()-1;
+		//tomPath = finder.findShortestPath(jerryPos.x,jerryPos.y, tomPos.x, tomPos.y);
+		//tom_pathloc = tomPath.size()-1;
 	 }
-	 
-	 //Important part: Tom updates twice more frequent than Jerry (runs faster than Jerry)
+
+	//Important part: Tom updates twice more frequent than Jerry (runs faster than Jerry)
 	 public void run() {
 		 boolean onlyTom = true;
 		 //int clear_count = 0;
+		 running = true;
 
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(1);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(2);
@@ -49,7 +56,7 @@ public class ThreadsController extends Thread {
 			 }
 		 }
 
-		 while(true){
+		 while(running){
 			 clearObject();
 			 if (onlyTom) {
 				 onlyTom = false;
@@ -57,11 +64,23 @@ public class ThreadsController extends Thread {
 			 else
 			 {
 				 moveJerry();
-				 checkGameEnd();
+				 try {
+					 checkGameEnd();
+				 } catch (InterruptedException e) {
+					 throw new RuntimeException(e);
+				 }
 				 onlyTom = true;
 			 }
-			 moveTom();
-			 checkGameEnd();
+			 try {
+				 moveTom();
+			 } catch (InterruptedException e) {
+				 throw new RuntimeException(e);
+			 }
+			 try {
+				 checkGameEnd();
+			 } catch (InterruptedException e) {
+				 throw new RuntimeException(e);
+			 }
 			 moveExterne();
 			 pauser();
 		 }
@@ -77,7 +96,7 @@ public class ThreadsController extends Thread {
 	 }
 	 
 	 //Checking if the Jerry get caught or Jerry reaches the exit point
-	 private void checkGameEnd() {
+	 private void checkGameEnd() throws InterruptedException {
 		 VertexLocation exit = m.exit;
 		 boolean gameWin = exit.isSame(jerryPos);
 		 if(gameWin) {
@@ -94,10 +113,10 @@ public class ThreadsController extends Thread {
 	 }
 	 
 	 //Stops The Game
-	 private void stopTheGame(){
-		 while(true){
-			 pauser();
-		 }
+	 private void stopTheGame() throws InterruptedException {
+		 //this.join();
+		 running = false;
+		 //this.interrupt();
 	 }
 	 
 	 //Moves the head of the snake and refreshes the positions in the arraylist
@@ -125,21 +144,12 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
-	 private void moveTom(){
+	 private void moveTom() throws InterruptedException {
+		 //debug:
+		 System.out.println("calling find_next");
 		 int[] next = finder.find_next(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
+		 //sleep(500);
 		 tomPos.updateLocation(next[0], next[1]);
-		 /*
-		 if (pathToUpdate()) {
-			 tomPath = null;
-			 tomPath = finder.findShortestPath(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
-			 tom_pathloc = tomPath.size() - 2;
-		 }
-		 else
-			 tom_pathloc --;
-		 System.out.println(tom_pathloc);
-		 if(tom_pathloc >= 0)
-			 tomPos.updateLocation(tomPath.get(tom_pathloc)[0], tomPath.get(tom_pathloc)[1]);
-		  */
 	 }
 
 	 private boolean pathToUpdate(){
@@ -164,6 +174,7 @@ public class ThreadsController extends Thread {
 		 Squares.get(tomPos.getX()).get(tomPos.getY()).clearObject();
 	 }
 
+	 // for debug: display the initial shortest path
 	 private void displayTomPath() {
 		 for (int i = 0; i < tomPath.size(); i++)
 			 Squares.get(tomPath.get(i)[0]).get(tomPath.get(i)[1]).lightMeUp(1);

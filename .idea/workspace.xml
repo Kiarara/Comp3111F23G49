@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Updated draft for function C with placeholders for inputs from function A and function B">
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="combine updated Function B">
+      <change afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/board/board_mst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/board/board_mst.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,14 +192,33 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/target/classes/Function_C/ThreadsController.class</url>
-          <line>47</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.io.FileNotFoundException" package="java.io" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/target/classes/Function_C/ThreadsController.class</url>
+          <line>137</line>
+          <properties class="Function_C.ThreadsController" method="moveTom">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

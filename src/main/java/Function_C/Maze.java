@@ -13,7 +13,7 @@ public class Maze {
 
 
     public Maze(String csv_file) {
-        String delimiter = ", ";
+        String delimiter = ",";
         try (BufferedReader br = new BufferedReader(new FileReader(csv_file))) {
             String line;
             int i = 0;

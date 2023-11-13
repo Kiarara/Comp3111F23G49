@@ -112,7 +112,7 @@ public class board_mst {
     private ArrayList<int[]> mst;
 
     //initializing the board with all zeros
-    private board_mst() {
+    public board_mst() {
         grid = new int[30][30];
         for(int i=0;i<30;i++){
             for(int j=0;j<30;j++){

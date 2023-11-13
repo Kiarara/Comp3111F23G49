@@ -2,6 +2,8 @@ package Function_C;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ class Window extends JFrame{
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
 	public static int width = 30;
 	public static int height = 30;
-	public Window() throws IOException {
+	public Window() {
 		
 
 		// Creates the arraylist that'll contain the threads
@@ -46,6 +48,20 @@ class Window extends JFrame{
 
 		// Links the window to the keyboardlistenner.
 		this.addKeyListener((KeyListener) new KeyboardListener());
-		
+
+		/*
+		try {
+			c.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		JButton exit_button = new JButton("Click to exit the game");
+		exit_button.addActionListener(e -> {
+			this.dispose();
+		});
+		 */
+
+		//this.add(exit_button);
 	}
 }

@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Added pop-up window to GUI">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/board/board_mst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/board/board_mst.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699943235298</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added pop-up window to GUI">
+      <option name="closed" value="true" />
+      <created>1699943607910</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699943607910</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

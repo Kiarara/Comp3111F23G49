@@ -4,12 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 
 public class Window extends JFrame{
-	private static final long serialVersionUID = -2542001418764869760L;
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
 	public static int width = 30;
 	public static int height = 30;
@@ -46,16 +44,13 @@ public class Window extends JFrame{
 		JFrame frame = new JFrame("Start");
 		JButton button = new JButton("Click to Start");
 
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int result = JOptionPane.showConfirmDialog(frame, "Would you like to start the game?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
-				if (result == JOptionPane.YES_OPTION) {
-					c.start();
-					frame.dispose();
-				}
-			}
-		});
+		button.addActionListener(e -> {
+            int result = JOptionPane.showConfirmDialog(frame, "Would you like to start the game?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                c.start();
+                frame.dispose();
+            }
+        });
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(button, BorderLayout.CENTER);

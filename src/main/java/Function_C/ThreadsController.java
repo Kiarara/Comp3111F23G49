@@ -41,7 +41,7 @@ public class ThreadsController extends Thread {
 		 game_initialize();
 
 		 while(running){
-			 if(jerry_move < 3)
+			 if(jerry_move < 5)
 			 {
 				 onlyTom = false;
 				 jerry_move ++;
@@ -49,7 +49,7 @@ public class ThreadsController extends Thread {
 			 else
 			 {
 				 onlyTom = true;
-				 jerry_move =0;
+				 jerry_move = 0;
 			 }
 
 			 clearObject();

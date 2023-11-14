@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="combine updated Function B">
-      <change afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Combining Function A and B, and fixed the java heap - out of memory issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/board/board_mst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/board/board_mst.java" afterDir="false" />
@@ -161,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699525030892</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Combining Function A and B, and fixed the java heap - out of memory issue">
+      <option name="closed" value="true" />
+      <created>1699890201639</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699890201639</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,7 +186,8 @@
     <MESSAGE value="Adding snake game skeleton code" />
     <MESSAGE value="Draft for function C with placeholders for inputs from function A and function B" />
     <MESSAGE value="Updated draft for function C with placeholders for inputs from function A and function B" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated draft for function C with placeholders for inputs from function A and function B" />
+    <MESSAGE value="Combining Function A and B, and fixed the java heap - out of memory issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Combining Function A and B, and fixed the java heap - out of memory issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -210,15 +216,6 @@
           <properties class="java.io.FileNotFoundException" package="java.io" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/target/classes/Function_C/ThreadsController.class</url>
-          <line>137</line>
-          <properties class="Function_C.ThreadsController" method="moveTom">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

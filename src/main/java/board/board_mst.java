@@ -254,7 +254,7 @@ public class board_mst {
 
             writer.flush();
             writer.close();
-            System.out.println("Maze saved to 'actual_maze.csv'.");
+            //System.out.println("Maze saved to 'actual_maze.csv'.");
         } catch (IOException e) {
             System.out.println("Error occurredduring saving the maze to a file.");
             e.printStackTrace();

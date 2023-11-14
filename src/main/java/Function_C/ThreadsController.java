@@ -2,13 +2,18 @@
 package Function_C;
 
 import java.util.ArrayList;
-import java.util.List;
 import board.board_mst;
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 
 //Controls all the game logic .. most important class in this project.
 public class ThreadsController extends Thread {
 	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
+	 private JFrame parent_window;
 	 VertexLocation tomPos;
 	 VertexLocation jerryPos;
 	 long tomSpeed = 200;
@@ -16,76 +21,91 @@ public class ThreadsController extends Thread {
 
 	 Maze m;
 	 ShortestPathFinder finder;
-	 List<int[]> tomPath;
 
-	 public boolean running;
+
+	 //List<int[]> tomPath;
+
+	 public boolean running=false;
 
 	 //Constructor of ControllerThread
-	 ThreadsController(){
+	 ThreadsController(JFrame this_window){
 		//Get all the threads
 		Squares=Window.Grid;
-
-		board_mst Board = new board_mst();
-		Board.build_maze();
-		Board.saveMazeToFile();
-
-		String map_file = "actual_maze.csv";
-		m = new Maze(map_file);
-
-		tomPos = new VertexLocation(m.exit.x, m.exit.y);
-		jerryPos = new VertexLocation(m.entry.x, m.entry.y);
-		directionJerry = 1;
-
-		finder = new ShortestPathFinder(map_file);
-		//tomPath = finder.findShortestPath(jerryPos.x,jerryPos.y, tomPos.x, tomPos.y);
-		//tom_pathloc = tomPath.size()-1;
+		parent_window = this_window;
 	 }
 
 	//Important part: Tom updates twice more frequent than Jerry (runs faster than Jerry)
 	 public void run() {
-		 boolean onlyTom = true;
-		 //int clear_count = 0;
+		 int jerry_move = 0;
+		 boolean onlyTom;
 		 running = true;
+
+		 game_initialize();
+
+		 while(running){
+			 if(jerry_move < 3)
+			 {
+				 onlyTom = false;
+				 jerry_move ++;
+			 }
+			 else
+			 {
+				 onlyTom = true;
+				 jerry_move =0;
+			 }
+
+			 clearObject();
+			 if (!onlyTom) {
+				 moveJerry();
+			 }
+			 try {
+				 if(!checkGameEnd()){
+					 moveTom();
+				 }
+			 } catch (InterruptedException e) {
+				 throw new RuntimeException(e);
+			 }
+
+			 try {
+				 if(!checkGameEnd()){
+					 moveExterne();
+					 pauser();
+				 }
+			 } catch (InterruptedException e) {
+				 throw new RuntimeException(e);
+			 }
+			 ;
+		 }
+	 }
+
+	 private void game_initialize(){
+		 // generate a new maze
+		 board_mst Board = new board_mst();
+		 Board.build_maze();
+		 Board.saveMazeToFile();
+
+		 // read maze generated
+		 String map_file = "actual_maze.csv";
+		 m = new Maze(map_file);
+
+		 // initialize tom, jerry, and the shortest path finder
+		 tomPos = new VertexLocation(m.exit.x, m.exit.y);
+		 jerryPos = new VertexLocation(m.entry.x, m.entry.y);
+		 directionJerry = 1;
+
+		 finder = new ShortestPathFinder(map_file);
 
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(1);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(2);
 
 		 for (int i = 0; i<30; ++i){
 			 for (int j = 0; j<30; ++j) {
+				 Squares.get(i).get(j).lightMeUp(2);
 				 if (m.maze[i][j] == 1) Squares.get(i).get(j).lightMeUp(0);
 			 }
 		 }
-
-		 while(running){
-			 clearObject();
-			 if (onlyTom) {
-				 onlyTom = false;
-			 }
-			 else
-			 {
-				 moveJerry();
-				 try {
-					 checkGameEnd();
-				 } catch (InterruptedException e) {
-					 throw new RuntimeException(e);
-				 }
-				 onlyTom = true;
-			 }
-			 try {
-				 moveTom();
-			 } catch (InterruptedException e) {
-				 throw new RuntimeException(e);
-			 }
-			 try {
-				 checkGameEnd();
-			 } catch (InterruptedException e) {
-				 throw new RuntimeException(e);
-			 }
-			 moveExterne();
-			 pauser();
-		 }
 	 }
-	 
+
 	 //delay between each move of the snake
 	 private void pauser(){
 		 try {
@@ -96,27 +116,73 @@ public class ThreadsController extends Thread {
 	 }
 	 
 	 //Checking if the Jerry get caught or Jerry reaches the exit point
-	 private void checkGameEnd() throws InterruptedException {
+	 private boolean checkGameEnd() throws InterruptedException {
 		 VertexLocation exit = m.exit;
 		 boolean gameWin = exit.isSame(jerryPos);
 		 if(gameWin) {
-			 System.out.println("Congratulations!");
-			 stopTheGame();
-			 return;
+			 stopTheGame(true);
+			 return true;
 		 }
 
 		 boolean getCaught = jerryPos.isSame(tomPos);
 		 if(getCaught){
-			 System.out.println("GET CAUGHT!");
-			 stopTheGame();
+			 stopTheGame(false);
+			 return true;
 		 }
+
+		 return false;
 	 }
 	 
 	 //Stops The Game
-	 private void stopTheGame() throws InterruptedException {
-		 //this.join();
+	 private void stopTheGame(boolean win) throws InterruptedException {
 		 running = false;
-		 //this.interrupt();
+		 String message;
+		 if(win) message = "Congratulations! You successfully escaped from Tom! ";
+		 else
+			 message = "Oops... You get caught by Tom :( ";
+
+		 JFrame frame = new JFrame(message);
+		 JButton exit_button = new JButton("Exit");
+		 JButton restart_button = new JButton("Restart");
+
+		 exit_button.addActionListener(new ActionListener() {
+			 @Override
+			 public void actionPerformed(ActionEvent e) {
+				 JOptionPane.showMessageDialog(frame, "Exit");
+				 frame.dispose();
+				 parent_window.dispose();
+			 }
+		 });
+
+		 restart_button.addActionListener(new ActionListener() {
+			 @Override
+			 public void actionPerformed(ActionEvent e) {
+				 JOptionPane.showMessageDialog(frame, "Restart");
+				 frame.dispose();
+				 ((Window) parent_window).restart_game();
+			 }
+		 });
+
+		 GridBagConstraints gbc = new GridBagConstraints();
+		 gbc.gridx = 0;
+		 gbc.gridy = 0;
+		 gbc.weightx = 1.0;
+		 gbc.weighty = 1.0;
+		 gbc.fill = GridBagConstraints.CENTER;
+
+		 JPanel optionPanel = new JPanel();
+		 optionPanel.add(exit_button);
+		 optionPanel.add(restart_button);
+
+		 frame.getContentPane().setLayout(new GridBagLayout());
+		 frame.getContentPane().add(optionPanel, gbc);
+		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 frame.setSize(300, 200);
+		 frame.setLocationRelativeTo(parent_window);
+		 frame.setAlwaysOnTop(true);
+		 frame.setVisible(true);
+
+
 	 }
 	 
 	 //Moves the head of the snake and refreshes the positions in the arraylist
@@ -145,24 +211,11 @@ public class ThreadsController extends Thread {
 	 }
 
 	 private void moveTom() throws InterruptedException {
-		 //debug:
-		 System.out.println("calling find_next");
 		 int[] next = finder.find_next(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
-		 //sleep(500);
 		 tomPos.updateLocation(next[0], next[1]);
 	 }
 
-	 private boolean pathToUpdate(){
-		 for (int i = 0; i< tomPath.size(); ++i)
-		 {
-			 if (jerryPos.x == tomPath.get(i)[0] && jerryPos.y == tomPath.get(i)[1])
-				 return false;
-		 }
-		 return true;
-	 }
-
 	 //Refresh the squares that needs to be updated
-	// need to revert the squares where Tom and Jerry were originally located
 	 private void moveExterne(){
 		 // update Jerry
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(1);
@@ -175,9 +228,11 @@ public class ThreadsController extends Thread {
 	 }
 
 	 // for debug: display the initial shortest path
+	/*
 	 private void displayTomPath() {
 		 for (int i = 0; i < tomPath.size(); i++)
 			 Squares.get(tomPath.get(i)[0]).get(tomPath.get(i)[1]).lightMeUp(1);
 	 }
+	 */
 
 }

@@ -9,12 +9,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-class Window extends JFrame{
+public class Window extends JFrame{
 	private static final long serialVersionUID = -2542001418764869760L;
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
 	public static int width = 30;
 	public static int height = 30;
-	public Window() {
+	public Window() throws InterruptedException {
 		
 
 		// Creates the arraylist that'll contain the threads
@@ -42,26 +42,37 @@ class Window extends JFrame{
 		}
 
 		// passing this value to the controller
-		ThreadsController c = new ThreadsController();
-		//Let's start the game now...
-		c.start();
+		ThreadsController c = new ThreadsController(this);
+
+		JFrame frame = new JFrame("Start");
+		JButton button = new JButton("Click to Start");
+
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int result = JOptionPane.showConfirmDialog(frame, "Would you like to start the game?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION) {
+					c.start();
+					frame.dispose();
+				}
+			}
+		});
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(button, BorderLayout.CENTER);
+		frame.setSize(300, 200);
+		frame.setLocationRelativeTo(this);
+		frame.setAlwaysOnTop(true);
+		frame.setVisible(true);
 
 		// Links the window to the keyboardlistenner.
 		this.addKeyListener((KeyListener) new KeyboardListener());
 
-		/*
-		try {
-			c.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	}
 
-		JButton exit_button = new JButton("Click to exit the game");
-		exit_button.addActionListener(e -> {
-			this.dispose();
-		});
-		 */
-
-		//this.add(exit_button);
+	public void restart_game()
+	{
+		ThreadsController c = new ThreadsController(this);
+		c.start();
 	}
 }

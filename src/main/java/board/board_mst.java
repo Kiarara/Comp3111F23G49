@@ -6,10 +6,7 @@ import java.util.Comparator;
 import java.util.Random;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 class association{
 
     int weight;

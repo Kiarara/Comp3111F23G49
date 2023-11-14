@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws InterruptedException {
 
 		//Creating the window with the grids
 		Window f1= new Window();

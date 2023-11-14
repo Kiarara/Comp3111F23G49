@@ -4,15 +4,13 @@ package Function_C;
 import java.util.ArrayList;
 import board.board_mst;
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 
-//Controls all the game logic .. most important class in this project.
+//Controls all the game logic --> most important class in this project.
 public class ThreadsController extends Thread {
-	 ArrayList<ArrayList<DataOfSquare>> Squares= new ArrayList<ArrayList<DataOfSquare>>();
+	 ArrayList<ArrayList<DataOfSquare>> Squares;
 	 private JFrame parent_window;
 	 VertexLocation tomPos;
 	 VertexLocation jerryPos;
@@ -59,7 +57,7 @@ public class ThreadsController extends Thread {
 				 moveJerry();
 			 }
 			 try {
-				 if(!checkGameEnd()){
+				 if(isRunning()){
 					 moveTom();
 				 }
 			 } catch (InterruptedException e) {
@@ -67,14 +65,13 @@ public class ThreadsController extends Thread {
 			 }
 
 			 try {
-				 if(!checkGameEnd()){
+				 if(isRunning()){
 					 moveExterne();
 					 pauser();
 				 }
 			 } catch (InterruptedException e) {
 				 throw new RuntimeException(e);
 			 }
-			 ;
 		 }
 	 }
 
@@ -88,7 +85,7 @@ public class ThreadsController extends Thread {
 		 String map_file = "actual_maze.csv";
 		 m = new Maze(map_file);
 
-		 // initialize tom, jerry, and the shortest path finder
+		 // initialize tom, jerry, and the shortest pathfinder
 		 tomPos = new VertexLocation(m.exit.x, m.exit.y);
 		 jerryPos = new VertexLocation(m.entry.x, m.entry.y);
 		 directionJerry = 1;
@@ -116,25 +113,25 @@ public class ThreadsController extends Thread {
 	 }
 	 
 	 //Checking if the Jerry get caught or Jerry reaches the exit point
-	 private boolean checkGameEnd() throws InterruptedException {
+	 private boolean isRunning() throws InterruptedException {
 		 VertexLocation exit = m.exit;
 		 boolean gameWin = exit.isSame(jerryPos);
 		 if(gameWin) {
 			 stopTheGame(true);
-			 return true;
+			 return false;
 		 }
 
 		 boolean getCaught = jerryPos.isSame(tomPos);
 		 if(getCaught){
 			 stopTheGame(false);
-			 return true;
+			 return false;
 		 }
 
-		 return false;
+		 return true;
 	 }
 	 
 	 //Stops The Game
-	 private void stopTheGame(boolean win) throws InterruptedException {
+	 private void stopTheGame(boolean win) {
 		 running = false;
 		 String message;
 		 if(win) message = "Congratulations! You successfully escaped from Tom! ";
@@ -145,23 +142,17 @@ public class ThreadsController extends Thread {
 		 JButton exit_button = new JButton("Exit");
 		 JButton restart_button = new JButton("Restart");
 
-		 exit_button.addActionListener(new ActionListener() {
-			 @Override
-			 public void actionPerformed(ActionEvent e) {
-				 JOptionPane.showMessageDialog(frame, "Exit");
-				 frame.dispose();
-				 parent_window.dispose();
-			 }
-		 });
+		 exit_button.addActionListener(e -> {
+             JOptionPane.showMessageDialog(frame, "Exit");
+             frame.dispose();
+             parent_window.dispose();
+         });
 
-		 restart_button.addActionListener(new ActionListener() {
-			 @Override
-			 public void actionPerformed(ActionEvent e) {
-				 JOptionPane.showMessageDialog(frame, "Restart");
-				 frame.dispose();
-				 ((Window) parent_window).restart_game();
-			 }
-		 });
+		 restart_button.addActionListener(e -> {
+             JOptionPane.showMessageDialog(frame, "Restart");
+             frame.dispose();
+             ((Window) parent_window).restart_game();
+         });
 
 		 GridBagConstraints gbc = new GridBagConstraints();
 		 gbc.gridx = 0;

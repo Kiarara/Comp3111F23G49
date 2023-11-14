@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -14,16 +13,16 @@ public class Window extends JFrame{
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
 	public static int width = 30;
 	public static int height = 30;
-	public Window() throws InterruptedException {
+	public Window(){
 		
 
 		// Creates the arraylist that'll contain the threads
-		Grid = new ArrayList<ArrayList<DataOfSquare>>();
+		Grid = new ArrayList<>();
 		ArrayList<DataOfSquare> data;
 		
 		// Creates Threads and its data and adds it to the arrayList
 		for(int i=0;i<width;i++){
-			data= new ArrayList<DataOfSquare>();
+			data= new ArrayList<>();
 			for(int j=0;j<height;j++){
 				DataOfSquare c = new DataOfSquare(2);
 				data.add(c);
@@ -66,7 +65,7 @@ public class Window extends JFrame{
 		frame.setVisible(true);
 
 		// Links the window to the keyboardlistenner.
-		this.addKeyListener((KeyListener) new KeyboardListener());
+		this.addKeyListener(new KeyboardListener());
 
 	}
 

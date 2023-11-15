@@ -22,7 +22,7 @@ public class Window extends JFrame{
 		for(int i=0;i<width;i++){
 			data= new ArrayList<>();
 			for(int j=0;j<height;j++){
-				DataOfSquare c = new DataOfSquare(2);
+				DataOfSquare c = new DataOfSquare(1);
 				data.add(c);
 			}
 			Grid.add(data);

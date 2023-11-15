@@ -3,26 +3,32 @@ package Function_C;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Maze {
 
     VertexLocation entry;
     VertexLocation exit;
-
-    int[][] maze = new int[30][30];
-
+    int[][] maze;
 
     public Maze(String csv_file) {
-        String delimiter = ",";
         try (BufferedReader br = new BufferedReader(new FileReader(csv_file))) {
+            List<String> lines = new ArrayList<>();
             String line;
-            int i = 0;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(delimiter);
-                for (int j = 0; j < values.length; j++) {
-                    maze[i][j] = Integer.parseInt(values[j]);
+                lines.add(line);
+            }
+
+            int numRows = lines.size();
+            int numCols = lines.get(0).split(",").length;
+            maze = new int[numRows][numCols];
+
+            for (int i = 0; i < numRows; i++) {
+                String[] elements = lines.get(i).split(",");
+                for (int j = 0; j < numCols; j++) {
+                    maze[i][j] = Integer.parseInt(elements[j].trim());
                 }
-                i++;
             }
         } catch (IOException e) {
             e.printStackTrace();

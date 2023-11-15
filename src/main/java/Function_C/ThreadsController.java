@@ -19,20 +19,17 @@ public class ThreadsController extends Thread {
 
 	 Maze m;
 	 ShortestPathFinder finder;
-
-
-	 //List<int[]> tomPath;
-
 	 public boolean running=false;
 
-	 //Constructor of ControllerThread
+
 	 ThreadsController(JFrame this_window){
 		//Get all the threads
 		Squares=Window.Grid;
 		parent_window = this_window;
 	 }
 
-	//Important part: Tom updates twice more frequent than Jerry (runs faster than Jerry)
+	// Important part: the controller for the game
+	// During the same period of time, Tom updates five times while Jerry only updates four times
 	 public void run() {
 		 int jerry_move = 0;
 		 boolean onlyTom;
@@ -92,12 +89,12 @@ public class ThreadsController extends Thread {
 
 		 finder = new ShortestPathFinder(map_file);
 
-		 Squares.get(tomPos.x).get(tomPos.y).changeObject(1);
-		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(2);
+		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
+		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 
 		 for (int i = 0; i<30; ++i){
 			 for (int j = 0; j<30; ++j) {
-				 Squares.get(i).get(j).lightMeUp(2);
+				 Squares.get(i).get(j).lightMeUp(1);
 				 if (m.maze[i][j] == 1) Squares.get(i).get(j).lightMeUp(0);
 			 }
 		 }
@@ -129,10 +126,12 @@ public class ThreadsController extends Thread {
 
 		 return true;
 	 }
-	 
-	 //Stops The Game
+
 	 private void stopTheGame(boolean win) {
+		 // stop the game
 		 running = false;
+
+		 // print out messages
 		 String message;
 		 if(win) message = "Congratulations! You successfully escaped from Tom! ";
 		 else
@@ -142,6 +141,7 @@ public class ThreadsController extends Thread {
 		 JButton exit_button = new JButton("Exit");
 		 JButton restart_button = new JButton("Restart");
 
+		 // check if users would like to exit or restart the game
 		 exit_button.addActionListener(e -> {
              JOptionPane.showMessageDialog(frame, "Exit");
              frame.dispose();
@@ -173,11 +173,10 @@ public class ThreadsController extends Thread {
 		 frame.setAlwaysOnTop(true);
 		 frame.setVisible(true);
 
-
 	 }
 	 
-	 //Moves the head of the snake and refreshes the positions in the arraylist
-	 //1:right 2:left 3:top 4:bottom 0:nothing
+	 // Moves Jerry internally (by updating the location stored)
+	 // 1:right 2:left 3:top 4:bottom 0:nothing
 	 private void moveJerry(){
 		 switch(directionJerry){
 			 case 1:
@@ -201,29 +200,23 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
+	// Moves Tom internally (by updating the location stored)
 	 private void moveTom() throws InterruptedException {
 		 int[] next = finder.find_next(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
 		 tomPos.updateLocation(next[0], next[1]);
 	 }
 
-	 //Refresh the squares that needs to be updated
+	 // Display Tom and Jerry on the corresponding squares
 	 private void moveExterne(){
 		 // update Jerry
-		 Squares.get(tomPos.x).get(tomPos.y).changeObject(1);
-		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(2);
+		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
+		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 	 }
 
+	 // Clear the images of Tom and Jerry before displaying them on other squares
 	 private void clearObject(){
-		 Squares.get(jerryPos.getX()).get(jerryPos.getY()).clearObject();
-		 Squares.get(tomPos.getX()).get(tomPos.getY()).clearObject();
+		 Squares.get(jerryPos.x).get(jerryPos.y).clearObject();
+		 Squares.get(tomPos.x).get(tomPos.y).clearObject();
 	 }
-
-	 // for debug: display the initial shortest path
-	/*
-	 private void displayTomPath() {
-		 for (int i = 0; i < tomPath.size(); i++)
-			 Squares.get(tomPath.get(i)[0]).get(tomPath.get(i)[1]).lightMeUp(1);
-	 }
-	 */
 
 }

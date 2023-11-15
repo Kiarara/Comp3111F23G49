@@ -14,14 +14,7 @@ public class VertexLocation {
 	  }
 
 	  public boolean isSame(VertexLocation other){
-		  return (this.x == other.getX()) && (this.y == other.getY());
+		  return (this.x == other.x) && (this.y == other.y);
 	  }
-	  public int getX(){
-		  return x;
-	  }
-	  public int getY(){
-		  return y;
-	  }
-
 		  
 } 

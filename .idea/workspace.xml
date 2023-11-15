@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="added two testing file">
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="first version of maze">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/board/WeightComparator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/board/board_mst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/board/board_mst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/board/edge.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699761784314</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="first version of maze">
+      <option name="closed" value="true" />
+      <created>1699784336137</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699784336137</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,7 +118,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Setup" />
     <MESSAGE value="added two testing file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added two testing file" />
+    <MESSAGE value="first version of maze" />
+    <option name="LAST_COMMIT_MESSAGE" value="first version of maze" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -120,13 +131,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/board/board_mst.java</url>
-          <line>214</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/board/board_mst.java</url>
-          <line>191</line>
-          <option name="timeStamp" value="6" />
+          <line>218</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

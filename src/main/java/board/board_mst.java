@@ -71,7 +71,7 @@ class association{
         if(Arrays.equals(other_coor,left_or_up_vertex)){
             return right_or_down_vertex;
         }
-        else if(Arrays.equals(other_coor,left_or_up_vertex)) {
+        else if(Arrays.equals(other_coor,right_or_down_vertex)) {
             return left_or_up_vertex;
         }
         else {
@@ -195,6 +195,8 @@ public class board_mst {
                 continue;
             }
             else{
+                association_list.remove(i);
+                /*
                 for(int[] existed_coor:mst){
                     if(Arrays.equals(expected_coor,existed_coor)){
                         //redundant_index.add(index);
@@ -202,6 +204,8 @@ public class board_mst {
                         i--;
                     }
                 }
+
+                 */
             }
             //index++;
         }
@@ -237,6 +241,18 @@ public class board_mst {
         }
     }
 
+    public void build_more_path(){
+        boolean change=false;
+        while(!change){
+            int row= rand.nextInt(29);
+            int column = rand.nextInt(26)+2;
+            if(grid[row][column]==1){
+                change=true;
+                grid[row][column]=0;
+            }
+        }
+    }
+
     public void saveMazeToFile() {
         try {
             FileWriter writer = new FileWriter("actual_maze.csv");
@@ -265,6 +281,9 @@ public class board_mst {
     public static void main(String[] args) {
         board_mst Board = new board_mst();
         Board.build_maze();
+        for(int i=0;i<10;i++) {
+            Board.build_more_path();
+        }
         Board.print();
         Board.saveMazeToFile();
     }

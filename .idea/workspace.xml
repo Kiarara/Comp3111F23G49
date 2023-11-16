@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="&#10;debugged function a, shorten height of the gui so player can see the whole map">
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="build_more_path function is now called 20 times instead of 10 times">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Main_A.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Main_A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/board/Board_MST_Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,17 +117,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VertexLocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBoard_MST.get_coor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Function_B.*" />
+          <option name="PATTERN" value="Function_A.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Function_C" />
-      <option name="MAIN_CLASS_NAME" value="Function_C.VertexLocationTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
+      <option name="METHOD_NAME" value="get_coor" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,10 +136,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main_A" />
+        <item itemvalue="JUnit.TestBoard_MST.get_coor" />
         <item itemvalue="Application.Main_B" />
         <item itemvalue="Application.Main_C" />
         <item itemvalue="Application.ShortestPathFinder" />
-        <item itemvalue="JUnit.VertexLocationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700128120456</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="build_more_path function is now called 20 times instead of 10 times">
+      <option name="closed" value="true" />
+      <created>1700128615014</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700128615014</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,7 +273,8 @@
     <MESSAGE value="Adjusted the speed of Tom and Jerry" />
     <MESSAGE value="Integrated all functions" />
     <MESSAGE value="&#10;debugged function a, shorten height of the gui so player can see the whole map" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;debugged function a, shorten height of the gui so player can see the whole map" />
+    <MESSAGE value="build_more_path function is now called 20 times instead of 10 times" />
+    <option name="LAST_COMMIT_MESSAGE" value="build_more_path function is now called 20 times instead of 10 times" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,6 +296,9 @@
       <FILTER>Function_C.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$Main_A.ic" NAME="Main_A Coverage Results" MODIFIED="1700120337985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_coor.ic" NAME="TestBoard_MST.get_coor Coverage Results" MODIFIED="1700130873624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_A.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Comp3111F23G49$board_test_get_coor.ic" NAME="board_test.get_coor Coverage Results" MODIFIED="1700038484689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

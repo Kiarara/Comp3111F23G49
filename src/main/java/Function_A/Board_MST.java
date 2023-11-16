@@ -27,8 +27,8 @@ public class Board_MST {
                 grid[2*i][2+2*j]=0;
             }
         }
-        association_list = new ArrayList<Association>();
-        mst = new ArrayList<int[]>();
+        association_list = new ArrayList<>();
+        mst = new ArrayList<>();
     }
     public void expand_coor(int[] coor){
         if(coor[0]>0){
@@ -91,9 +91,7 @@ public class Board_MST {
     public void remove_redundant(int[] coor){
         for (int i=0;i<association_list.size();i++){
             int[] expected_coor= association_list.get(i).get_coor(coor);
-            if(expected_coor[0]==-1){
-            }
-            else{
+            if(expected_coor[0] !=-1){
                 for(int[] existed_coor:mst){
                     if(Arrays.equals(expected_coor,existed_coor)){
                         association_list.remove(i);
@@ -110,7 +108,7 @@ public class Board_MST {
         do {
             //adding associationthat square into associationt
             expand_coor(coor);
-            Collections.sort(association_list, new WeightComparator());
+            association_list.sort(new WeightComparator());
             coor = association_list.get(0).get_new_coor();
             grid[association_list.get(0).middle_vertex[0]][association_list.get(0).middle_vertex[1]] = 0;
             association_list.remove(0);

@@ -3,7 +3,6 @@ package Function_C;
 import Shared.Window;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Main_C {
 

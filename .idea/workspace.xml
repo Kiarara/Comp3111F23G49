@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Tidied up the codes for Function C and supplemented comments for easier understanding">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_A/Main_A.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_A/WeightComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/SquarePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/board/board_mst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MazeGenerator.java" beforeDir="false" />
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Integrated all functions">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/SquarePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/SquarePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699943829234</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Integrated all functions">
+      <option name="closed" value="true" />
+      <created>1700120061183</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700120061183</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,7 +254,8 @@
     <MESSAGE value="Combining Function A and B, and fixed the java heap - out of memory issue" />
     <MESSAGE value="Added pop-up window to GUI" />
     <MESSAGE value="Adjusted the speed of Tom and Jerry" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted the speed of Tom and Jerry" />
+    <MESSAGE value="Integrated all functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrated all functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

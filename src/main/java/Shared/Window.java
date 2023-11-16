@@ -51,8 +51,13 @@ public class Window extends JFrame{
 			button.addActionListener(e -> {
 				int result = JOptionPane.showConfirmDialog(frame, "Would you like to start the game?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
-					c.start();
 					frame.dispose();
+
+					// new frame
+
+
+					c.start();
+
 				}
 			});
 
@@ -80,7 +85,6 @@ public class Window extends JFrame{
 	public void display_maze(){
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
-				Grid.get(i).get(j).lightMeUp(1);
 				if (m.maze[i][j] == 1)
 					Grid.get(i).get(j).lightMeUp(0);
 			}

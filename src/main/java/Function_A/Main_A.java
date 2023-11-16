@@ -8,7 +8,7 @@ public class Main_A {
 
         Board_MST Board = new Board_MST();
         Board.build_maze();
-        for(int i=0;i<10;i++){
+        for(int i=0;i<20;i++){
             Board.build_more_path();
         }
         Board.saveMazeToFile();

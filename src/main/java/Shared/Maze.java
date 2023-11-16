@@ -1,4 +1,6 @@
-package Function_C;
+package Shared;
+
+import Function_C.VertexLocation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,7 +12,7 @@ public class Maze {
 
     VertexLocation entry;
     VertexLocation exit;
-    int[][] maze;
+    public int[][] maze;
 
     public Maze(String csv_file) {
         try (BufferedReader br = new BufferedReader(new FileReader(csv_file))) {
@@ -43,4 +45,11 @@ public class Maze {
         }
     }
 
+    public VertexLocation getExit(){
+        return exit;
+    }
+
+    public VertexLocation getEntry(){
+        return entry;
+    }
 }

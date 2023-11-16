@@ -2,7 +2,12 @@
 package Function_C;
 
 import java.util.ArrayList;
-import board.board_mst;
+import Function_A.Board_MST;
+import Function_B.ShortestPathFinder;
+import Shared.DataOfSquare;
+import Shared.Maze;
+import Shared.Window;
+
 import javax.swing.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -14,7 +19,7 @@ public class ThreadsController extends Thread {
 	 private JFrame parent_window;
 	 VertexLocation tomPos;
 	 VertexLocation jerryPos;
-	 long tomSpeed = 200;
+	 long tomSpeed = 50;
 	 public static int directionJerry;
 
 	 Maze m;
@@ -22,9 +27,9 @@ public class ThreadsController extends Thread {
 	 public boolean running=false;
 
 
-	 ThreadsController(JFrame this_window){
+	 public ThreadsController(JFrame this_window){
 		//Get all the threads
-		Squares=Window.Grid;
+		Squares= Window.Grid;
 		parent_window = this_window;
 	 }
 
@@ -38,7 +43,7 @@ public class ThreadsController extends Thread {
 		 game_initialize();
 
 		 while(running){
-			 if(jerry_move < 5)
+			 if(jerry_move < 10)
 			 {
 				 onlyTom = false;
 				 jerry_move ++;
@@ -74,7 +79,7 @@ public class ThreadsController extends Thread {
 
 	 private void game_initialize(){
 		 // generate a new maze
-		 board_mst Board = new board_mst();
+		 Board_MST Board = new Board_MST();
 		 Board.build_maze();
 		 Board.saveMazeToFile();
 
@@ -83,11 +88,11 @@ public class ThreadsController extends Thread {
 		 m = new Maze(map_file);
 
 		 // initialize tom, jerry, and the shortest pathfinder
-		 tomPos = new VertexLocation(m.exit.x, m.exit.y);
-		 jerryPos = new VertexLocation(m.entry.x, m.entry.y);
+		 tomPos = new VertexLocation(m.getExit().x, m.getExit().y);
+		 jerryPos = new VertexLocation(m.getEntry().x, m.getEntry().y);
 		 directionJerry = 1;
 
-		 finder = new ShortestPathFinder(map_file);
+		 finder = new ShortestPathFinder(m);
 
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
@@ -111,7 +116,7 @@ public class ThreadsController extends Thread {
 	 
 	 //Checking if the Jerry get caught or Jerry reaches the exit point
 	 private boolean isRunning() throws InterruptedException {
-		 VertexLocation exit = m.exit;
+		 VertexLocation exit = m.getExit();
 		 boolean gameWin = exit.isSame(jerryPos);
 		 if(gameWin) {
 			 stopTheGame(true);
@@ -202,7 +207,7 @@ public class ThreadsController extends Thread {
 
 	// Moves Tom internally (by updating the location stored)
 	 private void moveTom() throws InterruptedException {
-		 int[] next = finder.find_next(jerryPos.x, jerryPos.y, tomPos.x, tomPos.y);
+		 int[] next = finder.find_next(jerryPos, tomPos);
 		 tomPos.updateLocation(next[0], next[1]);
 	 }
 

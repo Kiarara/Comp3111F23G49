@@ -1,13 +1,13 @@
-package Function_C;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package Function_B;
 import java.util.*;
+
+import Function_C.VertexLocation;
+import Shared.*;
 
 public class ShortestPathFinder {
     private int[][] map;
-    private int numRows;
-    private int numCols;
+    private int numRows = 30;
+    private int numCols = 30;
     private byte[][] visited;
     private byte[][] distance;
     private int[][] prevRow;
@@ -16,8 +16,8 @@ public class ShortestPathFinder {
     LinkedList<int[]> shortestpath;
     Queue<int[]> queue;
 
-    public ShortestPathFinder(String mapFile) {
-        readMapFile(mapFile);
+    public ShortestPathFinder(Maze m) {
+        map = m.maze;
         visited = new byte[numRows][numCols];
         distance = new byte[numRows][numCols];
         prevRow = new int[numRows][numCols];
@@ -27,31 +27,11 @@ public class ShortestPathFinder {
         queue = new LinkedList<>();
     }
 
-    private void readMapFile(String mapFile) {
-        try (BufferedReader br = new BufferedReader(new FileReader(mapFile))) {
-            List<String> lines = new ArrayList<>();
-            String line;
-            while ((line = br.readLine()) != null) {
-                lines.add(line);
-            }
-
-            numRows = lines.size();
-            numCols = lines.get(0).split(",").length;
-            map = new int[numRows][numCols];
-
-            for (int i = 0; i < numRows; i++) {
-                String[] elements = lines.get(i).split(",");
-                for (int j = 0; j < numCols; j++) {
-                    map[i][j] = Integer.parseInt(elements[j].trim());
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void findShortestPath(int startRow, int startCol, int endRow, int endCol) {
-
+    public void findShortestPath(VertexLocation a, VertexLocation b) {
+        int startRow = a.x;
+        int startCol = a.y;
+        int endRow = b.x;
+        int endCol = b.y;
         shortestpath.clear();
         resetState();
         bfs(startRow, startCol, endRow, endCol);
@@ -73,7 +53,6 @@ public class ShortestPathFinder {
         }
 
         shortestpath.addFirst(new int[]{startRow, startCol});
-        //MapWithPath(shortestpath); // print out
     }
 
     private void bfs(int startRow, int startCol, int endRow, int endCol) {
@@ -108,23 +87,16 @@ public class ShortestPathFinder {
         }
     }
 
-    public int[] find_next(int startRow, int startCol, int endRow, int endCol){
-        findShortestPath(startRow, startCol, endRow, endCol);
+    public int[] find_next(VertexLocation a, VertexLocation b){
+        findShortestPath(a, b);
         int[] next = new int[2];
         next[0] = shortestpath.get(shortestpath.size()-2)[0];
         next[1] = shortestpath.get(shortestpath.size()-2)[1];
         return next;
     }
+
     private boolean isValidMove(int row, int col) {
         return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && visited[row][col] == 0;
-    }
-
-    private void updateMapWithPath(List<int[]> path) {
-        for (int[] position : path) {
-            int row = position[0];
-            int col = position[1];
-            map[row][col] = 2;
-        }
     }
 
     private void resetState() {
@@ -136,12 +108,9 @@ public class ShortestPathFinder {
         }
     }
 
-    public void printMap() {
-        for (int[] row : map) {
-            for (int cell : row) {
-                System.out.print(cell + " ");
-            }
-            System.out.println();
-        }
+    public void displayPath(Window w) {
+        ArrayList<ArrayList<DataOfSquare>> Grid = w.Grid;
+        shortestpath.forEach(element -> Grid.get(element[0]).get(element[1]).lightMeUp(2));
     }
+
 }

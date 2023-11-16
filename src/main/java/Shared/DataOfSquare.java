@@ -1,4 +1,6 @@
-package Function_C;
+package Shared;
+
+import Shared.SquarePanel;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class DataOfSquare {
 		// Add the colors to the arrayList
 		C.add(Color.darkGray);//0 - dark gray representing wall
 		C.add(Color.white);   //1 - white representing possible location
+		C.add(Color.blue);
 		square = new SquarePanel(C.get(col));
 
 

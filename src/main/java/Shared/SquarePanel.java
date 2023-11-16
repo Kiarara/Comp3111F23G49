@@ -1,4 +1,4 @@
-package Function_C;
+package Shared;
 
 import javax.swing.*;
 import java.awt.*;

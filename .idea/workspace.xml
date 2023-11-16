@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Adjusted the speed of Tom and Jerry">
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Tidied up the codes for Function C and supplemented comments for easier understanding">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_A/Main_A.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_A/WeightComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/KeyboardListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/SquarePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/SquarePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_C/VertexLocationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/board/board_mst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MazeGenerator.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Kiara-FunctionC" />
+        <entry key="$PROJECT_DIR$" value="Kiara-FunctionC-vF" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,17 +55,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Kiara-FunctionC-vF",
-    "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main",
-    "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main" />
@@ -73,13 +81,39 @@
       <recent name="Function_C" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Function_C.Main" />
+  <component name="RunManager" selected="Application.Main_A">
+    <configuration name="Main_A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Function_A.Main_A" />
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Function_C.*" />
+          <option name="PATTERN" value="Function_A.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main_B" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Function_B.Main_B" />
+      <module name="COMP3111F23G49" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Function_B.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main_C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Function_C.Main_C" />
+      <module name="COMP3111F23G49" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Function_B.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,7 +132,7 @@
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Function_C.*" />
+          <option name="PATTERN" value="Function_B.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,7 +145,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main_A" />
+        <item itemvalue="Application.Main_B" />
+        <item itemvalue="Application.Main_C" />
         <item itemvalue="Application.ShortestPathFinder" />
         <item itemvalue="JUnit.VertexLocationTest" />
       </list>
@@ -239,7 +275,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1698156003906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1700039770082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>
   </component>

@@ -49,17 +49,9 @@ public class Window extends JFrame{
 			JButton button = new JButton("Click to Start");
 
 			button.addActionListener(e -> {
-				int result = JOptionPane.showConfirmDialog(frame, "Would you like to start the game?", "Exit Confirmation", JOptionPane.YES_NO_OPTION);
-				if (result == JOptionPane.YES_OPTION) {
 					frame.dispose();
-
-					// new frame
-
-
-					c.start();
-
-				}
-			});
+					setMode();
+				});
 
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.getContentPane().add(button, BorderLayout.CENTER);
@@ -73,6 +65,22 @@ public class Window extends JFrame{
 		}
 	}
 
+	private void setMode(){
+		JFrame mode_selection = new JFrame("Select your game difficulty");
+		JButton easy = new JButton("Easy");
+		JButton medium = new JButton("Medium");
+		JButton hard = new JButton("hard");
+	}
+	// new frame
+
+
+					easy.addActionListener(f-> {
+
+
+	});
+
+
+					c.start();
 	public void restart_game(){
 		ThreadsController c = new ThreadsController(this);
 		c.start();

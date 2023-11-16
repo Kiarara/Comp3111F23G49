@@ -19,8 +19,12 @@ public class ThreadsController extends Thread {
 	 private JFrame parent_window;
 	 VertexLocation tomPos;
 	 VertexLocation jerryPos;
-	 long tomSpeed = 50;
 	 public static int directionJerry;
+
+	 // for mode setting
+	 long tomSpeed = 100;
+	 int num_barrier_removed = 20;
+	 int updates_before_jerry_pause = 10;
 
 	 Maze m;
 	 ShortestPathFinder finder;
@@ -42,7 +46,7 @@ public class ThreadsController extends Thread {
 		 game_initialize();
 
 		 while(running){
-			 if(jerry_move < 10)
+			 if(jerry_move < updates_before_jerry_pause)
 			 {
 				 onlyTom = false;
 				 jerry_move ++;
@@ -80,7 +84,7 @@ public class ThreadsController extends Thread {
 		 // generate a new maze
 		 Board_MST Board = new Board_MST();
 		 Board.build_maze();
-		 for(int i=0;i<10;i++) {
+		 for(int i=0;i<num_barrier_removed;i++) {
 			 Board.build_more_path();
 		 }
 		 Board.saveMazeToFile();
@@ -220,6 +224,26 @@ public class ThreadsController extends Thread {
 	 private void clearObject(){
 		 Squares.get(jerryPos.x).get(jerryPos.y).clearObject();
 		 Squares.get(tomPos.x).get(tomPos.y).clearObject();
+	 }
+
+	 public void setMode(int mode){
+		 switch (mode){
+			 case 0: //easy
+				 tomSpeed = 300;
+				 num_barrier_removed = 30;
+				 updates_before_jerry_pause = 20;
+				 break;
+			 case 1: //medium
+				 tomSpeed = 100;
+				 num_barrier_removed = 20;
+				 updates_before_jerry_pause = 10;
+				 break;
+			 case 2: //difficult
+				 tomSpeed = 50;
+				 num_barrier_removed = 10;
+				 updates_before_jerry_pause = 5;
+				 break;
+		 }
 	 }
 
 }

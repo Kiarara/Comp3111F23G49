@@ -44,9 +44,6 @@ public class Window extends JFrame{
 
 		if (isGame)
 		{
-			// passing this value to the controller
-			ThreadsController c = new ThreadsController(this);
-
 			JFrame frame = new JFrame("Welcome to the game!");
 			JButton button = new JButton("Click to Start");
 

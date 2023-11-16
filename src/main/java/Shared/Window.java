@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 
 public class Window extends JFrame{
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
@@ -80,9 +82,15 @@ public class Window extends JFrame{
 	public void display_maze(){
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
-				Grid.get(i).get(j).lightMeUp(1);
-				if (m.maze[i][j] == 1)
+				if (m.maze[i][j] == 1){
 					Grid.get(i).get(j).lightMeUp(0);
+					try {
+						sleep(1);
+					} catch (InterruptedException e) {
+						throw new RuntimeException(e);
+					}
+				}
+
 			}
 		}
 	}

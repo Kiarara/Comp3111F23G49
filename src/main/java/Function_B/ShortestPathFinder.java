@@ -4,6 +4,8 @@ import java.util.*;
 import Function_C.VertexLocation;
 import Shared.*;
 
+import static java.lang.Thread.sleep;
+
 public class ShortestPathFinder {
     private int[][] map;
     private int numRows = 30;
@@ -108,9 +110,11 @@ public class ShortestPathFinder {
         }
     }
 
-    public void displayPath(Window w) {
+    public void displayPath(Window w) throws InterruptedException {
         ArrayList<ArrayList<DataOfSquare>> Grid = w.Grid;
-        shortestpath.forEach(element -> Grid.get(element[0]).get(element[1]).lightMeUp(2));
+        for (int[] loc : shortestpath) {
+            Grid.get(loc[0]).get(loc[1]).lightMeUp(2);
+            sleep(1);
+        }
     }
-
 }

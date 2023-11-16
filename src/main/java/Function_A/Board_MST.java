@@ -1,6 +1,7 @@
 package Function_A;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -102,7 +103,7 @@ public class Board_MST {
         do {
             //adding associationthat square into associationt
             expand_coor(coor);
-            association_list.sort(new WeightComparator());
+            Collections.sort(association_list,new WeightComparator());
             coor = association_list.get(0).get_new_coor();
             grid[association_list.get(0).middle_vertex[0]][association_list.get(0).middle_vertex[1]] = 0;
             association_list.remove(0);

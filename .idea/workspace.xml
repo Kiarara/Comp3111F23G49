@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Integrated all functions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/SquarePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/SquarePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,6 +272,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$Main_A.ic" NAME="Main_A Coverage Results" MODIFIED="1700120337985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1700039770082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>

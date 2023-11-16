@@ -47,12 +47,13 @@ public class Window extends JFrame{
 			// passing this value to the controller
 			ThreadsController c = new ThreadsController(this);
 
-			JFrame frame = new JFrame("Start");
+			JFrame frame = new JFrame("Welcome to the game!");
 			JButton button = new JButton("Click to Start");
 
 			button.addActionListener(e -> {
 					frame.dispose();
 					setMode();
+					this.setVisible(true);
 				});
 
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,32 +93,48 @@ public class Window extends JFrame{
 			c.start();
 			mode_selection.dispose();
 		});
+
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.fill = GridBagConstraints.CENTER;
+
+		JPanel optionPanel = new JPanel();
+		optionPanel.add(easy);
+		optionPanel.add(medium);
+		optionPanel.add(hard);
+
+		mode_selection.getContentPane().setLayout(new GridBagLayout());
+		mode_selection.getContentPane().add(optionPanel, gbc);
+		mode_selection.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mode_selection.setSize(300, 200);
+		mode_selection.setLocationRelativeTo(this);
+		mode_selection.setAlwaysOnTop(true);
+		mode_selection.setVisible(true);
 	}
-	// new frame
-
-
 
 	public void restart_game(){
-		ThreadsController c = new ThreadsController(this);
-		c.start();
+		setMode();
 	}
 
 	public void set_maze(String csv_file){
 		m = new Maze(csv_file);
 	}
 
-	public void display_maze(){
+	public void display_maze() {
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
-				if (m.maze[i][j] == 1){
+				if (m.maze[i][j] == 1)
 					Grid.get(i).get(j).lightMeUp(0);
-					try {
-						sleep(1);
-					} catch (InterruptedException e) {
-						throw new RuntimeException(e);
-					}
+				else
+					Grid.get(i).get(j).lightMeUp(1);
+				try {
+					sleep(1);
+				} catch (InterruptedException e) {
+					throw new RuntimeException(e);
 				}
-
 			}
 		}
 	}

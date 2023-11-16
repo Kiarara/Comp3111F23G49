@@ -1,6 +1,7 @@
 
 package Function_C;
 
+import java.awt.*;
 import java.util.ArrayList;
 import Function_A.Board_MST;
 import Function_B.ShortestPathFinder;
@@ -9,8 +10,9 @@ import Shared.Maze;
 import Shared.Window;
 
 import javax.swing.*;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.util.Random;
+import java.util.TimerTask;
+import java.util.Timer;
 
 
 //Controls all the game logic --> most important class in this project.
@@ -19,12 +21,18 @@ public class ThreadsController extends Thread {
 	 private JFrame parent_window;
 	 VertexLocation tomPos;
 	 VertexLocation jerryPos;
+	 ArrayList<VertexLocation> freezerLocs;
+	 boolean is_tom_frozen = false;
+
+
 	 public static int directionJerry;
 
 	 // for mode setting
-	 long tomSpeed = 100;
+	 long tomSpeed = 200;
 	 int num_barrier_removed = 20;
 	 int updates_before_jerry_pause = 10;
+	 int num_of_freezer = 5;
+	 long freezeTime = 5000;
 
 	 Maze m;
 	 ShortestPathFinder finder;
@@ -34,6 +42,7 @@ public class ThreadsController extends Thread {
 		//Get all the threads
 		Squares= Window.Grid;
 		parent_window = this_window;
+		freezerLocs = new ArrayList<>();
 	 }
 
 	// Important part: the controller for the game
@@ -46,7 +55,7 @@ public class ThreadsController extends Thread {
 		 game_initialize();
 
 		 while(running){
-			 if(jerry_move < updates_before_jerry_pause)
+			 if(jerry_move < 10)
 			 {
 				 onlyTom = false;
 				 jerry_move ++;
@@ -60,15 +69,15 @@ public class ThreadsController extends Thread {
 			 clearObject();
 			 if (!onlyTom) {
 				 moveJerry();
+				 checkFreezer();
 			 }
 			 try {
-				 if(isRunning()){
+				 if(isRunning()&& (!is_tom_frozen)){
 					 moveTom();
 				 }
 			 } catch (InterruptedException e) {
 				 throw new RuntimeException(e);
 			 }
-
 			 try {
 				 if(isRunning()){
 					 moveExterne();
@@ -84,15 +93,16 @@ public class ThreadsController extends Thread {
 		 // generate a new maze
 		 Board_MST Board = new Board_MST();
 		 Board.build_maze();
-		 for(int i=0;i<num_barrier_removed;i++) {
+		 for(int i=0;i<10;i++) {
 			 Board.build_more_path();
 		 }
 		 Board.saveMazeToFile();
 
-		 // read maze generated
+		 // read and display maze generated
 		 String map_file = "actual_maze.csv";
 		 ((Window)parent_window).set_maze(map_file);
 		 m = ((Window) parent_window).getMaze();
+		 ((Window) parent_window).display_maze();
 
 		 // initialize tom, jerry, and the shortest pathfinder
 		 tomPos = new VertexLocation(m.getExit());
@@ -104,7 +114,19 @@ public class ThreadsController extends Thread {
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 
-		 ((Window) parent_window).display_maze();
+		 // generate and display the locations of freezers
+		 int num_generated = 0;
+		 while (num_generated < num_of_freezer){
+			 Random rand = new Random();
+			 int row = rand.nextInt(29);
+			 int col = rand.nextInt(28)+1;
+			 if (m.maze[row][col] == 0){
+				 freezerLocs.add(new VertexLocation(row, col));
+				 Squares.get(row).get(col).changeObject(2);
+				 num_generated++;
+			 }
+
+		 }
 	 }
 
 	 //delay between each move of the snake
@@ -115,7 +137,7 @@ public class ThreadsController extends Thread {
 				e.printStackTrace();
 		 }
 	 }
-	 
+
 	 //Checking if the Jerry get caught or Jerry reaches the exit point
 	 private boolean isRunning() throws InterruptedException {
 		 VertexLocation exit = m.getExit();
@@ -134,6 +156,17 @@ public class ThreadsController extends Thread {
 		 return true;
 	 }
 
+	 private void checkFreezer(){
+		 for(VertexLocation freezer: freezerLocs){
+			 if (jerryPos.isSame(freezer)){
+				 Squares.get(freezer.x).get(freezer.y).clearObject();
+				 freezeTom();
+				 freezerLocs.remove(freezer);
+				 break;
+			 }
+		 }
+	 }
+
 	 private void stopTheGame(boolean win) {
 		 // stop the game
 		 running = false;
@@ -144,21 +177,32 @@ public class ThreadsController extends Thread {
 		 else
 			 message = "Oops... You get caught by Tom :( ";
 
-		 JFrame frame = new JFrame(message);
+		 JFrame exit_or_restart = new JFrame(message);
 		 JButton exit_button = new JButton("Exit");
 		 JButton restart_button = new JButton("Restart");
 
 		 // check if users would like to exit or restart the game
 		 exit_button.addActionListener(e -> {
-             JOptionPane.showMessageDialog(frame, "Exit");
-             frame.dispose();
+             exit_or_restart.dispose();
              parent_window.dispose();
          });
 
 		 restart_button.addActionListener(e -> {
-             JOptionPane.showMessageDialog(frame, "Restart");
-             frame.dispose();
-             ((Window) parent_window).restart_game();
+			 // clear freezer
+			 for (VertexLocation freezer: freezerLocs)
+				 Squares.get(freezer.x).get(freezer.y).clearObject();
+			 try {
+				 sleep(2);
+			 } catch (InterruptedException ex) {
+				 throw new RuntimeException(ex);
+			 }
+
+			 // allow the event dispatch thread to process the disposal of the frame
+			 EventQueue.invokeLater(() -> {
+				 exit_or_restart.dispose();
+				 ((Window) parent_window).restart_game();
+			 });
+
          });
 
 		 GridBagConstraints gbc = new GridBagConstraints();
@@ -172,16 +216,16 @@ public class ThreadsController extends Thread {
 		 optionPanel.add(exit_button);
 		 optionPanel.add(restart_button);
 
-		 frame.getContentPane().setLayout(new GridBagLayout());
-		 frame.getContentPane().add(optionPanel, gbc);
-		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 frame.setSize(300, 200);
-		 frame.setLocationRelativeTo(parent_window);
-		 frame.setAlwaysOnTop(true);
-		 frame.setVisible(true);
+		 exit_or_restart.getContentPane().setLayout(new GridBagLayout());
+		 exit_or_restart.getContentPane().add(optionPanel, gbc);
+		 exit_or_restart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 exit_or_restart.setSize(300, 200);
+		 exit_or_restart.setLocationRelativeTo(parent_window);
+		 exit_or_restart.setAlwaysOnTop(true);
+		 exit_or_restart.setVisible(true);
 
 	 }
-	 
+
 	 // Moves Jerry internally (by updating the location stored)
 	 // 1:right 2:left 3:top 4:bottom 0:nothing
 	 private void moveJerry(){
@@ -230,20 +274,37 @@ public class ThreadsController extends Thread {
 		 switch (mode){
 			 case 0: //easy
 				 tomSpeed = 300;
-				 num_barrier_removed = 30;
+				 num_barrier_removed = 40;
 				 updates_before_jerry_pause = 20;
+				 num_of_freezer = 10;
+				 freezeTime = 10000;
 				 break;
 			 case 1: //medium
-				 tomSpeed = 100;
+				 tomSpeed = 200;
 				 num_barrier_removed = 20;
 				 updates_before_jerry_pause = 10;
+				 num_of_freezer = 5;
+				 freezeTime = 5000;
 				 break;
 			 case 2: //difficult
-				 tomSpeed = 50;
+				 tomSpeed = 100;
 				 num_barrier_removed = 10;
 				 updates_before_jerry_pause = 5;
+				 num_of_freezer = 3;
+				 freezeTime = 3000;
 				 break;
 		 }
+	 }
+
+	 private void freezeTom(){
+		 is_tom_frozen = true;
+		 Timer timer = new Timer();
+		 timer.schedule(new TimerTask() {
+			 @Override
+			 public void run() {
+				is_tom_frozen = false;
+			 }
+		 }, freezeTime);
 	 }
 
 }

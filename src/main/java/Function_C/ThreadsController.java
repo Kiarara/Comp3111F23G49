@@ -26,7 +26,6 @@ public class ThreadsController extends Thread {
 	 ShortestPathFinder finder;
 	 public boolean running=false;
 
-
 	 public ThreadsController(JFrame this_window){
 		//Get all the threads
 		Squares= Window.Grid;
@@ -81,15 +80,19 @@ public class ThreadsController extends Thread {
 		 // generate a new maze
 		 Board_MST Board = new Board_MST();
 		 Board.build_maze();
+		 for(int i=0;i<10;i++) {
+			 Board.build_more_path();
+		 }
 		 Board.saveMazeToFile();
 
 		 // read maze generated
 		 String map_file = "actual_maze.csv";
-		 m = new Maze(map_file);
+		 ((Window)parent_window).set_maze(map_file);
+		 m = ((Window) parent_window).getMaze();
 
 		 // initialize tom, jerry, and the shortest pathfinder
-		 tomPos = new VertexLocation(m.getExit().x, m.getExit().y);
-		 jerryPos = new VertexLocation(m.getEntry().x, m.getEntry().y);
+		 tomPos = new VertexLocation(m.getExit());
+		 jerryPos = new VertexLocation(m.getEntry());
 		 directionJerry = 1;
 
 		 finder = new ShortestPathFinder(m);
@@ -97,12 +100,7 @@ public class ThreadsController extends Thread {
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 
-		 for (int i = 0; i<30; ++i){
-			 for (int j = 0; j<30; ++j) {
-				 Squares.get(i).get(j).lightMeUp(1);
-				 if (m.maze[i][j] == 1) Squares.get(i).get(j).lightMeUp(0);
-			 }
-		 }
+		 ((Window) parent_window).display_maze();
 	 }
 
 	 //delay between each move of the snake

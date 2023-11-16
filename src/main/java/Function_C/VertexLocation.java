@@ -7,7 +7,13 @@ public class VertexLocation {
 	  public VertexLocation(int x, int y) {
 	    this.x = x; 
 	    this.y = y; 
-	  } 
+	  }
+
+	  public VertexLocation(VertexLocation other){
+		  this.x = other.x;
+		  this.y = other.y;
+	  }
+
 	  public void updateLocation(int x, int y){
 		    this.x = x; 
 		    this.y = y; 

@@ -1,7 +1,6 @@
 package Function_A;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -92,12 +91,7 @@ public class Board_MST {
         for (int i=0;i<association_list.size();i++){
             int[] expected_coor= association_list.get(i).get_coor(coor);
             if(expected_coor[0] !=-1){
-                for(int[] existed_coor:mst){
-                    if(Arrays.equals(expected_coor,existed_coor)){
-                        association_list.remove(i);
-                        i--;
-                    }
-                }
+                association_list.remove(i);
             }
         }
     }
@@ -121,6 +115,18 @@ public class Board_MST {
         grid[starting][0]=0;
         grid[starting][1]=0;
         grid[ending][29]=0;
+    }
+
+    public void build_more_path(){
+        boolean change=false;
+        while(!change){
+            int row= rand.nextInt(29);
+            int column = rand.nextInt(26)+2;
+            if(grid[row][column]==1){
+                change=true;
+                grid[row][column]=0;
+            }
+        }
     }
 
     public void saveMazeToFile() {

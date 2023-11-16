@@ -93,6 +93,7 @@ public class Board_MST {
             int[] expected_coor= association_list.get(i).get_coor(coor);
             if(expected_coor[0] !=-1){
                 association_list.remove(i);
+                i--;
             }
         }
     }
@@ -121,7 +122,7 @@ public class Board_MST {
     public void build_more_path(){
         boolean change=false;
         while(!change){
-            int row= rand.nextInt(29);
+            int row= rand.nextInt(28);
             int column = rand.nextInt(26)+2;
             if(grid[row][column]==1){
                 change=true;

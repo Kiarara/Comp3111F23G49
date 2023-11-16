@@ -8,6 +8,9 @@ public class Main_A {
 
         Board_MST Board = new Board_MST();
         Board.build_maze();
+        for(int i=0;i<10;i++){
+            Board.build_more_path();
+        }
         Board.saveMazeToFile();
 
         //Creating the window with the grids
@@ -15,7 +18,7 @@ public class Main_A {
 
         //Setting up the window settings
         f1.setTitle("Maze generated");
-        f1.setSize(900,900);
+        f1.setSize(900,800);
         f1.setVisible(true);
         f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f1.setLocationRelativeTo(null);

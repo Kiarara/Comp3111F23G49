@@ -48,7 +48,7 @@ public class Association {
     }
 
     public int[] get_coor(int[] other_coor){
-        if(Arrays.equals(other_coor,left_or_up_vertex)){
+        if(Arrays.equals(other_coor,right_or_down_vertex)){
             return right_or_down_vertex;
         }
         else if(Arrays.equals(other_coor,left_or_up_vertex)) {

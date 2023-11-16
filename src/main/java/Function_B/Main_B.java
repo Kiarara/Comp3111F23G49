@@ -6,7 +6,7 @@ import Shared.*;
 import javax.swing.*;
 
 public class Main_B {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Board_MST Board = new Board_MST();
         Board.build_maze();
         Board.saveMazeToFile();

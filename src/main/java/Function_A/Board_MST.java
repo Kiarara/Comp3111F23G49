@@ -22,16 +22,16 @@ public class Board_MST {
                 grid[i][j]=1;
             }
         }
-        for(int i=0;i<15;i++){
+        for(int i=0;i<14;i++){
             for(int j=0;j<14;j++){
-                grid[2*i][2+2*j]=0;
+                grid[2+2*i][2+2*j]=0;
             }
         }
         association_list = new ArrayList<>();
         mst = new ArrayList<>();
     }
     public void expand_coor(int[] coor){
-        if(coor[0]>0){
+        if(coor[0]>2){
             int[] up_coor={coor[0]-2,coor[1]};
             boolean existed = false;
             for(int []existed_coor:mst){
@@ -41,8 +41,8 @@ public class Board_MST {
                 }
             }
             if (!existed){
-                Association Association = new Association(coor,up_coor);
-                association_list.add(Association);
+                Association association = new Association(coor,up_coor);
+                association_list.add(association);
             }
         }
         if(coor[0]<28){
@@ -55,8 +55,8 @@ public class Board_MST {
                 }
             }
             if (!existed){
-                Association Association = new Association(coor,down_coor);
-                association_list.add(Association);
+                Association association = new Association(coor,down_coor);
+                association_list.add(association);
             }
         }
         if(coor[1]>2){
@@ -69,8 +69,8 @@ public class Board_MST {
                 }
             }
             if (!existed){
-                Association Association = new Association(coor,left_coor);
-                association_list.add(Association);
+                Association association = new Association(coor,left_coor);
+                association_list.add(association);
             }
         }
         if(coor[1]<28){
@@ -83,8 +83,8 @@ public class Board_MST {
                 }
             }
             if (!existed){
-                Association Association = new Association(coor,right_coor);
-                association_list.add(Association);
+                Association association = new Association(coor,right_coor);
+                association_list.add(association);
             }
         }
     }
@@ -93,12 +93,13 @@ public class Board_MST {
             int[] expected_coor= association_list.get(i).get_coor(coor);
             if(expected_coor[0] !=-1){
                 association_list.remove(i);
+                i--;
             }
         }
     }
     public void build_maze(){
         //start with randomly choosing a 0
-        int []coor={2*rand.nextInt(15),2*rand.nextInt(14)+2};
+        int []coor={2*rand.nextInt(14)+2,2*rand.nextInt(14)+2};
         mst.add(coor);
         do {
             //adding associationthat square into associationt
@@ -111,8 +112,8 @@ public class Board_MST {
             remove_redundant(coor);
         }while(!association_list.isEmpty());
 
-        int starting= 2*rand.nextInt(15);
-        int ending= 2*rand.nextInt(15);
+        int starting= 2*rand.nextInt(13)+2;
+        int ending= 2*rand.nextInt(13)+2;
         grid[starting][0]=0;
         grid[starting][1]=0;
         grid[ending][29]=0;
@@ -121,8 +122,14 @@ public class Board_MST {
     public void build_more_path(){
         boolean change=false;
         while(!change){
-            int row= rand.nextInt(29);
-            int column = rand.nextInt(26)+2;
+            int row= rand.nextInt(26)+2;
+            int column;
+            if (row%2==0){
+                column = 2*rand.nextInt(12)+3;
+            }
+            else{
+                column = 2*rand.nextInt(13)+2;
+            }
             if(grid[row][column]==1){
                 change=true;
                 grid[row][column]=0;

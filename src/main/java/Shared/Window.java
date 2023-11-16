@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 
 public class Window extends JFrame{
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
@@ -66,21 +68,35 @@ public class Window extends JFrame{
 	}
 
 	private void setMode(){
+		ThreadsController c = new ThreadsController(this);
+
 		JFrame mode_selection = new JFrame("Select your game difficulty");
 		JButton easy = new JButton("Easy");
 		JButton medium = new JButton("Medium");
 		JButton hard = new JButton("hard");
+
+		easy.addActionListener(f-> {
+			c.setMode(0);
+			c.start();
+			mode_selection.dispose();
+		});
+
+		medium.addActionListener(f-> {
+			c.setMode(1);
+			c.start();
+			mode_selection.dispose();
+		});
+
+		hard.addActionListener(f-> {
+			c.setMode(2);
+			c.start();
+			mode_selection.dispose();
+		});
 	}
 	// new frame
 
 
-					easy.addActionListener(f-> {
 
-
-	});
-
-
-					c.start();
 	public void restart_game(){
 		ThreadsController c = new ThreadsController(this);
 		c.start();
@@ -93,8 +109,15 @@ public class Window extends JFrame{
 	public void display_maze(){
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
-				if (m.maze[i][j] == 1)
+				if (m.maze[i][j] == 1){
 					Grid.get(i).get(j).lightMeUp(0);
+					try {
+						sleep(1);
+					} catch (InterruptedException e) {
+						throw new RuntimeException(e);
+					}
+				}
+
 			}
 		}
 	}

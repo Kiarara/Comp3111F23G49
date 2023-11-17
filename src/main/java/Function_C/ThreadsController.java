@@ -2,11 +2,8 @@
 package Function_C;
 
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.*;
 import java.util.Timer;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import Function_A.Board_MST;
 import Function_B.ShortestPathFinder;
@@ -201,7 +198,6 @@ public class ThreadsController extends Thread {
 	 private void stopTheGame(boolean win) {
 		 // stop the game
 		 running = false;
-		 //AtomicBoolean restart = new AtomicBoolean(false);
 
 		 // print out messages
 		 String message;
@@ -214,9 +210,7 @@ public class ThreadsController extends Thread {
 		 JButton restart_button = new JButton("Restart");
 
 		 // check if users would like to exit or restart the game
-		 exit_button.addActionListener(e -> {
-			 System.exit(0);
-		 });
+		 exit_button.addActionListener(e -> System.exit(0));
 
 		 restart_button.addActionListener(e -> {
 			 // clear freezer
@@ -344,7 +338,7 @@ public class ThreadsController extends Thread {
 		 }, propEffectiveDuration);
 	 }
 
-	 private void nibblesComes() throws InterruptedException {
+	 private void nibblesComes() {
 		 shortest_path_for_jerry.clear();
 		 shortest_path_for_jerry = finder.findShortestPath(jerryPos, m.getExit());
 		 ((Window)parent_window).display_path(shortest_path_for_jerry);

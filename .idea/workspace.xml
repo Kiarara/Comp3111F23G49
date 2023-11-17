@@ -7,12 +7,8 @@
     <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Implemented setting of different difficulty level and game prop - freezer (which freezes Tom for a specific period of time)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/VertexLocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +30,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Kiarara"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kiarara&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -62,20 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Function-C-new-features&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main",
+    "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main" />

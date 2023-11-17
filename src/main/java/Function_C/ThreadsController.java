@@ -2,8 +2,11 @@
 package Function_C;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.*;
 import java.util.Timer;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import Function_A.Board_MST;
 import Function_B.ShortestPathFinder;
@@ -198,6 +201,7 @@ public class ThreadsController extends Thread {
 	 private void stopTheGame(boolean win) {
 		 // stop the game
 		 running = false;
+		 //AtomicBoolean restart = new AtomicBoolean(false);
 
 		 // print out messages
 		 String message;
@@ -211,30 +215,30 @@ public class ThreadsController extends Thread {
 
 		 // check if users would like to exit or restart the game
 		 exit_button.addActionListener(e -> {
-             exit_or_restart.dispose();
-             parent_window.dispose();
-         });
+			 System.exit(0);
+		 });
 
 		 restart_button.addActionListener(e -> {
 			 // clear freezer
 			 for (VertexLocation freezer: freezerLocs)
 				 Squares.get(freezer.x).get(freezer.y).clearObject();
 			 try {
-				 sleep(2);
+				 sleep(300);
 			 } catch (InterruptedException ex) {
 				 throw new RuntimeException(ex);
 			 }
 
 			 // clear Nibbles
 			 Squares.get(nibblesPos.x).get(nibblesPos.y).clearObject();
-
-			 // allow the event dispatch thread to process the disposal of the frame
-			 EventQueue.invokeLater(() -> {
-				 exit_or_restart.dispose();
+			 //restart.set(true);
+			 exit_or_restart.dispose();
+			 try {
+				 sleep(500);
 				 ((Window) parent_window).restart_game();
-			 });
-
-         });
+			 } catch (InterruptedException ex) {
+				 throw new RuntimeException(ex);
+			 }
+		 });
 
 		 GridBagConstraints gbc = new GridBagConstraints();
 		 gbc.gridx = 0;
@@ -254,7 +258,6 @@ public class ThreadsController extends Thread {
 		 exit_or_restart.setLocationRelativeTo(parent_window);
 		 exit_or_restart.setAlwaysOnTop(true);
 		 exit_or_restart.setVisible(true);
-
 	 }
 
 	 // Moves Jerry internally (by updating the location stored)
@@ -290,15 +293,18 @@ public class ThreadsController extends Thread {
 
 	 // Display Tom and Jerry on the corresponding squares
 	 private void moveExterne(){
-		 // update Jerry
-		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
+		 // update Tom's location on the maze only when it doesn't overlap with the prop
+		 if (Squares.get(tomPos.x).get(tomPos.y).getObject() < 1)
+			 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 	 }
 
 	 // Clear the images of Tom and Jerry before displaying them on other squares
 	 private void clearObject(){
 		 Squares.get(jerryPos.x).get(jerryPos.y).clearObject();
-		 Squares.get(tomPos.x).get(tomPos.y).clearObject();
+		 if (Squares.get(tomPos.x).get(tomPos.y).getObject() == 0)
+			 Squares.get(tomPos.x).get(tomPos.y).clearObject();
+
 	 }
 
 	 public void setMode(int mode){

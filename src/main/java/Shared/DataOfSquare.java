@@ -43,6 +43,7 @@ public class DataOfSquare {
 
 	public void clearObject(){
 		square.clearObject();
+		obj = -1;
 	}
 
 	public int getObject(){

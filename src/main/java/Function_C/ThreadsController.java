@@ -24,7 +24,7 @@ public class ThreadsController extends Thread {
 	 boolean is_tom_frozen = false;
 
 	 LinkedList<int[]> shortest_path_for_jerry;
-	 VertexLocation nibblesPos;
+	 VertexLocation tuffyPos;
 
 	 public static int directionJerry;
 
@@ -73,7 +73,7 @@ public class ThreadsController extends Thread {
 				 moveJerry();
 				 checkFreezer();
 				 try {
-					 checkNibbles();
+					 checkTuffy();
 				 } catch (InterruptedException e) {
 					 throw new RuntimeException(e);
 				 }
@@ -121,7 +121,7 @@ public class ThreadsController extends Thread {
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 
-		 // generate and display the freezers and Nibbles (Jerry's friend)
+		 // generate and display the freezers and Tuffy (Jerry's friend)
 		 Random rand = new Random();
 		 int num_generated = 0;
 		 while (num_generated < num_of_freezer){
@@ -134,16 +134,16 @@ public class ThreadsController extends Thread {
 			 }
 		 }
 
-		 boolean nibbles_is_here = false;
-		 while (!nibbles_is_here){
+		 boolean tuffy_is_here = false;
+		 while (!tuffy_is_here){
 			 int nibbles_row = rand.nextInt(29);
 			 int nibbles_col = rand.nextInt(28) +1;
 			 if(m.maze[nibbles_row][nibbles_col] == 0){
 				 if(Squares.get(nibbles_row).get(nibbles_col).getObject() != 2)
 				 {
 					 Squares.get(nibbles_row).get(nibbles_col).changeObject(3);
-					 nibbles_is_here = true;
-					 nibblesPos = new VertexLocation(nibbles_row,nibbles_col);
+					 tuffy_is_here = true;
+					 tuffyPos = new VertexLocation(nibbles_row,nibbles_col);
 				 }
 			 }
 		 }
@@ -188,10 +188,10 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
-	private void checkNibbles() throws InterruptedException {
-		 if(jerryPos.isSame(nibblesPos)){
-			 Squares.get(nibblesPos.x).get(nibblesPos.y).clearObject();
-			 nibblesComes();
+	private void checkTuffy() throws InterruptedException {
+		 if(jerryPos.isSame(tuffyPos)){
+			 Squares.get(tuffyPos.x).get(tuffyPos.y).clearObject();
+			 tuffyComes();
 		 }
 	}
 
@@ -222,8 +222,8 @@ public class ThreadsController extends Thread {
 				 throw new RuntimeException(ex);
 			 }
 
-			 // clear Nibbles
-			 Squares.get(nibblesPos.x).get(nibblesPos.y).clearObject();
+			 // clear Tuffy
+			 Squares.get(tuffyPos.x).get(tuffyPos.y).clearObject();
 			 //restart.set(true);
 			 exit_or_restart.dispose();
 			 try {
@@ -338,14 +338,14 @@ public class ThreadsController extends Thread {
 		 }, propEffectiveDuration);
 	 }
 
-	 private void nibblesComes() {
+	 private void tuffyComes() {
 		 shortest_path_for_jerry.clear();
 		 shortest_path_for_jerry = finder.findShortestPath(jerryPos, m.getExit());
 		 ((Window)parent_window).display_path(shortest_path_for_jerry);
-		 nibblesLeaves();
+		 tuffyLeaves();
 	 }
 
-	private void nibblesLeaves(){
+	private void tuffyLeaves(){
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override

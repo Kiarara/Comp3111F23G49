@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Implemented setting of different difficulty level and game prop - freezer (which freezes Tom for a specific period of time)">
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Fix the exit and duplicate jframe dispose waiting time issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/ThreadsController.java" afterDir="false" />
@@ -64,7 +64,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "main-function-C-test",
     "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main",
     "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Modules",
@@ -261,7 +261,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700176711271</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fix the exit and duplicate jframe dispose waiting time issue">
+      <option name="closed" value="true" />
+      <created>1700184092246</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700184092246</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix the exit and duplicate jframe dispose waiting time issue">
+      <option name="closed" value="true" />
+      <created>1700184179550</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700184179550</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,7 +302,8 @@
     <MESSAGE value="Adjusted the speed of Tom and Jerry" />
     <MESSAGE value="Integrated all functions" />
     <MESSAGE value="Implemented setting of different difficulty level and game prop - freezer (which freezes Tom for a specific period of time)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented setting of different difficulty level and game prop - freezer (which freezes Tom for a specific period of time)" />
+    <MESSAGE value="Fix the exit and duplicate jframe dispose waiting time issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix the exit and duplicate jframe dispose waiting time issue" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/COMP3111F23G49$Main_A.ic" NAME="Main_A Coverage Results" MODIFIED="1700120337985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

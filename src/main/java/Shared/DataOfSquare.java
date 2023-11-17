@@ -28,7 +28,7 @@ public class DataOfSquare {
 		I.add(new ImageIcon("1_Tom-min.png"));//0
 		I.add(new ImageIcon("2_Jerry-min.png"));//1
 		I.add(new ImageIcon("3_freezer.png"));//2
-		I.add(new ImageIcon("4_Nibbles.png"));//3
+		I.add(new ImageIcon("4_Tuffy.png"));//3
 
 	}
 	public void lightMeUp(int c){

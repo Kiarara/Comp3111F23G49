@@ -1,8 +1,8 @@
 package Function_C;
 
 public class VertexLocation {
-	  public  int x=-1;
-	  public  int y=-1;
+	  public  int x;
+	  public  int y;
 
 	  public VertexLocation(int x, int y) {
 	    this.x = x; 

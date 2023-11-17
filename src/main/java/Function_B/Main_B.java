@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.util.LinkedList;
 
 public class Main_B {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Board_MST Board = new Board_MST();
         Board.build_maze();
         Board.saveMazeToFile();

@@ -4,8 +4,6 @@ import java.util.*;
 import Function_C.VertexLocation;
 import Shared.*;
 
-import static java.lang.Thread.sleep;
-
 public class ShortestPathFinder {
     private int[][] map;
     private int numRows = 30;
@@ -111,7 +109,4 @@ public class ShortestPathFinder {
         }
     }
 
-    public void displayPath(Window w) throws InterruptedException {
-
-    }
 }

@@ -11,6 +11,8 @@ public class DataOfSquare {
 	ArrayList<Color> C =new ArrayList<>();
 	ArrayList<ImageIcon> I = new ArrayList<>();
 	SquarePanel square;
+	int color;
+	int obj;
 
 	// constructor
 	public DataOfSquare(int col) {
@@ -20,7 +22,7 @@ public class DataOfSquare {
 		C.add(Color.white);   //1 - white representing possible location
 		C.add(Color.blue);
 		square = new SquarePanel(C.get(col));
-
+		color = col;
 
 		// Add the images of Tom and Jerry to the arrayList
 		I.add(new ImageIcon("1_Tom-min.png"));//0
@@ -31,13 +33,19 @@ public class DataOfSquare {
 	}
 	public void lightMeUp(int c){
 		square.ChangeColor(C.get(c));
+		color = c;
 	}
 
 	public void changeObject(int i){
 		square.setImage(I.get(i));
+		obj = i;
 	}
 
 	public void clearObject(){
 		square.clearObject();
+	}
+
+	public int getObject(){
+		return obj;
 	}
 }

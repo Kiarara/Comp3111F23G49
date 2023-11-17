@@ -29,7 +29,7 @@ public class ShortestPathFinder {
         queue = new LinkedList<>();
     }
 
-    public void findShortestPath(VertexLocation a, VertexLocation b) {
+    public LinkedList<int[]> findShortestPath(VertexLocation a, VertexLocation b) {
         int startRow = a.x;
         int startCol = a.y;
         int endRow = b.x;
@@ -55,6 +55,7 @@ public class ShortestPathFinder {
         }
 
         shortestpath.addFirst(new int[]{startRow, startCol});
+        return shortestpath;
     }
 
     private void bfs(int startRow, int startCol, int endRow, int endCol) {
@@ -111,10 +112,6 @@ public class ShortestPathFinder {
     }
 
     public void displayPath(Window w) throws InterruptedException {
-        ArrayList<ArrayList<DataOfSquare>> Grid = w.Grid;
-        for (int[] loc : shortestpath) {
-            Grid.get(loc[0]).get(loc[1]).lightMeUp(2);
-            sleep(1);
-        }
+
     }
 }

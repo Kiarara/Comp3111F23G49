@@ -2,7 +2,9 @@
 package Function_C;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.Timer;
+
 import Function_A.Board_MST;
 import Function_B.ShortestPathFinder;
 import Shared.DataOfSquare;
@@ -10,9 +12,6 @@ import Shared.Maze;
 import Shared.Window;
 
 import javax.swing.*;
-import java.util.Random;
-import java.util.TimerTask;
-import java.util.Timer;
 
 
 //Controls all the game logic --> most important class in this project.
@@ -24,6 +23,8 @@ public class ThreadsController extends Thread {
 	 ArrayList<VertexLocation> freezerLocs;
 	 boolean is_tom_frozen = false;
 
+	 LinkedList<int[]> shortest_path_for_jerry;
+	 VertexLocation nibblesPos;
 
 	 public static int directionJerry;
 
@@ -32,7 +33,7 @@ public class ThreadsController extends Thread {
 	 int num_barrier_removed = 20;
 	 int updates_before_jerry_pause = 10;
 	 int num_of_freezer = 5;
-	 long freezeTime = 5000;
+	 long propEffectiveDuration = 5000;
 
 	 Maze m;
 	 ShortestPathFinder finder;
@@ -43,6 +44,7 @@ public class ThreadsController extends Thread {
 		Squares= Window.Grid;
 		parent_window = this_window;
 		freezerLocs = new ArrayList<>();
+		shortest_path_for_jerry = new LinkedList<>();
 	 }
 
 	// Important part: the controller for the game
@@ -70,6 +72,11 @@ public class ThreadsController extends Thread {
 			 if (!onlyTom) {
 				 moveJerry();
 				 checkFreezer();
+				 try {
+					 checkNibbles();
+				 } catch (InterruptedException e) {
+					 throw new RuntimeException(e);
+				 }
 			 }
 			 try {
 				 if(isRunning()&& (!is_tom_frozen)){
@@ -114,10 +121,10 @@ public class ThreadsController extends Thread {
 		 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 
-		 // generate and display the locations of freezers
+		 // generate and display the freezers and Nibbles (Jerry's friend)
+		 Random rand = new Random();
 		 int num_generated = 0;
 		 while (num_generated < num_of_freezer){
-			 Random rand = new Random();
 			 int row = rand.nextInt(29);
 			 int col = rand.nextInt(28)+1;
 			 if (m.maze[row][col] == 0){
@@ -125,8 +132,22 @@ public class ThreadsController extends Thread {
 				 Squares.get(row).get(col).changeObject(2);
 				 num_generated++;
 			 }
-
 		 }
+
+		 boolean nibbles_is_here = false;
+		 while (!nibbles_is_here){
+			 int nibbles_row = rand.nextInt(29);
+			 int nibbles_col = rand.nextInt(28) +1;
+			 if(m.maze[nibbles_row][nibbles_col] == 0){
+				 if(Squares.get(nibbles_row).get(nibbles_col).getObject() != 2)
+				 {
+					 Squares.get(nibbles_row).get(nibbles_col).changeObject(3);
+					 nibbles_is_here = true;
+					 nibblesPos = new VertexLocation(nibbles_row,nibbles_col);
+				 }
+			 }
+		 }
+
 	 }
 
 	 //delay between each move of the snake
@@ -167,6 +188,13 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
+	private void checkNibbles() throws InterruptedException {
+		 if(jerryPos.isSame(nibblesPos)){
+			 Squares.get(nibblesPos.x).get(nibblesPos.y).clearObject();
+			 nibblesComes();
+		 }
+	}
+
 	 private void stopTheGame(boolean win) {
 		 // stop the game
 		 running = false;
@@ -197,6 +225,9 @@ public class ThreadsController extends Thread {
 				 throw new RuntimeException(ex);
 			 }
 
+			 // clear Nibbles
+			 Squares.get(nibblesPos.x).get(nibblesPos.y).clearObject();
+
 			 // allow the event dispatch thread to process the disposal of the frame
 			 EventQueue.invokeLater(() -> {
 				 exit_or_restart.dispose();
@@ -219,7 +250,7 @@ public class ThreadsController extends Thread {
 		 exit_or_restart.getContentPane().setLayout(new GridBagLayout());
 		 exit_or_restart.getContentPane().add(optionPanel, gbc);
 		 exit_or_restart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 exit_or_restart.setSize(300, 200);
+		 exit_or_restart.setSize(500, 200);
 		 exit_or_restart.setLocationRelativeTo(parent_window);
 		 exit_or_restart.setAlwaysOnTop(true);
 		 exit_or_restart.setVisible(true);
@@ -277,21 +308,21 @@ public class ThreadsController extends Thread {
 				 num_barrier_removed = 40;
 				 updates_before_jerry_pause = 20;
 				 num_of_freezer = 10;
-				 freezeTime = 10000;
+				 propEffectiveDuration = 10000;
 				 break;
 			 case 1: //medium
 				 tomSpeed = 200;
 				 num_barrier_removed = 20;
 				 updates_before_jerry_pause = 10;
 				 num_of_freezer = 5;
-				 freezeTime = 5000;
+				 propEffectiveDuration = 5000;
 				 break;
 			 case 2: //difficult
 				 tomSpeed = 100;
 				 num_barrier_removed = 10;
 				 updates_before_jerry_pause = 5;
 				 num_of_freezer = 3;
-				 freezeTime = 3000;
+				 propEffectiveDuration = 3000;
 				 break;
 		 }
 	 }
@@ -304,7 +335,23 @@ public class ThreadsController extends Thread {
 			 public void run() {
 				is_tom_frozen = false;
 			 }
-		 }, freezeTime);
+		 }, propEffectiveDuration);
 	 }
 
+	 private void nibblesComes() throws InterruptedException {
+		 shortest_path_for_jerry.clear();
+		 shortest_path_for_jerry = finder.findShortestPath(jerryPos, m.getExit());
+		 ((Window)parent_window).display_path(shortest_path_for_jerry);
+		 nibblesLeaves();
+	 }
+
+	private void nibblesLeaves(){
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				((Window)parent_window).remove_existing_path();
+			}
+		}, propEffectiveDuration);
+	}
 }

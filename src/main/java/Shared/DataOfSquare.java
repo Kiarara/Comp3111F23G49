@@ -18,7 +18,7 @@ public class DataOfSquare {
 		// Add the colors to the arrayList
 		C.add(Color.darkGray);//0 - dark gray representing wall
 		C.add(Color.white);   //1 - white representing possible location
-		C.add(Color.blue);
+		C.add(Color.blue); //2 - blue to show the shortest path
 		square = new SquarePanel(C.get(col));
 
 

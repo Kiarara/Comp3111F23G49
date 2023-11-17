@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Integrated all functions">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Function_B/ShortestPathFinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,13 +21,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Kiara-FunctionC-vF" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,20 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main__Oakley__v1",
+    "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main",
+    "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main" />
@@ -63,11 +71,17 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/java/Function_C" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Function_C" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Function_B" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main_A">
+  <component name="RunManager" selected="JUnit.ShortestPathFinderTest">
     <configuration name="Main_A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Function_A.Main_A" />
       <module name="COMP3111F23G49" />
@@ -114,7 +128,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VertexLocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShortestPathFinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
@@ -122,8 +136,8 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Function_C" />
-      <option name="MAIN_CLASS_NAME" value="Function_C.VertexLocationTest" />
+      <option name="PACKAGE_NAME" value="Function_B" />
+      <option name="MAIN_CLASS_NAME" value="Function_B.ShortestPathFinderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main_A" />
+        <item itemvalue="JUnit.ShortestPathFinderTest" />
         <item itemvalue="Application.Main_B" />
+        <item itemvalue="Application.Main_A" />
         <item itemvalue="Application.Main_C" />
         <item itemvalue="Application.ShortestPathFinder" />
-        <item itemvalue="JUnit.VertexLocationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -231,6 +245,9 @@
     <option name="localTasksCounter" value="11" />
     <servers />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -273,7 +290,10 @@
     <SUITE FILE_PATH="coverage/COMP3111F23G49$Main_A.ic" NAME="Main_A Coverage Results" MODIFIED="1700120337985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_A.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1700039770082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$ShortestPathFinderTest.ic" NAME="ShortestPathFinderTest Coverage Results" MODIFIED="1700144360050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_B.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1698156003906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>
   </component>

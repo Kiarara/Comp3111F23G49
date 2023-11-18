@@ -12,6 +12,7 @@ public class Main_A {
         for(int i=0;i<20;i++){
             Board.build_more_path();
         }
+        Board.wall_to_maze();
         Board.saveMazeToFile();
 
         //Creating the window with the grids

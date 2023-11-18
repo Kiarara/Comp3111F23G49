@@ -385,6 +385,40 @@ public class TestBoard_MST {
         assertEquals(14*14+3,count);
     }
     @Test
+    void wall_to_maze(){
+        Board_MST board_mst = new Board_MST();
+        //count number of white
+        int count = 0;
+        for(int i=2;i<29;i++){
+            if(board_mst.grid[1][i]==0){
+                count++;
+            }
+            if(board_mst.grid[i][1]==0){
+                count++;
+            }
+        }
+        if(board_mst.grid[1][1]==0){
+            count++;
+        }
+        assertEquals(count,0);
+
+        board_mst.wall_to_maze();
+        //count number of white
+        count = 0;
+        for(int i=2;i<29;i++){
+            if(board_mst.grid[1][i]==0){
+                count++;
+            }
+            if(board_mst.grid[i][1]==0){
+                count++;
+            }
+        }
+        if(board_mst.grid[1][1]==0){
+            count++;
+        }
+        assertEquals(count,16);
+    }
+    @Test
     void saveMazeToFile() throws IOException {
         Board_MST board_mst = new Board_MST();
         board_mst.build_maze();

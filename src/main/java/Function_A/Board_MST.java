@@ -136,7 +136,24 @@ public class Board_MST {
             }
         }
     }
-
+    public void wall_to_maze(){
+        int change = 0;
+        while(change!=8){
+            int col = rand.nextInt(28)+1;
+            if(grid[1][col]==1){
+                grid[1][col]=0;
+                change++;
+            }
+        }
+        change = 0;
+        while(change!=8){
+            int row = rand.nextInt(28)+1;
+            if(grid[row][1]==1){
+                grid[row][1]=0;
+                change++;
+            }
+        }
+    }
     public void saveMazeToFile() {
         try {
             FileWriter writer = new FileWriter("actual_maze.csv");

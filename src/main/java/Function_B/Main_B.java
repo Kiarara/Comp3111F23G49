@@ -19,7 +19,7 @@ public class Main_B {
         f1.setTitle("Shortest path");
         f1.setSize(900,900);
         f1.setVisible(true);
-        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         f1.setLocationRelativeTo(null);
 
         f1.set_maze("actual_maze.csv");
@@ -27,7 +27,10 @@ public class Main_B {
 
         Maze m = f1.getMaze();
         ShortestPathFinder finder = new ShortestPathFinder(m);
-        LinkedList<int[]> path = finder.findShortestPath(m.getEntry(), m.getExit());
-        f1.display_path(path);
+        finder.findShortestPath(m.getEntry(), m.getExit());
+        if (finder.shortestpath != null) {
+            LinkedList<int[]> path = finder.findShortestPath(m.getEntry(), m.getExit());
+            f1.display_path(path);
+        }
     }
 }

@@ -51,7 +51,6 @@ public class ShortestPathFinder {
             row = preRow;
             col = preCol;
         }
-
         shortestpath.addFirst(new int[]{startRow, startCol});
         return shortestpath;
     }

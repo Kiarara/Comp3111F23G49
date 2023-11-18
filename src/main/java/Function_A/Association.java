@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Association {
-    int weight;
-    int [] left_or_up_vertex;
-    int [] right_or_down_vertex;
-    int [] middle_vertex;
-    boolean old_is_left_or_up;
+    public int weight;
+    public int [] left_or_up_vertex;
+    public int [] right_or_down_vertex;
+    public int [] middle_vertex;
+    public boolean old_is_left_or_up;
 
     public Association(int[] first_coor, int[] second_coor){
         //right_or_down_vertex = first_coor;
@@ -17,6 +17,7 @@ public class Association {
         Random rand = new Random();
         weight = rand.nextInt(30);
         middle_vertex = new int[2];
+        //first_coor is the down coor
         if(first_coor[0]>second_coor[0]){
             right_or_down_vertex = first_coor;
             left_or_up_vertex = second_coor;

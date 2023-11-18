@@ -10,9 +10,9 @@ import java.util.Arrays;
 public class Board_MST {
 
     Random rand = new Random();
-    private int[][] grid;
-    private ArrayList<Association> association_list;
-    private ArrayList<int[]> mst;
+    public int[][] grid;
+    public ArrayList<Association> association_list;
+    public ArrayList<int[]> mst;
 
     //initializing the board with all zeros
     public Board_MST() {

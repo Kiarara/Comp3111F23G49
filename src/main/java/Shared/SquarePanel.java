@@ -28,6 +28,5 @@ public class SquarePanel extends JPanel{
 		this.revalidate();
 		this.repaint();
 	}
-
 }
 

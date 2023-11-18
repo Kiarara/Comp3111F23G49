@@ -40,7 +40,7 @@ public class WindowTest {
 
     @Test
     public void testDisplayPath() {
-        LinkedList<int[]> path = new LinkedList<>();
+        LinkedList<int[]> path;
         ShortestPathFinder finder = new ShortestPathFinder(window.m);
         path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
         window.display_path(path); // target function

@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Simple test files for Shared resources">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shared/GameControlFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main__Oakley__v1",
+    "git-widget-placeholder": "main__Oakley__v2",
     "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main",
     "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Modules",

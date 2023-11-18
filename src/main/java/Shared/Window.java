@@ -103,7 +103,7 @@ public class Window extends JFrame{
 			this.setVisible(true);
 		});
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().add(button, BorderLayout.CENTER);
 		frame.setSize(300, 200);
 		frame.setLocationRelativeTo(this);
@@ -149,7 +149,7 @@ public class Window extends JFrame{
 
 		mode_selection.getContentPane().setLayout(new GridBagLayout());
 		mode_selection.getContentPane().add(optionPanel, gbc);
-		mode_selection.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mode_selection.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		mode_selection.setSize(300, 200);
 		mode_selection.setLocationRelativeTo(this);
 		mode_selection.setAlwaysOnTop(true);

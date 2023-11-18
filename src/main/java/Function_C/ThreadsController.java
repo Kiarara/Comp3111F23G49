@@ -348,7 +348,7 @@ public class ThreadsController extends Thread {
 
 		exit_or_restart.getContentPane().setLayout(new GridBagLayout());
 		exit_or_restart.getContentPane().add(optionPanel, gbc);
-		exit_or_restart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		exit_or_restart.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		exit_or_restart.setSize(500, 200);
 		exit_or_restart.setLocationRelativeTo(parent_window);
 		exit_or_restart.setAlwaysOnTop(true);

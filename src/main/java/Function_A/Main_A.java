@@ -20,7 +20,7 @@ public class Main_A {
         f1.setTitle("Maze generated");
         f1.setSize(900,800);
         f1.setVisible(true);
-        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         f1.setLocationRelativeTo(null);
 
         f1.set_maze("actual_maze.csv");

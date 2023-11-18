@@ -71,6 +71,7 @@ public class GameControlFrame extends JFrame {
 
         // Make the frame visible
         setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     // Define the action listeners for each button

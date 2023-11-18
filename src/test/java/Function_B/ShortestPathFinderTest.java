@@ -1,61 +1,35 @@
 package Function_B;
-import java.util.*;
 
-import Function_C.VertexLocation;
-import Shared.*;
+import Shared.Maze;
+import Shared.Window;
 
-public class ShortestPathFinder {
-    private int[][] map;
-    private int numRows = 30;
-    private int numCols = 30;
-    private byte[][] visited;
-    private byte[][] distance;
-    private int[][] prevRow;
-    private int[][] prevCol;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
-    LinkedList<int[]> shortestpath;
-    Queue<int[]> queue;
+public class ShortestPathFinderTest {
 
-    public ShortestPathFinder(Maze m) {
-        map = m.maze;
-        visited = new byte[numRows][numCols];
-        distance = new byte[numRows][numCols];
-        prevRow = new int[numRows][numCols];
-        prevCol = new int[numRows][numCols];
+    @Test
+    void findShortestPath() {
+        // test if the shortest path is the shortest one, compared with the map in the requirement file
+        Window f1 = new Window(false);
+        f1.set_maze("MazeMap_TnJ.csv");
+        Maze m1 = f1.getMaze();
+        ShortestPathFinder finder = new ShortestPathFinder(m1);
+        finder.findShortestPath(m1.getEntry(), m1.getExit());
+        int output_length = finder.shortestpath.size();
+        int true_length = 49; // according to the requirement file
+        assertEquals(output_length, true_length);
 
-        shortestpath = new LinkedList<>();
-        queue = new LinkedList<>();
+        // test if can function normally when there is no path
+        f1.set_maze("Impossible_map.csv");
+        m1 = f1.getMaze();
+        finder = new ShortestPathFinder(m1);
+        finder.findShortestPath(m1.getEntry(), m1.getExit());
+        assertNull(finder.shortestpath);
     }
 
-    public LinkedList<int[]> findShortestPath(VertexLocation a, VertexLocation b) {
-        int startRow = a.x;
-        int startCol = a.y;
-        int endRow = b.x;
-        int endCol = b.y;
-        shortestpath.clear();
-        resetState();
-        bfs(startRow, startCol, endRow, endCol);
-
-        if (visited[endRow][endCol] == 0) {
-            System.out.println("No path found.");
-            shortestpath = null;
-        }
-        else {
-            int row = endRow;
-            int col = endCol;
-
-            while (row != startRow || col != startCol) {
-                shortestpath.addFirst(new int[]{row, col});
-                int preRow = prevRow[row][col];
-                int preCol = prevCol[row][col];
-                row = preRow;
-                col = preCol;
-            }
-
-            shortestpath.addFirst(new int[]{startRow, startCol});
-        }
-    }
-
+}
+/*
     private void bfs(int startRow, int startCol, int endRow, int endCol) {
         queue.clear();
         queue.offer(new int[]{startRow, startCol});
@@ -87,7 +61,8 @@ public class ShortestPathFinder {
             }
         }
     }
-
+}
+/*
     public int[] find_next(VertexLocation a, VertexLocation b){
         findShortestPath(a, b);
         int[] next = new int[2];
@@ -110,4 +85,8 @@ public class ShortestPathFinder {
         }
     }
 
-}
+    public void displayPath(Window w) {
+        ArrayList<ArrayList<DataOfSquare>> Grid = w.Grid;
+        shortestpath.forEach(element -> Grid.get(element[0]).get(element[1]).lightMeUp(2));
+    }
+*/

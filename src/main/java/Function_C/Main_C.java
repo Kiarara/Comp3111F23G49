@@ -9,6 +9,7 @@ public class Main_C {
 	public static void main(String[] args){
 
 		//Creating the window with the grids
+
 		Window f1= new Window();
 		f1.gameSetup();
 

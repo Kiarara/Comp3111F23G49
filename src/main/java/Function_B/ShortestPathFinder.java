@@ -54,6 +54,7 @@ public class ShortestPathFinder {
 
             shortestpath.addFirst(new int[]{startRow, startCol});
         }
+        return shortestpath;
     }
 
     private void bfs(int startRow, int startCol, int endRow, int endCol) {

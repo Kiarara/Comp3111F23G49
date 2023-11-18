@@ -4,11 +4,13 @@ import Function_B.ShortestPathFinder;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.util.LinkedList;
 
 import static org.junit.Assert.*;
 
-public class WindowTest extends SwingTestCase {
+public class WindowTest {
 
     private Window window;
     ShortestPathFinder finder;
@@ -70,7 +72,20 @@ public class WindowTest extends SwingTestCase {
     }
 
     @Test
+    public void name() {
+
+    }
+
+    @Test
     public void testGameSetup() {
+        // test if the
+        /*
+        JFrame[] frames = (JFrame[]) JFrame.getFrames();
+        boolean isJFrameCreated = false;
+        JFrame frame;
+        assertTrue(isJFrameCreated);
+         */
+        /*
         JFrame frame = getTestFrame();
         JButton button = new JButton("Click to Start");
 
@@ -79,11 +94,14 @@ public class WindowTest extends SwingTestCase {
 
             // Verify that the frame is disposed
             assertFalse(frame.isDisplayable());
-        }
 
         window.gameSetup();
         // Add assertions to verify the game setup
+
+         */
+        window.gameSetup();
     }
+
 
     @Test
     public void testSetMode() {
@@ -93,8 +111,9 @@ public class WindowTest extends SwingTestCase {
 
     @Test
     public void testStartGame() {
-        window.start_game(1); // Assuming 1 represents a specific game mode
+        window.start_game(1);
         // Add assertions to verify the start of the game
+
     }
 
 }

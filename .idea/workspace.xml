@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Integrated all functions">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Function_B/ShortestPathFinderTest.java" afterDir="false" />
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Add test case Function B, and fix the bug when there is no route">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shared/GameControlFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_C/Main_C.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,22 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main__Oakley__v1",
-    "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main",
-    "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main__Oakley__v1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main" />
@@ -81,7 +79,7 @@
       <recent name="Function_B" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ShortestPathFinderTest">
+  <component name="RunManager">
     <configuration name="Main_A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Function_A.Main_A" />
       <module name="COMP3111F23G49" />
@@ -242,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700120061183</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add test case Function B, and fix the bug when there is no route">
+      <option name="closed" value="true" />
+      <created>1700186216795</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700186216795</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -269,7 +275,8 @@
     <MESSAGE value="Added pop-up window to GUI" />
     <MESSAGE value="Adjusted the speed of Tom and Jerry" />
     <MESSAGE value="Integrated all functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrated all functions" />
+    <MESSAGE value="Add test case Function B, and fix the bug when there is no route" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add test case Function B, and fix the bug when there is no route" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

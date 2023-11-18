@@ -10,7 +10,6 @@ public class Main_C {
 
 		//Creating the window with the grids
 		Window f1= new Window(true);
-
 		//Setting up the window settings
 		f1.setTitle("Escape from Tom");
 		f1.setSize(900,900);

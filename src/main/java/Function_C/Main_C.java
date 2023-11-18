@@ -9,7 +9,8 @@ public class Main_C {
 	public static void main(String[] args){
 
 		//Creating the window with the grids
-		Window f1= new Window(true);
+		Window f1= new Window();
+		f1.gameSetup();
 
 		//Setting up the window settings
 		f1.setTitle("Escape from Tom");

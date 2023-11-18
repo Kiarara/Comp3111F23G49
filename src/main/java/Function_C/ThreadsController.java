@@ -173,7 +173,6 @@ public class ThreadsController extends Thread {
 			 stopTheGame(false);
 			 return false;
 		 }
-
 		 return true;
 	 }
 
@@ -199,59 +198,12 @@ public class ThreadsController extends Thread {
 		 // stop the game
 		 running = false;
 
-		 // print out messages
+		 // notify users' the game result and check if they want to exit or restart
 		 String message;
 		 if(win) message = "Congratulations! You successfully escaped from Tom! ";
 		 else
 			 message = "Oops... You get caught by Tom :( ";
-
-		 JFrame exit_or_restart = new JFrame(message);
-		 JButton exit_button = new JButton("Exit");
-		 JButton restart_button = new JButton("Restart");
-
-		 // check if users would like to exit or restart the game
-		 exit_button.addActionListener(e -> System.exit(0));
-
-		 restart_button.addActionListener(e -> {
-			 // clear freezer
-			 for (VertexLocation freezer: freezerLocs)
-				 Squares.get(freezer.x).get(freezer.y).clearObject();
-			 try {
-				 sleep(300);
-			 } catch (InterruptedException ex) {
-				 throw new RuntimeException(ex);
-			 }
-
-			 // clear Tuffy
-			 Squares.get(tuffyPos.x).get(tuffyPos.y).clearObject();
-			 //restart.set(true);
-			 exit_or_restart.dispose();
-			 try {
-				 sleep(500);
-				 ((Window) parent_window).restart_game();
-			 } catch (InterruptedException ex) {
-				 throw new RuntimeException(ex);
-			 }
-		 });
-
-		 GridBagConstraints gbc = new GridBagConstraints();
-		 gbc.gridx = 0;
-		 gbc.gridy = 0;
-		 gbc.weightx = 1.0;
-		 gbc.weighty = 1.0;
-		 gbc.fill = GridBagConstraints.CENTER;
-
-		 JPanel optionPanel = new JPanel();
-		 optionPanel.add(exit_button);
-		 optionPanel.add(restart_button);
-
-		 exit_or_restart.getContentPane().setLayout(new GridBagLayout());
-		 exit_or_restart.getContentPane().add(optionPanel, gbc);
-		 exit_or_restart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 exit_or_restart.setSize(500, 200);
-		 exit_or_restart.setLocationRelativeTo(parent_window);
-		 exit_or_restart.setAlwaysOnTop(true);
-		 exit_or_restart.setVisible(true);
+		 exit_or_restart(message);
 	 }
 
 	 // Moves Jerry internally (by updating the location stored)
@@ -288,7 +240,7 @@ public class ThreadsController extends Thread {
 	 // Display Tom and Jerry on the corresponding squares
 	 private void moveExterne(){
 		 // update Tom's location on the maze only when it doesn't overlap with the prop
-		 if (Squares.get(tomPos.x).get(tomPos.y).getObject() < 1)
+		 if (Squares.get(tomPos.x).get(tomPos.y).getObject() == -1)
 			 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
 		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
 	 }
@@ -298,7 +250,6 @@ public class ThreadsController extends Thread {
 		 Squares.get(jerryPos.x).get(jerryPos.y).clearObject();
 		 if (Squares.get(tomPos.x).get(tomPos.y).getObject() == 0)
 			 Squares.get(tomPos.x).get(tomPos.y).clearObject();
-
 	 }
 
 	 public void setMode(int mode){
@@ -353,5 +304,54 @@ public class ThreadsController extends Thread {
 				((Window)parent_window).remove_existing_path();
 			}
 		}, propEffectiveDuration);
+	}
+
+	public void exit_or_restart(String title){
+		JFrame exit_or_restart = new JFrame(title);
+		JButton exit_button = new JButton("Exit");
+		JButton restart_button = new JButton("Restart");
+
+		// check if users would like to exit or restart the game
+		exit_button.addActionListener(e -> System.exit(0));
+
+		restart_button.addActionListener(e -> {
+			// clear freezer
+			for (VertexLocation freezer: freezerLocs)
+				Squares.get(freezer.x).get(freezer.y).clearObject();
+			try {
+				sleep(300);
+			} catch (InterruptedException ex) {
+				throw new RuntimeException(ex);
+			}
+
+			// clear Tuffy
+			Squares.get(tuffyPos.x).get(tuffyPos.y).clearObject();
+			exit_or_restart.dispose();
+			try {
+				sleep(500);
+				((Window) parent_window).setMode();
+			} catch (InterruptedException ex) {
+				throw new RuntimeException(ex);
+			}
+		});
+
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.fill = GridBagConstraints.CENTER;
+
+		JPanel optionPanel = new JPanel();
+		optionPanel.add(exit_button);
+		optionPanel.add(restart_button);
+
+		exit_or_restart.getContentPane().setLayout(new GridBagLayout());
+		exit_or_restart.getContentPane().add(optionPanel, gbc);
+		exit_or_restart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		exit_or_restart.setSize(500, 200);
+		exit_or_restart.setLocationRelativeTo(parent_window);
+		exit_or_restart.setAlwaysOnTop(true);
+		exit_or_restart.setVisible(true);
 	}
 }

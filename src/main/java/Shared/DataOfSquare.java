@@ -23,6 +23,7 @@ public class DataOfSquare {
 		C.add(Color.blue);
 		square = new SquarePanel(C.get(col));
 		color = col;
+		obj = -1;
 
 		// Add the images of Tom and Jerry to the arrayList
 		I.add(new ImageIcon("1_Tom-min.png"));//0

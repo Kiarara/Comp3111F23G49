@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Simple test files for Shared resources">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Shared/GameControlFrame.java" afterDir="false" />
+
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="add a wall on the top">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,20 +61,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main__Oakley__v2",
-    "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main",
-    "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Benny__maze&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main" />
@@ -83,8 +89,10 @@
       <recent name="Function_C" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="DataOfSquareTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
+  <component name="RunManager" selected="JUnit.TestBoard_MST.main_a">
+    <configuration name="TestBoard_MST.build_maze" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
@@ -92,60 +100,70 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shared" />
-      <option name="MAIN_CLASS_NAME" value="Shared.DataOfSquareTest" />
-      <option name="TEST_OBJECT" value="class" />
+
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
+      <option name="METHOD_NAME" value="build_maze" />
+      <option name="TEST_OBJECT" value="method" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MazeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
+    <configuration name="TestBoard_MST.build_more_path" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Shared.*" />
+          <option name="PATTERN" value="Function_A.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shared" />
-      <option name="MAIN_CLASS_NAME" value="Shared.MazeTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
+      <option name="METHOD_NAME" value="build_more_path" />
+      <option name="TEST_OBJECT" value="method" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WindowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBoard_MST.expand_coor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Shared.*" />
+          <option name="PATTERN" value="Function_A.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shared" />
-      <option name="MAIN_CLASS_NAME" value="Shared.WindowTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
+      <option name="METHOD_NAME" value="expand_coor" />
+      <option name="TEST_OBJECT" value="method" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WindowTest.testDisplayMaze" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBoard_MST.main_a" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Shared.*" />
+          <option name="PATTERN" value="Function_A.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shared" />
-      <option name="MAIN_CLASS_NAME" value="Shared.WindowTest" />
-      <option name="METHOD_NAME" value="testDisplayMaze" />
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
+      <option name="METHOD_NAME" value="main_a" />
+
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WindowTest.testSetMaze" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBoard_MST.saveMazeToFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
@@ -153,9 +171,10 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shared" />
-      <option name="MAIN_CLASS_NAME" value="Shared.WindowTest" />
-      <option name="METHOD_NAME" value="testSetMaze" />
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
+      <option name="METHOD_NAME" value="saveMazeToFile" />
+
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,11 +182,12 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WindowTest.testSetMaze" />
-        <item itemvalue="JUnit.WindowTest.testDisplayMaze" />
-        <item itemvalue="JUnit.WindowTest" />
-        <item itemvalue="JUnit.MazeTest" />
-        <item itemvalue="JUnit.DataOfSquareTest" />
+        <item itemvalue="JUnit.TestBoard_MST.main_a" />
+        <item itemvalue="JUnit.TestBoard_MST.saveMazeToFile" />
+        <item itemvalue="JUnit.TestBoard_MST.build_more_path" />
+        <item itemvalue="JUnit.TestBoard_MST.build_maze" />
+        <item itemvalue="JUnit.TestBoard_MST.expand_coor" />
+
       </list>
     </recent_temporary>
   </component>
@@ -276,39 +296,16 @@
       <option name="project" value="LOCAL" />
       <updated>1700176711271</updated>
     </task>
-    <task id="LOCAL-00013" summary="Fix the exit and duplicate jframe dispose waiting time issue">
+    <task id="LOCAL-00013" summary="add a wall on the top">
       <option name="closed" value="true" />
-      <created>1700184092246</created>
+      <created>1700133401388</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1700184092246</updated>
+      <updated>1700133401388</updated>
     </task>
-    <task id="LOCAL-00014" summary="Fix the exit and duplicate jframe dispose waiting time issue">
-      <option name="closed" value="true" />
-      <created>1700184179550</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1700184179550</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Jerry's friend is called Tuffy lol">
-      <option name="closed" value="true" />
-      <created>1700184890921</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1700184890921</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Simple test files for Shared resources">
-      <option name="closed" value="true" />
-      <created>1700289998128</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1700289998129</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="14" />
+
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,20 +329,56 @@
     <MESSAGE value="Added pop-up window to GUI" />
     <MESSAGE value="Adjusted the speed of Tom and Jerry" />
     <MESSAGE value="Integrated all functions" />
-    <MESSAGE value="Implemented setting of different difficulty level and game prop - freezer (which freezes Tom for a specific period of time)" />
-    <MESSAGE value="Fix the exit and duplicate jframe dispose waiting time issue" />
-    <MESSAGE value="Jerry's friend is called Tuffy lol" />
-    <MESSAGE value="Simple test files for Shared resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simple test files for Shared resources" />
+    <MESSAGE value="&#10;debugged function a, shorten height of the gui so player can see the whole map" />
+    <MESSAGE value="build_more_path function is now called 20 times instead of 10 times" />
+    <MESSAGE value="add a wall on the top" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a wall on the top" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.FileNotFoundException" package="java.io" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_remove_redundant.ic" NAME="TestBoard_MST.remove_redundant Coverage Results" MODIFIED="1700213784303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_coor.ic" NAME="TestBoard_MST.get_coor Coverage Results" MODIFIED="1700134986829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_Association.ic" NAME="TestBoard_MST.Association Coverage Results" MODIFIED="1700138029550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_expand_coor.ic" NAME="TestBoard_MST.expand_coor Coverage Results" MODIFIED="1700214423324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_saveMazeToFile.ic" NAME="TestBoard_MST.saveMazeToFile Coverage Results" MODIFIED="1700294066030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_compare.ic" NAME="TestBoard_MST.compare Coverage Results" MODIFIED="1700152836056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1698156003906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$Main_A.ic" NAME="Main_A Coverage Results" MODIFIED="1700120337985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_A.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testDisplayMaze.ic" NAME="WindowTest.testDisplayMaze Coverage Results" MODIFIED="1700289913584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_new_coor.ic" NAME="TestBoard_MST.get_new_coor Coverage Results" MODIFIED="1700138638998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_coor.ic" NAME="TestBoard_MST.get_coor Coverage Results" MODIFIED="1700130873624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_maze.ic" NAME="TestBoard_MST.build_maze Coverage Results" MODIFIED="1700225301642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+
       <FILTER>Function_A.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testSetMaze.ic" NAME="WindowTest.testSetMaze Coverage Results" MODIFIED="1700289933604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -368,6 +401,12 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/Comp3111F23G49$board_test_get_coor.ic" NAME="board_test.get_coor Coverage Results" MODIFIED="1700038484689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>board.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_Board_MST.ic" NAME="TestBoard_MST.Board_MST Coverage Results" MODIFIED="1700210940347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_more_path.ic" NAME="TestBoard_MST.build_more_path Coverage Results" MODIFIED="1700225909735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
     </SUITE>
   </component>
 </project>

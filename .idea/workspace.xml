@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Simple test files for Shared resources">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Shared/MazeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Shared/MazeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Shared/SquarePanelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Shared/SquarePanelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shared/DataOfSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Shared/WindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Shared/WindowTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

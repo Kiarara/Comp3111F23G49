@@ -11,8 +11,8 @@ public class Association {
     boolean old_is_left_or_up;
 
     public Association(int[] first_coor, int[] second_coor){
-        right_or_down_vertex = first_coor;
-        left_or_up_vertex = second_coor;
+        //right_or_down_vertex = first_coor;
+        //left_or_up_vertex = second_coor;
 
         Random rand = new Random();
         weight = rand.nextInt(30);
@@ -49,13 +49,13 @@ public class Association {
 
     public int[] get_coor(int[] other_coor){
         if(Arrays.equals(other_coor,right_or_down_vertex)){
-            return right_or_down_vertex;
-        }
-        else if(Arrays.equals(other_coor,left_or_up_vertex)) {
             return left_or_up_vertex;
         }
+        else if(Arrays.equals(other_coor,left_or_up_vertex)) {
+            return right_or_down_vertex;
+        }
         else {
-            int null_coor[] = {-1,-1};
+            int [] null_coor = {-1,-1};
             return null_coor;
         }
     }

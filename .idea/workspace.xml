@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="add a wall on the top">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +28,24 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Kiara-FunctionC-vF" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kiarara&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6302aebd-2e16-42d9-b0e7-8576e39ae2aa" />
+        <option name="url" value="https://github.com/Kiarara/Comp3111F23G49" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -45,6 +61,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
@@ -57,6 +74,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+
   }
 }</component>
   <component name="RecentsManager">
@@ -71,23 +89,28 @@
       <recent name="Function_C" />
     </key>
   </component>
+
   <component name="RunManager" selected="JUnit.TestBoard_MST.main_a">
     <configuration name="TestBoard_MST.build_maze" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Function_A.*" />
+          <option name="PATTERN" value="Shared.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="Function_A" />
       <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
       <option name="METHOD_NAME" value="build_maze" />
       <option name="TEST_OBJECT" value="method" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="TestBoard_MST.build_more_path" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
@@ -100,6 +123,7 @@
       <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
       <option name="METHOD_NAME" value="build_more_path" />
       <option name="TEST_OBJECT" value="method" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -116,6 +140,7 @@
       <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
       <option name="METHOD_NAME" value="expand_coor" />
       <option name="TEST_OBJECT" value="method" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,22 +156,25 @@
       <option name="PACKAGE_NAME" value="Function_A" />
       <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
       <option name="METHOD_NAME" value="main_a" />
+
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="TestBoard_MST.saveMazeToFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Function_A.*" />
+          <option name="PATTERN" value="Shared.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Function_A" />
       <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
       <option name="METHOD_NAME" value="saveMazeToFile" />
+
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,6 +187,7 @@
         <item itemvalue="JUnit.TestBoard_MST.build_more_path" />
         <item itemvalue="JUnit.TestBoard_MST.build_maze" />
         <item itemvalue="JUnit.TestBoard_MST.expand_coor" />
+
       </list>
     </recent_temporary>
   </component>
@@ -251,21 +280,21 @@
       <option name="project" value="LOCAL" />
       <updated>1700120061183</updated>
     </task>
-    <task id="LOCAL-00011" summary="&#10;debugged function a, shorten height of the gui so player can see the whole map">
+    <task id="LOCAL-00011" summary="Implemented setting of different difficulty level and game prop - freezer (which freezes Tom for a specific period of time)">
       <option name="closed" value="true" />
-      <created>1700128120456</created>
+      <created>1700176658391</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1700128120456</updated>
+      <updated>1700176658391</updated>
     </task>
-    <task id="LOCAL-00012" summary="build_more_path function is now called 20 times instead of 10 times">
+    <task id="LOCAL-00012" summary="Implemented setting of different difficulty level and game prop - freezer (which freezes Tom for a specific period of time)">
       <option name="closed" value="true" />
-      <created>1700128615014</created>
+      <created>1700176711271</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1700128615014</updated>
+      <updated>1700176711271</updated>
     </task>
     <task id="LOCAL-00013" summary="add a wall on the top">
       <option name="closed" value="true" />
@@ -276,6 +305,7 @@
       <updated>1700133401388</updated>
     </task>
     <option name="localTasksCounter" value="14" />
+
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,7 +378,26 @@
       <FILTER>Function_A.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_maze.ic" NAME="TestBoard_MST.build_maze Coverage Results" MODIFIED="1700225301642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+
       <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testSetMaze.ic" NAME="WindowTest.testSetMaze Coverage Results" MODIFIED="1700289933604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest.ic" NAME="WindowTest Coverage Results" MODIFIED="1700289875011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$ShortestPathFinderTest.ic" NAME="ShortestPathFinderTest Coverage Results" MODIFIED="1700144360050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_B.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$MazeTest.ic" NAME="MazeTest Coverage Results" MODIFIED="1700289859388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1698156003906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$DataOfSquareTest.ic" NAME="DataOfSquareTest Coverage Results" MODIFIED="1700289700665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Comp3111F23G49$board_test_get_coor.ic" NAME="board_test.get_coor Coverage Results" MODIFIED="1700038484689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>board.*</FILTER>

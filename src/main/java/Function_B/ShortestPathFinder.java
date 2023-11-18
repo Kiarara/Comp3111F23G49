@@ -27,7 +27,7 @@ public class ShortestPathFinder {
         queue = new LinkedList<>();
     }
 
-    public void findShortestPath(VertexLocation a, VertexLocation b) {
+    public LinkedList<int[]> findShortestPath(VertexLocation a, VertexLocation b) {
         int startRow = a.x;
         int startCol = a.y;
         int endRow = b.x;
@@ -51,8 +51,8 @@ public class ShortestPathFinder {
             row = preRow;
             col = preCol;
         }
-
         shortestpath.addFirst(new int[]{startRow, startCol});
+        return shortestpath;
     }
 
     private void bfs(int startRow, int startCol, int endRow, int endCol) {
@@ -106,11 +106,6 @@ public class ShortestPathFinder {
             Arrays.fill(prevRow[i], 0);
             Arrays.fill(prevCol[i], 0);
         }
-    }
-
-    public void displayPath(Window w) {
-        ArrayList<ArrayList<DataOfSquare>> Grid = w.Grid;
-        shortestpath.forEach(element -> Grid.get(element[0]).get(element[1]).lightMeUp(2));
     }
 
 }

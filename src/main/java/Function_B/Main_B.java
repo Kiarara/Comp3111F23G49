@@ -4,6 +4,7 @@ import Function_A.Board_MST;
 import Shared.*;
 
 import javax.swing.*;
+import java.util.LinkedList;
 
 public class Main_B {
     public static void main(String[] args) {
@@ -12,7 +13,7 @@ public class Main_B {
         Board.saveMazeToFile();
 
         //Creating the window with the grids
-        Window f1= new Window(false);
+        Window f1= new Window();
 
         //Setting up the window settings
         f1.setTitle("Shortest path");
@@ -27,6 +28,9 @@ public class Main_B {
         Maze m = f1.getMaze();
         ShortestPathFinder finder = new ShortestPathFinder(m);
         finder.findShortestPath(m.getEntry(), m.getExit());
-        finder.displayPath(f1);
+        if (finder.shortestpath != null) {
+            LinkedList<int[]> path = finder.findShortestPath(m.getEntry(), m.getExit());
+            f1.display_path(path);
+        }
     }
 }

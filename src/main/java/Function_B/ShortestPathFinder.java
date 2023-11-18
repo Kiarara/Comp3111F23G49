@@ -40,20 +40,20 @@ public class ShortestPathFinder {
             System.out.println("No path found.");
             shortestpath = null;
         }
-        else {
-            int row = endRow;
-            int col = endCol;
 
-            while (row != startRow || col != startCol) {
-                shortestpath.addFirst(new int[]{row, col});
-                int preRow = prevRow[row][col];
-                int preCol = prevCol[row][col];
-                row = preRow;
-                col = preCol;
-            }
+        int row = endRow;
+        int col = endCol;
 
-            shortestpath.addFirst(new int[]{startRow, startCol});
+        while (row != startRow || col != startCol) {
+            shortestpath.addFirst(new int[]{row, col});
+            int preRow = prevRow[row][col];
+            int preCol = prevCol[row][col];
+            row = preRow;
+            col = preCol;
         }
+
+        shortestpath.addFirst(new int[]{startRow, startCol});
+        return shortestpath;
     }
 
     private void bfs(int startRow, int startCol, int endRow, int endCol) {
@@ -95,7 +95,6 @@ public class ShortestPathFinder {
         next[1] = shortestpath.get(shortestpath.size()-2)[1];
         return next;
     }
-
 
     private boolean isValidMove(int row, int col) {
         return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && visited[row][col] == 0;

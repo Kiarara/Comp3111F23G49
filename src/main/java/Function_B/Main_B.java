@@ -22,13 +22,11 @@ public class Main_B {
         f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f1.setLocationRelativeTo(null);
 
-        f1.set_maze("actual_maze.csv"); // "actual_maze.csv"
+        f1.set_maze("actual_maze.csv");
         f1.display_maze();
 
         Maze m = f1.getMaze();
         ShortestPathFinder finder = new ShortestPathFinder(m);
-        finder.findShortestPath(m.getEntry(), m.getExit());
-        if (finder.shortestpath != null) finder.displayPath(f1);
         LinkedList<int[]> path = finder.findShortestPath(m.getEntry(), m.getExit());
         f1.display_path(path);
     }

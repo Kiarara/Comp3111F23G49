@@ -19,6 +19,7 @@ public class WindowTest {
     public void testSetMaze() {
         window.set_maze("actual_maze.csv"); // Assuming "test_maze.csv" is a valid maze file
         assertNotNull(window.getMaze());
+        assert
     }
 
     @Test

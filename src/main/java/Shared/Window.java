@@ -1,6 +1,8 @@
 package Shared;
 
+import Function_C.GameStartButton;
 import Function_C.KeyboardListener;
+import Function_C.ModeButton;
 import Function_C.ThreadsController;
 
 import javax.swing.*;
@@ -67,9 +69,8 @@ public class Window extends JFrame{
 	public void display_path(LinkedList<int[]> path){
 		for (int[] loc : path) {
 			Grid.get(loc[0]).get(loc[1]).lightMeUp(2);
-			try {
-				sleep(1);
-			} catch (InterruptedException e) {
+			try { sleep(1);}
+			catch (InterruptedException e) {
 				throw new RuntimeException(e);
 			}
 		}
@@ -80,8 +81,7 @@ public class Window extends JFrame{
 			for(int j=0;j<30;j++){
 				if (Grid.get(i).get(j).color == 2)
 					Grid.get(i).get(j).lightMeUp(1);
-				try {
-					sleep(1);
+				try { sleep(1);
 				} catch (InterruptedException e) {
 					throw new RuntimeException(e);
 				}
@@ -95,16 +95,10 @@ public class Window extends JFrame{
 
 	public void gameSetup(){
 		JFrame frame = new JFrame("Welcome to the game!");
-		JButton button = new JButton("Click to Start");
-
-		button.addActionListener(e -> {
-			frame.dispose();
-			setMode();
-			this.setVisible(true);
-		});
+		GameStartButton start_button = new GameStartButton(this, frame);
 
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().add(button, BorderLayout.CENTER);
+		frame.getContentPane().add(start_button, BorderLayout.CENTER);
 		frame.setSize(300, 200);
 		frame.setLocationRelativeTo(this);
 		frame.setAlwaysOnTop(true);
@@ -116,24 +110,6 @@ public class Window extends JFrame{
 
 	public void setMode(){
 		JFrame mode_selection = new JFrame("Select your game difficulty");
-		JButton easy = new JButton("Easy");
-		JButton medium = new JButton("Medium");
-		JButton hard = new JButton("hard");
-
-		easy.addActionListener(f-> {
-			start_game(0);
-			mode_selection.dispose();
-		});
-
-		medium.addActionListener(f-> {
-			start_game(1);
-			mode_selection.dispose();
-		});
-
-		hard.addActionListener(f-> {
-			start_game(2);
-			mode_selection.dispose();
-		});
 
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -143,9 +119,9 @@ public class Window extends JFrame{
 		gbc.fill = GridBagConstraints.CENTER;
 
 		JPanel optionPanel = new JPanel();
-		optionPanel.add(easy);
-		optionPanel.add(medium);
-		optionPanel.add(hard);
+		optionPanel.add(new ModeButton(0, mode_selection,this));
+		optionPanel.add(new ModeButton(1, mode_selection, this));
+		optionPanel.add(new ModeButton(2, mode_selection, this));
 
 		mode_selection.getContentPane().setLayout(new GridBagLayout());
 		mode_selection.getContentPane().add(optionPanel, gbc);
@@ -160,6 +136,6 @@ public class Window extends JFrame{
 		ThreadsController c = new ThreadsController(this);
 		c.setMode(mode);
 		c.start();
-
 	}
+
 }

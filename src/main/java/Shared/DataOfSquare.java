@@ -50,4 +50,6 @@ public class DataOfSquare {
 	public int getObject(){
 		return obj;
 	}
+
+	public int getColor() { return color;}
 }

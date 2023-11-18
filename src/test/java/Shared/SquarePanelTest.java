@@ -25,7 +25,7 @@ public class SquarePanelTest {
 
     @Test
     public void testSetImage() {
-        ImageIcon testIcon = new ImageIcon("test_image.png"); // Assuming "test_image.png" is a valid image path
+        ImageIcon testIcon = new ImageIcon("1_Tom.png"); // Assuming "test_image.png" is a valid image path
         squarePanel.setImage(testIcon);
         assertNotNull(squarePanel.getComponent(0)); // Assuming the image is added as the first component
     }

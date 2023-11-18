@@ -2,6 +2,7 @@
 package Function_C;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.*;
 import java.util.Timer;
 
@@ -54,7 +55,11 @@ public class ThreadsController extends Thread {
 		 boolean onlyTom;
 		 running = true;
 
-		 game_initialize();
+		 try {
+			 game_initialize();
+		 } catch (IOException e) {
+			 throw new RuntimeException(e);
+		 }
 
 		 while(running){
 			 if(jerry_move < 10)
@@ -96,7 +101,7 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
-	 private void game_initialize(){
+	 private void game_initialize() throws IOException {
 		 // generate a new maze
 		 Board_MST Board = new Board_MST();
 		 Board.build_maze();

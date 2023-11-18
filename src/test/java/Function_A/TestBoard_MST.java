@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 //import static org.junit.Assert.assertEquals;
 //import java.util.Scanner;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 public class TestBoard_MST {
     @Test
@@ -383,7 +385,7 @@ public class TestBoard_MST {
         assertEquals(14*14+3,count);
     }
     @Test
-    void saveMazeToFile(){
+    void saveMazeToFile() throws IOException {
         Board_MST board_mst = new Board_MST();
         board_mst.build_maze();
         board_mst.saveMazeToFile();
@@ -393,7 +395,7 @@ public class TestBoard_MST {
         //}
     }
     @Test
-    void main_a(){
+    void main_a() throws IOException {
         Main_A.main(null);
         Maze maze = new Maze("actual_maze.csv");
         int count = 0;

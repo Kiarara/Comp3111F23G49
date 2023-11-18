@@ -4,10 +4,11 @@ import Function_A.Board_MST;
 import Shared.*;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.LinkedList;
 
 public class Main_B {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Board_MST Board = new Board_MST();
         Board.build_maze();
         Board.saveMazeToFile();

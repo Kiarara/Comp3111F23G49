@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class GameControlFrame extends JFrame {
     private JButton button1;
@@ -78,14 +79,22 @@ public class GameControlFrame extends JFrame {
     private class Button1Listener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Main_A.main(null);
+            try {
+                Main_A.main(null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 
     private class Button2Listener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Main_B.main(null);
+            try {
+                Main_B.main(null);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 

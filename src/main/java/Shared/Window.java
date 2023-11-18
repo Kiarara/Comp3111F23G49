@@ -7,6 +7,7 @@ import Function_C.ThreadsController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -46,7 +47,7 @@ public class Window extends JFrame{
 		}
 	}
 
-	public void set_maze(String csv_file){
+	public void set_maze(String csv_file) throws IOException {
 		m = new Maze(csv_file);
 	}
 

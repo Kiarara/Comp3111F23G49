@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.LinkedList;
 
 import static org.junit.Assert.*;
@@ -17,7 +18,7 @@ public class WindowTest {
     private LinkedList<int[]> path;
 
     @Before
-    public void setUp() {
+    public void setUp() throws IOException {
         window = new Window();
         window.set_maze("MazeMap_TnJ.csv");
         finder = new ShortestPathFinder(window.m);

@@ -13,7 +13,7 @@ public class Main_B {
         Board.saveMazeToFile();
 
         //Creating the window with the grids
-        Window f1= new Window(false);
+        Window f1= new Window();
 
         //Setting up the window settings
         f1.setTitle("Shortest path");

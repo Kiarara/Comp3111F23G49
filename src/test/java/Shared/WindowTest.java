@@ -8,14 +8,18 @@ import java.util.LinkedList;
 
 import static org.junit.Assert.*;
 
-public class WindowTest {
+public class WindowTest extends SwingTestCase {
 
     private Window window;
+    ShortestPathFinder finder;
+    private LinkedList<int[]> path;
 
     @Before
     public void setUp() {
         window = new Window();
-        window.set_maze("MazeMap_SPT.csv");
+        window.set_maze("MazeMap_TnJ.csv");
+        finder = new ShortestPathFinder(window.m);
+        path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
     }
 
     @Test
@@ -40,8 +44,6 @@ public class WindowTest {
 
     @Test
     public void testDisplayPath() {
-        LinkedList<int[]> path;
-        ShortestPathFinder finder = new ShortestPathFinder(window.m);
         path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
         window.display_path(path); // target function
 
@@ -57,8 +59,8 @@ public class WindowTest {
 
     @Test
     public void testRemoveExistingPath() {
-        window.remove_existing_path();
-        // Add assertions to verify the removal of the existing path
+        window.display_path(path);
+        window.remove_existing_path(); // target function
         for (int i = 0; i<30; ++i){
             for (int j = 0; j<30; ++j)
             {
@@ -69,6 +71,16 @@ public class WindowTest {
 
     @Test
     public void testGameSetup() {
+        JFrame frame = getTestFrame();
+        JButton button = new JButton("Click to Start");
+
+            // Simulate button click
+            button.doClick();
+
+            // Verify that the frame is disposed
+            assertFalse(frame.isDisplayable());
+        }
+
         window.gameSetup();
         // Add assertions to verify the game setup
     }

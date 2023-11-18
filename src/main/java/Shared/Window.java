@@ -67,9 +67,8 @@ public class Window extends JFrame{
 	public void display_path(LinkedList<int[]> path){
 		for (int[] loc : path) {
 			Grid.get(loc[0]).get(loc[1]).lightMeUp(2);
-			try {
-				sleep(1);
-			} catch (InterruptedException e) {
+			try { sleep(1);}
+			catch (InterruptedException e) {
 				throw new RuntimeException(e);
 			}
 		}
@@ -80,8 +79,7 @@ public class Window extends JFrame{
 			for(int j=0;j<30;j++){
 				if (Grid.get(i).get(j).color == 2)
 					Grid.get(i).get(j).lightMeUp(1);
-				try {
-					sleep(1);
+				try { sleep(1);
 				} catch (InterruptedException e) {
 					throw new RuntimeException(e);
 				}
@@ -160,6 +158,5 @@ public class Window extends JFrame{
 		ThreadsController c = new ThreadsController(this);
 		c.setMode(mode);
 		c.start();
-
 	}
 }

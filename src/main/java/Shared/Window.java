@@ -47,8 +47,12 @@ public class Window extends JFrame{
 		}
 	}
 
-	public void set_maze(String csv_file) throws IOException {
-		m = new Maze(csv_file);
+	public void set_maze(String csv_file) {
+		try {
+			m = new Maze(csv_file);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void display_maze() {
@@ -96,7 +100,7 @@ public class Window extends JFrame{
 
 	public void gameSetup(){
 		JFrame frame = new JFrame("Welcome to the game!");
-		GameStartButton start_button = new GameStartButton(this, frame);
+		GameStartButton start_button = new GameStartButton(this, frame,true);
 
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().add(start_button, BorderLayout.CENTER);

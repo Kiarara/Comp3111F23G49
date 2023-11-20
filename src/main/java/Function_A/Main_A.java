@@ -2,10 +2,9 @@ package Function_A;
 import Shared.Window;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class Main_A {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         Board_MST Board = new Board_MST();
         Board.build_maze();

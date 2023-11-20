@@ -5,14 +5,11 @@ import static org.mockito.Mockito.*;
 import javax.swing.JFrame;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import Shared.Window;
 
-@RunWith(MockitoJUnitRunner.class)
 public class GameStartButtonTest {
     @Mock
     Window mock_gameWindow = Mockito.mock(Window.class);
@@ -21,7 +18,7 @@ public class GameStartButtonTest {
     @Test
     public void testGameStartButton() {
 
-        GameStartButton button = new GameStartButton(mock_gameWindow, mock_parent_frame);
+        GameStartButton button = new GameStartButton(mock_gameWindow, mock_parent_frame, true);
 
         // Simulate button click
         button.doClick();

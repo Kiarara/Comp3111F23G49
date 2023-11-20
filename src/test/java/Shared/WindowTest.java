@@ -4,12 +4,10 @@ import Function_B.ShortestPathFinder;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
 import java.util.LinkedList;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class WindowTest {
 
@@ -17,17 +15,23 @@ public class WindowTest {
     ShortestPathFinder finder;
     private LinkedList<int[]> path;
 
+    @Test
+    public void testSetMaze() {
+        window = new Window();
+        window.set_maze("MazeMap_TnJ.csv"); // target function
+        assertNotNull(window.getMaze());
+        assertThrows(RuntimeException.class, () -> {
+            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
+            window.set_maze("fake_maze"); // target function
+        });
+    }
+
     @Before
-    public void setUp() throws IOException {
+    public void setUp() {
         window = new Window();
         window.set_maze("MazeMap_TnJ.csv");
         finder = new ShortestPathFinder(window.m);
         path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
-    }
-
-    @Test
-    public void testSetMaze() {
-        assertNotNull(window.getMaze());
     }
 
     @Test
@@ -43,6 +47,11 @@ public class WindowTest {
                     assertEquals(0, window.Grid.get(i).get(j).getColor());
             }
         }
+
+        assertThrows(RuntimeException.class, () -> {
+            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
+            window.display_maze(); // target function
+        });
     }
 
     @Test
@@ -58,6 +67,11 @@ public class WindowTest {
                     assertEquals(2, window.Grid.get(i).get(j).getColor());
             }
         }
+
+        assertThrows(RuntimeException.class, () -> {
+            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
+            window.display_path(path); // target function
+        });
     }
 
     @Test
@@ -70,51 +84,26 @@ public class WindowTest {
                 assertNotEquals(2, window.Grid.get(i).get(j).getColor());
             }
         }
-    }
 
-    @Test
-    public void name() {
-
+        assertThrows(RuntimeException.class, () -> {
+            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
+            window.remove_existing_path(); // target function
+        });
     }
 
     @Test
     public void testGameSetup() {
-        // test if the
-        /*
-        JFrame[] frames = (JFrame[]) JFrame.getFrames();
-        boolean isJFrameCreated = false;
-        JFrame frame;
-        assertTrue(isJFrameCreated);
-         */
-        /*
-        JFrame frame = getTestFrame();
-        JButton button = new JButton("Click to Start");
-
-            // Simulate button click
-            button.doClick();
-
-            // Verify that the frame is disposed
-            assertFalse(frame.isDisplayable());
-
-        window.gameSetup();
-        // Add assertions to verify the game setup
-
-         */
         window.gameSetup();
     }
-
 
     @Test
     public void testSetMode() {
         window.setMode();
-        // Add assertions to verify the mode selection
     }
 
     @Test
     public void testStartGame() {
         window.start_game(1);
-        // Add assertions to verify the start of the game
-
     }
 
 }

@@ -1,19 +1,10 @@
 package Function_C;
 
 import Shared.*;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
-import javax.swing.*;
-import java.awt.BorderLayout;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.Timer;
 import java.util.TimerTask;
 
 import static Function_C.ThreadsController.directionJerry;
@@ -97,7 +88,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testIsRunning() throws IOException, InterruptedException {
+    public void testIsRunning() {
         // initialize tom and jerry to entry and exit
         test_tc.game_initialize();
 
@@ -106,17 +97,17 @@ public class ThreadsControllerTest {
 
         // check when Tom catches Jerry
         test_tc.tomPos.updateLocation(test_tc.jerryPos.x, test_tc.jerryPos.y);
-        assertEquals(false, test_tc.isRunning()); // target function
+        assertFalse(test_tc.isRunning()); // target function
 
         // check when Jerry reaches exit
         test_tc.game_initialize();
         test_tc.moveTom();
         test_tc.jerryPos.updateLocation(test_tc.m.getExit().x, test_tc.m.getExit().y);
-        assertEquals(false, test_tc.isRunning()); // target function
+        assertFalse(test_tc.isRunning()); // target function
     }
 
     @Test
-    public void testCheckFreezer() throws IOException {
+    public void testCheckFreezer()  {
         test_tc.setMode(1);
         test_tc.game_initialize();
 
@@ -140,7 +131,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testCheckTuffy() throws IOException, InterruptedException {
+    public void testCheckTuffy() {
 
         test_tc.setMode(1);
         test_tc.game_initialize();
@@ -160,12 +151,12 @@ public class ThreadsControllerTest {
     @Test
     public void testStopTheGame(){
         test_tc.stopTheGame(true); // target function
-        assertEquals(false, test_tc.running);
+        assertFalse(test_tc.running);
 
         test_tc.running = true;
 
         test_tc.stopTheGame(false); // target function
-        assertEquals(false, test_tc.running);
+        assertFalse(test_tc.running);
     }
 
     @Test
@@ -191,7 +182,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testMoveTom() throws IOException, InterruptedException {
+    public void testMoveTom(){
         test_tc.setMode(0);
         test_tc.game_initialize();
         VertexLocation original = new VertexLocation(test_tc.tomPos); // the exit to a maze
@@ -252,7 +243,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testTuffyComes() throws IOException {
+    public void testTuffyComes() {
         test_tc.setMode(0);
         test_tc.game_initialize();
 
@@ -263,7 +254,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testTuffyLeaves() throws IOException {
+    public void testTuffyLeaves() {
         test_tc.setMode(0);
         test_tc.game_initialize();
         test_tc.tuffyComes();

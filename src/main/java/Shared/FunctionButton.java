@@ -6,7 +6,6 @@ import Function_C.Main_C;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class FunctionButton extends JButton {
     public FunctionButton(int function){

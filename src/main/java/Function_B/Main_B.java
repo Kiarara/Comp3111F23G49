@@ -4,7 +4,6 @@ import Function_A.Board_MST;
 import Shared.*;
 
 import javax.swing.*;
-import java.io.IOException;
 import java.util.LinkedList;
 
 public class Main_B {

@@ -1,14 +1,8 @@
 package Function_C;
 
-import Shared.Window;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.awt.*;
 import java.awt.event.KeyEvent;
-import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
-import java.awt.event.KeyEvent;
 
 
 public class KeyboardListenerTest {

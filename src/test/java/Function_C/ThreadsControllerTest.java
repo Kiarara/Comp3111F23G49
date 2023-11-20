@@ -1,117 +1,294 @@
 package Function_C;
 
 import Shared.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import static Function_C.ThreadsController.directionJerry;
 import static org.junit.jupiter.api.Assertions.*;
 
-/*
 public class ThreadsControllerTest {
-    private Window window;
-    private ThreadsController c;
+    private Window test_game_window;
+    private ThreadsController test_tc;
 
     @BeforeEach
     void setUp() {
-        window = new Window(true);
-        // Create a flag to track if the button action is performed
-        boolean buttonClicked = false;
-
-        // Create a JFrame and JButton similar to the confirmGameStart() method
-        JFrame frame = new JFrame("Welcome to the game!");
-        JButton button = new JButton("Click to Start");
-
-        // Add an ActionListener to the button
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Set the flag to true when the button is clicked
-                buttonClicked = true;
-            }
-        });
-
-        // Add the button to the frame and set other properties
-        frame.getContentPane().add(button, BorderLayout.CENTER);
-        frame.setSize(300, 200);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-
-        // Simulate button click
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                button.doClick();
-            }
-        });
-
-        // Wait for a short time to allow the action to be performed
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        // Assert that the button action was performed
-        assertTrue(buttonClicked);
-
-        // Assert any other expectations or assertions related to the confirmGameStart() method
-        // ...
-
-        // Simulate key press event
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                KeyListener[] keyListeners = yourClass.getKeyListeners();
-                for (KeyListener listener : keyListeners) {
-                    listener.keyPressed(new KeyEvent(frame, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED));
-                }
-            }
-        });
-
-        // Wait for a short time to allow the action to be performed
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        // Assert any expectations or assertions related to the key press event
-        // ...
-    }
-        }
-
-
-    @Test
-    void gameInitialize() {
-        controller.game_initialize();
-
-        assertNotNull(controller.m);
-        assertNotNull(controller.finder);
-        assertNotNull(controller.tomPos);
-        assertNotNull(controller.jerryPos);
-        assertNotNull(controller.freezerLocs);
-        assertNotNull(controller.tuffyPos);
-        assertNotNull(controller.Squares);
-        assertNotNull(controller.shortest_path_for_jerry);
+        test_game_window = new Window();
+        test_tc = new ThreadsController(test_game_window); // target function
     }
 
     @Test
-    void run() {
-        // Test the run method
-        // Modify or add assertions as needed
-        assertDoesNotThrow(() -> {
-            controller.start();
-            Thread.sleep(1000); // Wait for some time
-            controller.running = false;
-            controller.join();
+    public void testSetMode(){
+        // Test setting the mode to easy
+        test_tc.setMode(0); // target function
+        assertEquals(300, test_tc.tomSpeed);
+        assertEquals(40, test_tc.num_barrier_removed);
+        assertEquals(20, test_tc.updates_before_jerry_pause);
+        assertEquals(10, test_tc.num_of_freezer);
+        assertEquals(10000, test_tc.propEffectiveDuration);
+
+        // Test setting the mode to medium
+        test_tc.setMode(1); // target function
+        assertEquals(200, test_tc.tomSpeed);
+        assertEquals(20, test_tc.num_barrier_removed);
+        assertEquals(10, test_tc.updates_before_jerry_pause);
+        assertEquals(5, test_tc.num_of_freezer);
+        assertEquals(5000, test_tc.propEffectiveDuration);
+
+        // Test setting the mode to difficult
+        test_tc.setMode(2); // target function
+        assertEquals(100, test_tc.tomSpeed);
+        assertEquals(10, test_tc.num_barrier_removed);
+        assertEquals(5, test_tc.updates_before_jerry_pause);
+        assertEquals(3, test_tc.num_of_freezer);
+        assertEquals(3000, test_tc.propEffectiveDuration);
+    }
+
+    @Test
+    public void testGameInitialize() {
+        assertDoesNotThrow(() -> test_tc.game_initialize()); // target function
+
+        // assert generation of maze and the shortest path finder
+        assertNotNull(test_tc.m);
+        assertNotNull(test_tc.finder);
+
+        // check initial position of Tom and Jerry
+        assertEquals(0, test_tc.jerryPos.y);
+        assertEquals(29, test_tc.tomPos.y);
+        assertEquals(1, directionJerry);
+        assertEquals(0, test_tc.Squares.get(test_tc.tomPos.x).get(test_tc.tomPos.y).getObject());
+        assertEquals(1, test_tc.Squares.get(test_tc.jerryPos.x).get(test_tc.jerryPos.y).getObject());
+
+        // check initialization of freezerLocs
+        test_tc.setMode(1);
+        assertNotNull(test_tc.freezerLocs);
+        assertEquals(5, test_tc.freezerLocs.size());
+        for (VertexLocation freezerLoc: test_tc.freezerLocs){
+            assertEquals(2, test_tc.Squares.get(freezerLoc.x).get(freezerLoc.y).getObject());
+        }
+
+        // check initialization of Tuffy Position
+        assertNotNull(test_tc.tuffyPos);
+        assertEquals(3, test_tc.Squares.get(test_tc.tuffyPos.x).get(test_tc.tuffyPos.y).getObject());
+
+    }
+
+    @Test
+    public void testPauser(){
+        // under normal conditions
+        test_tc.pauser(); // target function
+
+        assertThrows(RuntimeException.class, () -> {
+            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
+            test_tc.pauser(); // target function
         });
     }
+
+    @Test
+    public void testIsRunning() throws IOException, InterruptedException {
+        // initialize tom and jerry to entry and exit
+        test_tc.game_initialize();
+
+        // check when tom and jerry at different locations and Jerry is not at the exit
+        assert(test_tc.isRunning()); // target function
+
+        // check when Tom catches Jerry
+        test_tc.tomPos.updateLocation(test_tc.jerryPos.x, test_tc.jerryPos.y);
+        assertEquals(false, test_tc.isRunning()); // target function
+
+        // check when Jerry reaches exit
+        test_tc.game_initialize();
+        test_tc.moveTom();
+        test_tc.jerryPos.updateLocation(test_tc.m.getExit().x, test_tc.m.getExit().y);
+        assertEquals(false, test_tc.isRunning()); // target function
+    }
+
+    @Test
+    public void testCheckFreezer() throws IOException {
+        test_tc.setMode(1);
+        test_tc.game_initialize();
+
+        // check when Jerry's position doesn't have a freezer
+        test_tc.checkFreezer(); // target function
+        assertNotNull(test_tc.freezerLocs);
+        assertEquals(test_tc.num_of_freezer, test_tc.freezerLocs.size());
+        for(VertexLocation freezerloc: test_tc.freezerLocs)
+        {
+            assertEquals(2, test_tc.Squares.get(freezerloc.x).get(freezerloc.y).getObject());
+        }
+
+        VertexLocation freezerloc = test_tc.freezerLocs.get(0);
+        assertNotNull(freezerloc);
+
+        // check when Jerry finds a freezer
+        test_tc.jerryPos = new VertexLocation(freezerloc.x, freezerloc.y);
+        test_tc.checkFreezer(); // target function
+        assertEquals(test_tc.num_of_freezer-1, test_tc.freezerLocs.size());
+        assertEquals(-1, test_tc.Squares.get(freezerloc.x).get(freezerloc.y).getObject());
+    }
+
+    @Test
+    public void testCheckTuffy() throws IOException, InterruptedException {
+
+        test_tc.setMode(1);
+        test_tc.game_initialize();
+
+        // check when Jerry hasn't met Tuffy
+        assertDoesNotThrow(() -> test_tc.checkTuffy());// target function
+        assertEquals(3, test_tc.Squares.get(test_tc.tuffyPos.x).get(test_tc.tuffyPos.y).getObject());
+
+        // check when Jerry meets Tuffy
+        test_tc.jerryPos.updateLocation(test_tc.tuffyPos.x, test_tc.tuffyPos.y);
+        test_tc.checkTuffy(); // target function
+        assertEquals(-1, test_tc.Squares.get(test_tc.tuffyPos.x).get(test_tc.tuffyPos.y).getObject());
+
+
+    }
+
+    @Test
+    public void testStopTheGame(){
+        test_tc.stopTheGame(true); // target function
+        assertEquals(false, test_tc.running);
+
+        test_tc.running = true;
+
+        test_tc.stopTheGame(false); // target function
+        assertEquals(false, test_tc.running);
+    }
+
+    @Test
+    public void testMoveJerry() throws IOException {
+        test_tc.m = new Maze("maze_for_testing.csv");
+        test_tc.jerryPos = new VertexLocation(0,0);
+
+        // when the move is valid
+        for(int i: new int[] {1,2,3,4}){
+            test_tc.jerryPos.updateLocation(19, 4);
+            test_tc.directionJerry = i;
+            test_tc.moveJerry(); // target function
+            assert(!test_tc.jerryPos.isSame(new VertexLocation(19,4)));
+        }
+
+        // when the move is invalid
+        for(int i: new int[] {1,2,3,4}){
+            test_tc.jerryPos.updateLocation(9, 0);
+            test_tc.directionJerry = i;
+            test_tc.moveJerry(); // target function
+            assert(test_tc.jerryPos.isSame(new VertexLocation(9,0)));
+        }
+    }
+
+    @Test
+    public void testMoveTom() throws IOException, InterruptedException {
+        test_tc.setMode(0);
+        test_tc.game_initialize();
+        VertexLocation original = new VertexLocation(test_tc.tomPos); // the exit to a maze
+        test_tc.moveTom(); // target function
+        assertEquals(original.x, test_tc.tomPos.x);
+        assertEquals(original.y-1, test_tc.tomPos.y);
+    }
+
+    @Test
+    public void testMoveExterne(){
+        test_tc.jerryPos = new VertexLocation(0,0);
+        test_tc.tomPos = new VertexLocation(10,10);
+
+        // check when both Jerry and Tom get displayed on a new location
+        test_tc.moveExterne(); // target function
+        assertEquals(1, test_tc.Squares.get(0).get(0).getObject());
+        assertEquals(0, test_tc.Squares.get(10).get(10).getObject());
+
+        // check when only Jerry gets updated
+        test_tc.Squares.get(10).get(10).changeObject(2);
+        test_tc.moveExterne(); // target function
+        assertEquals(1, test_tc.Squares.get(0).get(0).getObject());
+        assertNotEquals(0, test_tc.Squares.get(10).get(10).getObject());
+    }
+
+    @Test
+    public void testClearObject(){
+        test_tc.jerryPos = new VertexLocation(0,0);
+        test_tc.tomPos = new VertexLocation(10,10);
+        test_tc.Squares.get(0).get(0).changeObject(1);
+        test_tc.Squares.get(10).get(10).changeObject(0);
+
+        // check when both Jerry and Tom get cleared
+        test_tc.clearObject(); // target function
+        assertEquals(-1, test_tc.Squares.get(0).get(0).getObject());
+        assertEquals(-1, test_tc.Squares.get(10).get(10).getObject());
+
+        // check when only Jerry gets updated
+        test_tc.Squares.get(10).get(10).changeObject(2);
+        test_tc.clearObject(); // target function
+        assertEquals(-1, test_tc.Squares.get(0).get(0).getObject());
+        assertNotEquals(-1, test_tc.Squares.get(10).get(10).getObject());
+    }
+
+    @Test
+    public void testFreezeTom(){
+        test_tc.is_tom_frozen = false;
+        test_tc.propEffectiveDuration = 2000;
+        test_tc.freezeTom(); // target function
+        assert(test_tc.is_tom_frozen);
+        java.util.Timer timer = new java.util.Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                assert(!test_tc.is_tom_frozen);
+            }
+        }, 2500);
+    }
+
+    @Test
+    public void testTuffyComes() throws IOException {
+        test_tc.setMode(0);
+        test_tc.game_initialize();
+
+        test_tc.tuffyComes(); // target function
+        LinkedList<int[]> path_expected = test_tc.finder.findShortestPath(test_tc.m.getEntry(),test_tc.m.getExit());
+        for (int[] path: path_expected)
+            assertEquals(2, test_tc.Squares.get(path[0]).get(path[1]).getColor());
+    }
+
+    @Test
+    public void testTuffyLeaves() throws IOException {
+        test_tc.setMode(0);
+        test_tc.game_initialize();
+        test_tc.tuffyComes();
+
+        test_tc.tuffyLeaves();  // target function
+
+        java.util.Timer timer = new java.util.Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for (int i = 0; i<30; ++i)
+                    for (int j = 0; j<30; ++j)
+                        assertNotEquals(2, test_tc.Squares.get(i).get(j).getColor());
+            }
+        }, test_tc.propEffectiveDuration+500);
+    }
+
+    @Test
+    public void testExitOrRestart(){
+        test_tc.exit_or_restart("Congratulations");
+    }
+
+    @Test
+    public void testRun(){
+        test_tc.run();
+    }
+
 }
-
- */

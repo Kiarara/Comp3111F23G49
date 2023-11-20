@@ -5,12 +5,17 @@ import Shared.Window;
 import javax.swing.*;
 
 public class GameStartButton extends JButton {
-    public GameStartButton(Window gameWindow, JFrame parent_frame){
-        setText("Click to start");
+    public GameStartButton(Window gameWindow, JFrame parent_frame, boolean isInitialStart){
+        if (isInitialStart)
+            setText("Start");
+        else
+            setText("Restart");
+
         addActionListener(e -> {
             parent_frame.dispose();
             gameWindow.setMode();
-            gameWindow.setVisible(true);
+            if (isInitialStart)
+                gameWindow.setVisible(true);
         });
     }
 

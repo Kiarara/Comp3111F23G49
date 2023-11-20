@@ -5,6 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VertexLocationTest {
     @Test
+    void copyConstructorTest() {
+        VertexLocation loc1 = new VertexLocation(1,3);
+        VertexLocation loc2 = new VertexLocation(loc1);
+        assert(loc1.isSame(loc2));
+    }
+    @Test
     void updateLocation() {
         VertexLocation loc1 = new VertexLocation(1,3);
         loc1.updateLocation(1,2);

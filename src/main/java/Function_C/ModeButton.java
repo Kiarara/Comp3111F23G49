@@ -21,6 +21,4 @@ public class ModeButton extends JButton {
             parent_window.dispose();
         });
     }
-
-
 }

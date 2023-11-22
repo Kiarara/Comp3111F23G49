@@ -2,25 +2,26 @@ package Function_B;
 
 import Function_A.Board_MST;
 import Shared.*;
-
 import javax.swing.*;
 import java.util.LinkedList;
 
 public class Main_B {
     public static void main(String[] args) {
         Board_MST Board = new Board_MST();
-        Board.build_maze_with_single_wall();
+        Board.build_maze();
         for(int i=0;i<20;i++){
             Board.build_more_path();
         }
+        Board.wall_to_maze();
+
         Board.saveMazeToFile();
 
         //Creating the window with the grids
         Window f1= new Window();
 
         //Setting up the window settings
-        f1.setTitle("Shortest path");
-        f1.setSize(900,900);
+        f1.setTitle("Maze generated");
+        f1.setSize(900,800);
         f1.setVisible(true);
         f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         f1.setLocationRelativeTo(null);

@@ -5,16 +5,17 @@ import Function_C.VertexLocation;
 import Shared.*;
 
 public class ShortestPathFinder {
-    private int[][] map;
-    private int numRows = 30;
-    private int numCols = 30;
-    private byte[][] visited;
-    private byte[][] distance;
-    private int[][] prevRow;
-    private int[][] prevCol;
+    public int[][] map;
+    public int numRows = 30;
+    public int numCols = 30;
+    public byte[][] visited;
+    public byte[][] distance;
+    public int[][] prevRow;
+    public int[][] prevCol;
 
     LinkedList<int[]> shortestpath;
     Queue<int[]> queue;
+
 
     public ShortestPathFinder(Maze m) {
         map = m.maze;
@@ -40,18 +41,20 @@ public class ShortestPathFinder {
             System.out.println("No path found.");
             shortestpath = null;
         }
+        else {
 
-        int row = endRow;
-        int col = endCol;
+            int row = endRow;
+            int col = endCol;
 
-        while (row != startRow || col != startCol) {
-            shortestpath.addFirst(new int[]{row, col});
-            int preRow = prevRow[row][col];
-            int preCol = prevCol[row][col];
-            row = preRow;
-            col = preCol;
+            while (row != startRow || col != startCol) {
+                shortestpath.addFirst(new int[]{row, col});
+                int preRow = prevRow[row][col];
+                int preCol = prevCol[row][col];
+                row = preRow;
+                col = preCol;
+            }
+            shortestpath.addFirst(new int[]{startRow, startCol});
         }
-        shortestpath.addFirst(new int[]{startRow, startCol});
         return shortestpath;
     }
 
@@ -95,11 +98,11 @@ public class ShortestPathFinder {
         return next;
     }
 
-    private boolean isValidMove(int row, int col) {
+    public boolean isValidMove(int row, int col) {
         return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && visited[row][col] == 0;
     }
 
-    private void resetState() {
+    public void resetState() {
         for (int i = 0; i < numRows; i++) {
             Arrays.fill(visited[i], (byte) 0);
             Arrays.fill(distance[i], (byte) 0);

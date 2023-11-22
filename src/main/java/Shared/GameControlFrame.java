@@ -2,8 +2,14 @@ package Shared;
 
 import javax.swing.*;
 import java.awt.*;
+
+/**
+ * The GameControlFrame class represents a frame that controls the game functions.
+ * It extends the JFrame class from the javax.swing package.
+ */
 public class GameControlFrame extends JFrame {
 
+    // constructor of a GameControlFrame
     public GameControlFrame() {
         // Set the title of the frame
         super("Game Control");
@@ -32,11 +38,12 @@ public class GameControlFrame extends JFrame {
         add(centerPanel, BorderLayout.CENTER);
         setSize(200, 200);
 
-
     }
 
+    // the main function for users to check Function A, B and C
     public static void main(String[] args) {
 
+        // Create a new control frame
         GameControlFrame controlFrame = new GameControlFrame();
 
         // Make the frame visible

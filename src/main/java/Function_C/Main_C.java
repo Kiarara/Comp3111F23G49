@@ -4,8 +4,10 @@ import Shared.Window;
 
 import javax.swing.*;
 
+/**
+ * The Main_C is for starting the Tom and Jerry Game
+ */
 public class Main_C {
-
 	public static void main(String[] args){
 
 		//Creating the window with the grids
@@ -17,6 +19,5 @@ public class Main_C {
 		f1.setSize(900,900);
 		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f1.setLocationRelativeTo(null);
-
 	}
 }

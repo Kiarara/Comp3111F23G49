@@ -34,4 +34,9 @@ public class DataOfSquareTest {
     public void testGetObject() {
         assertEquals(-1, dataOfSquare.getObject());
     }
+
+    @Test
+    public void testGetColor(){
+        assertEquals(0, dataOfSquare.getColor());
+    }
 }

@@ -14,6 +14,10 @@ import java.util.LinkedList;
 import static java.lang.Thread.sleep;
 
 
+/**
+ * The Window class represents the main window of the maze game.
+ * It extends the JFrame class from the javax.swing package.
+ */
 public class Window extends JFrame{
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
 	public static int width = 30;
@@ -47,6 +51,7 @@ public class Window extends JFrame{
 		}
 	}
 
+	// write a maze to the window
 	public void set_maze(String csv_file) {
 		try {
 			m = new Maze(csv_file);
@@ -55,6 +60,7 @@ public class Window extends JFrame{
 		}
 	}
 
+	// display the maze recorded by the window
 	public void display_maze() {
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
@@ -71,6 +77,7 @@ public class Window extends JFrame{
 		}
 	}
 
+	// display a specific path in the maze on the window
 	public void display_path(LinkedList<int[]> path){
 		for (int[] loc : path) {
 			Grid.get(loc[0]).get(loc[1]).lightMeUp(2);
@@ -81,6 +88,7 @@ public class Window extends JFrame{
 		}
 	}
 
+	// clear the path displayed from the window
 	public void remove_existing_path(){
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
@@ -94,10 +102,12 @@ public class Window extends JFrame{
 		}
 	}
 
+	// fetch the maze held by the window
 	public Maze getMaze(){
 		return m;
 	}
 
+	// confirm with the user if he/she would like to start the game
 	public void gameSetup(){
 		JFrame frame = new JFrame("Welcome to the game!");
 		GameStartButton start_button = new GameStartButton(this, frame,true);
@@ -113,6 +123,7 @@ public class Window extends JFrame{
 		this.addKeyListener(new KeyboardListener());
 	}
 
+	// prompt users to set the mode for the game
 	public void setMode(){
 		JFrame mode_selection = new JFrame("Select your game difficulty");
 
@@ -137,6 +148,7 @@ public class Window extends JFrame{
 		mode_selection.setVisible(true);
 	}
 
+	// start the game with the difficulty level specified
 	public void start_game(int mode){
 		ThreadsController c = new ThreadsController(this);
 		c.setMode(mode);

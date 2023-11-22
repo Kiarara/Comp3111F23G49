@@ -136,7 +136,8 @@ public class Board_MST {
             }
         }
     }
-    public void wall_to_maze(){
+    public void build_maze_with_single_wall(){
+        build_maze();
         int change = 0;
         while(change!=8){
             int col = rand.nextInt(28)+1;

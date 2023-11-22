@@ -134,7 +134,7 @@ public class ThreadsController extends Thread {
 	 void game_initialize() {
 		 // generate a new maze
 		 Board_MST Board = new Board_MST();
-		 Board.build_maze();
+		 Board.build_maze_with_single_wall();
 		 for(int i=0;i<10;i++) {
 			 Board.build_more_path();
 		 }

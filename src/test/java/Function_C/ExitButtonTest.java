@@ -2,10 +2,10 @@ package Function_C;
 
 import org.junit.Test;
 import org.mockito.Mockito;
+import static org.mockito.Mockito.verify;
 
 import javax.swing.*;
 
-import static org.mockito.Mockito.verify;
 
 public class ExitButtonTest {
 

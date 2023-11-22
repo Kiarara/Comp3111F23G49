@@ -7,6 +7,10 @@ import Function_C.Main_C;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Constructs a FunctionButton object with the specified function code.
+ * function code: 0 for Function A, 1 for Function B, 2 for Function C
+ */
 public class FunctionButton extends JButton {
     public FunctionButton(int function){
         // set text

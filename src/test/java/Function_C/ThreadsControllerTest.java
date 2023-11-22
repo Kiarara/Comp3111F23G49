@@ -88,22 +88,22 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testIsRunning() {
+    public void testCheckGameEnds() {
         // initialize tom and jerry to entry and exit
         test_tc.game_initialize();
 
         // check when tom and jerry at different locations and Jerry is not at the exit
-        assert(test_tc.isRunning()); // target function
+        assert(test_tc.checkGameEnds()); // target function
 
         // check when Tom catches Jerry
         test_tc.tomPos.updateLocation(test_tc.jerryPos.x, test_tc.jerryPos.y);
-        assertFalse(test_tc.isRunning()); // target function
+        assertFalse(test_tc.checkGameEnds()); // target function
 
         // check when Jerry reaches exit
         test_tc.game_initialize();
         test_tc.moveTom();
         test_tc.jerryPos.updateLocation(test_tc.m.getExit().x, test_tc.m.getExit().y);
-        assertFalse(test_tc.isRunning()); // target function
+        assertFalse(test_tc.checkGameEnds()); // target function
     }
 
     @Test
@@ -251,15 +251,6 @@ public class ThreadsControllerTest {
         LinkedList<int[]> path_expected = test_tc.finder.findShortestPath(test_tc.m.getEntry(),test_tc.m.getExit());
         for (int[] path: path_expected)
             assertEquals(2, test_tc.Squares.get(path[0]).get(path[1]).getColor());
-    }
-
-    @Test
-    public void testTuffyLeaves() {
-        test_tc.setMode(0);
-        test_tc.game_initialize();
-        test_tc.tuffyComes();
-
-        test_tc.tuffyLeaves();  // target function
 
         java.util.Timer timer = new java.util.Timer();
         timer.schedule(new TimerTask() {

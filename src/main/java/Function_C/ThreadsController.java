@@ -14,76 +14,123 @@ import Shared.Window;
 import javax.swing.*;
 
 
-//Controls all the game logic --> most important class in this project.
+/**
+ * The ThreadController controls all the game logic and is the most important class
+ */
 public class ThreadsController extends Thread {
-	 ArrayList<ArrayList<DataOfSquare>> Squares;
-	 private Window game_window;
-	 VertexLocation tomPos;
-	 VertexLocation jerryPos;
-	 ArrayList<VertexLocation> freezerLocs;
-	 boolean is_tom_frozen = false;
 
-	 LinkedList<int[]> shortest_path_for_jerry;
-	 VertexLocation tuffyPos;
+	// The game_window setting
+	ArrayList<ArrayList<DataOfSquare>> Squares;
+	final private Window game_window;
+	VertexLocation tomPos;
+	VertexLocation jerryPos;
+	public static int directionJerry;
 
-	 public static int directionJerry;
+	// maze fetched and the finder used for finding shortest path
+	Maze m;
+	ShortestPathFinder finder;
+	public boolean running=false;
 
-	 // for mode setting
-	 long tomSpeed = 200;
-	 int num_barrier_removed = 20;
-	 int updates_before_jerry_pause = 10;
-	 int num_of_freezer = 5;
-	 long propEffectiveDuration = 5000;
+	// for mode setting
+	long tomSpeed = 200;
+	int num_barrier_removed = 20;
+	int updates_before_jerry_pause = 10;
+	int num_of_freezer = 5;
+	long propEffectiveDuration = 5000;
 
-	 Maze m;
-	 ShortestPathFinder finder;
-	 public boolean running=false;
+	// for props setting
+	ArrayList<VertexLocation> freezerLocs;
+	boolean is_tom_frozen = false;
+	LinkedList<int[]> shortest_path_for_jerry;
+	VertexLocation tuffyPos;
 
-	 public ThreadsController(Window this_window){
+	// Constructor
+	public ThreadsController(Window this_window){
 		//Get all the threads
 		Squares= Window.Grid;
 		game_window = this_window;
 		freezerLocs = new ArrayList<>();
 		shortest_path_for_jerry = new LinkedList<>();
-	 }
+	}
 
 	// Important part: the controller for the game
-	// During the same period of time, Tom updates five times while Jerry only updates four times
-	 public void run() {
-		 int jerry_move = 0;
-		 boolean onlyTom;
-		 running = true;
+	// Tom runs faster than Jerry in the sense that Jerry pauses while running from time to time
+	public void run() {
+		int jerry_move = 0;
+		boolean onlyTom;
+		running = true;
 
-		 game_initialize();
+		game_initialize();
 
-		 while(running){
-			 if(jerry_move < 10)
-			 {
-				 onlyTom = false;
-				 jerry_move ++;
-			 }
-			 else
-			 {
-				 onlyTom = true;
-				 jerry_move = 0;
-			 }
+		while(running){
+			// check if it's time for Jerry to pause
+			if(jerry_move < 10)
+			{
+				onlyTom = false;
+				jerry_move ++;
+			}
+			else
+			{
+				onlyTom = true;
+				jerry_move = 0;
+			}
 
-			 clearObject();
-			 if (!onlyTom) {
-				 moveJerry();
-				 checkFreezer();
-				 checkTuffy();
-			 }
-			 if(isRunning()&& (!is_tom_frozen)){
-				 moveTom();
-			 }
-			 if(isRunning()){
-				 moveExterne();
-				 pauser();
-			 }
-		 }
-	 }
+			// clear the images of Tom and Jerry
+			clearObject();
 
+			// move Jerry
+			if (!onlyTom) {
+				moveJerry();
+				checkFreezer();
+				checkTuffy();
+			}
+
+			// move Tom if the game hasn't ended and Tom isn't frozen because of prop
+			if(checkGameEnds()&& (!is_tom_frozen)){
+				moveTom();
+			}
+
+			// display/update the images of Tom and Jerry if the game hasn't neded
+			if(checkGameEnds()){
+				moveExterne();
+				pauser();
+			}
+		}
+	}
+
+	// adjust difficulty level by setting:
+	// 1) tomSpeed(how fast Tom and Jerry moves in general)
+	// 2) num_barrier_removed(how many possible paths to the exit)
+	// 3) updates_before_jerry_pause(how frequent Jerry needs to be paused while Tom keeps moving)
+	// 4) num_of_freezer(the number of freezers provided that could allow Jerry to freeze Tom)
+	// 5) propEffectiveDuration(how long the frozen time is if Jerry gets a freezer and how long the shortest path to exit will be displayed for Jerry)
+	public void setMode(int mode){
+		switch (mode){
+			case 0: //easy
+				tomSpeed = 300;
+				num_barrier_removed = 40;
+				updates_before_jerry_pause = 20;
+				num_of_freezer = 10;
+				propEffectiveDuration = 10000;
+				break;
+			case 1: //medium
+				tomSpeed = 200;
+				num_barrier_removed = 20;
+				updates_before_jerry_pause = 10;
+				num_of_freezer = 5;
+				propEffectiveDuration = 5000;
+				break;
+			case 2: //difficult
+				tomSpeed = 100;
+				num_barrier_removed = 10;
+				updates_before_jerry_pause = 5;
+				num_of_freezer = 3;
+				propEffectiveDuration = 3000;
+				break;
+		}
+	}
+
+	// initializing the game setup
 	 void game_initialize() {
 		 // generate a new maze
 		 Board_MST Board = new Board_MST();
@@ -143,7 +190,7 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
-	 //delay between each move of the snake
+	 // delay between each move of Tom and Jerry
 	 void pauser() {
 		 try {
 			 sleep(tomSpeed);
@@ -152,8 +199,9 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
-	 //Checking if the Jerry get caught or Jerry reaches the exit point
-	 boolean isRunning() {
+	 // checking if the game ends
+	 // i.e. if Jerry get caught or Jerry reaches the exit point
+	 boolean checkGameEnds() {
 		 VertexLocation exit = m.getExit();
 		 boolean gameWin = exit.isSame(jerryPos);
 		 if(gameWin) {
@@ -169,6 +217,7 @@ public class ThreadsController extends Thread {
 		 return true;
 	 }
 
+	 // check if Tom needs to be frozen
 	 void checkFreezer(){
 		 for(VertexLocation freezer: freezerLocs){
 			 if (jerryPos.isSame(freezer)){
@@ -180,14 +229,16 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
-	void checkTuffy() {
-		if(jerryPos.isSame(tuffyPos)){
-			Squares.get(tuffyPos.x).get(tuffyPos.y).clearObject();
-			tuffyComes();
-		}
+	 // check if the shortest path between Jerry's current location and exit needs to be displayed
+	 void checkTuffy() {
+		 if(jerryPos.isSame(tuffyPos)){
+			 Squares.get(tuffyPos.x).get(tuffyPos.y).clearObject();
+			 tuffyComes();
+		 }
 
-	}
+	 }
 
+	 // terminate the game
 	 void stopTheGame(boolean win) {
 		 // stop the game
 		 running = false;
@@ -200,7 +251,7 @@ public class ThreadsController extends Thread {
 		 exit_or_restart(message);
 	 }
 
-	 // Moves Jerry internally (by updating the location stored)
+	 // move Jerry internally (by updating the location stored)
 	 void moveJerry(){
 		 switch(directionJerry){
 			 case 1: // move to the right
@@ -222,103 +273,82 @@ public class ThreadsController extends Thread {
 		 }
 	 }
 
-	// Moves Tom internally (by updating the location stored)
+	// move Tom internally (by updating the location stored)
 	void moveTom() {
 		 int[] next = finder.find_next(jerryPos, tomPos);
 		 tomPos.updateLocation(next[0], next[1]);
 	 }
 
-	 // Display Tom and Jerry on the corresponding squares
-	 void moveExterne(){
-		 // update Tom's location on the maze only when it doesn't overlap with the prop
-		 if (Squares.get(tomPos.x).get(tomPos.y).getObject() == -1)
-			 Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
-		 Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
-	 }
+	// Display Tom and Jerry on the corresponding squares
+	void moveExterne(){
+		// update Tom's location on the maze only when it doesn't overlap with the prop
+		if (Squares.get(tomPos.x).get(tomPos.y).getObject() == -1)
+			Squares.get(tomPos.x).get(tomPos.y).changeObject(0);
+		Squares.get(jerryPos.x).get(jerryPos.y).changeObject(1);
+	}
 
-	 // Clear the images of Tom and Jerry before displaying them on other squares
+	 // clear the images of Tom and Jerry before displaying them on other squares
 	 void clearObject(){
 		 Squares.get(jerryPos.x).get(jerryPos.y).clearObject();
 		 if (Squares.get(tomPos.x).get(tomPos.y).getObject() == 0)
 			 Squares.get(tomPos.x).get(tomPos.y).clearObject();
 	 }
 
-	 public void setMode(int mode){
-		 switch (mode){
-			 case 0: //easy
-				 tomSpeed = 300;
-				 num_barrier_removed = 40;
-				 updates_before_jerry_pause = 20;
-				 num_of_freezer = 10;
-				 propEffectiveDuration = 10000;
-				 break;
-			 case 1: //medium
-				 tomSpeed = 200;
-				 num_barrier_removed = 20;
-				 updates_before_jerry_pause = 10;
-				 num_of_freezer = 5;
-				 propEffectiveDuration = 5000;
-				 break;
-			 case 2: //difficult
-				 tomSpeed = 100;
-				 num_barrier_removed = 10;
-				 updates_before_jerry_pause = 5;
-				 num_of_freezer = 3;
-				 propEffectiveDuration = 3000;
-				 break;
-		 }
-	 }
-
+	 // freeze Tom
 	 void freezeTom(){
 		 is_tom_frozen = true;
+
+		 // set up a timer to unfreeze Tom after propEffectiveDuration
 		 Timer timer = new Timer();
 		 timer.schedule(new TimerTask() {
 			 @Override
 			 public void run() {
-				is_tom_frozen = false;
+				 is_tom_frozen = false;
 			 }
 		 }, propEffectiveDuration);
 	 }
 
+	 // display the shortest path to exit for player
 	 void tuffyComes() {
 		 shortest_path_for_jerry.clear();
 		 shortest_path_for_jerry = finder.findShortestPath(jerryPos, m.getExit());
 		 game_window.display_path(shortest_path_for_jerry);
-		 tuffyLeaves();
+
+		 // set up a timer to clear the shortest path after propEffectiveDuration
+		 Timer timer = new Timer();
+		 timer.schedule(new TimerTask() {
+			 @Override
+			 public void run() {
+				 game_window.remove_existing_path();
+			 }
+		 }, propEffectiveDuration);
 	 }
 
-	void tuffyLeaves(){
-		Timer timer = new Timer();
-		timer.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				game_window.remove_existing_path();
-			}
-		}, propEffectiveDuration);
-	}
+	 // check if the player would like to exit or restart the game
+	 void exit_or_restart(String title){
+		 // create new frames and buttons needed
+		 JFrame exit_or_restart = new JFrame(title);
+		 ExitButton exit_button = new ExitButton();
+		 GameStartButton restart_button = new GameStartButton(game_window,exit_or_restart,false);
 
-	void exit_or_restart(String title){
-		JFrame exit_or_restart = new JFrame(title);
-		ExitButton exit_button = new ExitButton();
-		GameStartButton restart_button = new GameStartButton(game_window,exit_or_restart,false);
+		 GridBagConstraints gbc = new GridBagConstraints();
+		 gbc.gridx = 0;
+		 gbc.gridy = 0;
+		 gbc.weightx = 1.0;
+		 gbc.weighty = 1.0;
+		 gbc.fill = GridBagConstraints.CENTER;
 
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.weightx = 1.0;
-		gbc.weighty = 1.0;
-		gbc.fill = GridBagConstraints.CENTER;
+		 JPanel optionPanel = new JPanel();
+		 optionPanel.add(exit_button);
+		 optionPanel.add(restart_button);
 
-		JPanel optionPanel = new JPanel();
-		optionPanel.add(exit_button);
-		optionPanel.add(restart_button);
-
-		exit_or_restart.getContentPane().setLayout(new GridBagLayout());
-		exit_or_restart.getContentPane().add(optionPanel, gbc);
-		exit_or_restart.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		exit_or_restart.setSize(500, 200);
-		exit_or_restart.setLocationRelativeTo(game_window);
-		exit_or_restart.setAlwaysOnTop(true);
-		exit_or_restart.setVisible(true);
-	}
+		 // set the format of the JFrame
+		 exit_or_restart.getContentPane().setLayout(new GridBagLayout());
+		 exit_or_restart.getContentPane().add(optionPanel, gbc);
+		 exit_or_restart.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		 exit_or_restart.setSize(500, 200);
+		 exit_or_restart.setLocationRelativeTo(game_window);
+		 exit_or_restart.setAlwaysOnTop(true);
+		 exit_or_restart.setVisible(true);
+	 }
 }

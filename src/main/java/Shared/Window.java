@@ -17,6 +17,8 @@ import static java.lang.Thread.sleep;
 /**
  * The Window class represents the main window of the maze game.
  * It extends the JFrame class from the javax.swing package.
+ *
+ * @author PENG Xinyin(Kiara)
  */
 public class Window extends JFrame{
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
@@ -24,6 +26,12 @@ public class Window extends JFrame{
 	public static int height = 30;
 	Maze m;
 
+
+	/**
+	 * Constructs a Window object.
+	 * Initializes the grid and sets up the layout of the panel.
+	 * Adds each square in the grid to the panel.
+	 */
 	public Window(){
 
 		// Creates the arraylist that'll contain the threads
@@ -51,7 +59,11 @@ public class Window extends JFrame{
 		}
 	}
 
-	// write a maze to the window
+	/**
+	 * Reads a maze from a CSV file and sets it as the maze to be displayed.
+	 *
+	 * @param csv_file The path of the CSV file containing the maze data.
+	 */
 	public void set_maze(String csv_file) {
 		try {
 			m = new Maze(csv_file);
@@ -60,7 +72,10 @@ public class Window extends JFrame{
 		}
 	}
 
-	// display the maze recorded by the window
+	/**
+	 * Displays the maze recorded by the window.
+	 * Iterates over the maze and updates the color of each square in the grid based on the corresponding value in the maze matrix.
+	 */
 	public void display_maze() {
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
@@ -77,7 +92,11 @@ public class Window extends JFrame{
 		}
 	}
 
-	// display a specific path in the maze on the window
+	/**
+	 * Displays a specific path in the maze on the window.
+	 *
+	 * @param path The path to be displayed, represented as a linked list of coordinates.
+	 */
 	public void display_path(LinkedList<int[]> path){
 		for (int[] loc : path) {
 			Grid.get(loc[0]).get(loc[1]).lightMeUp(2);
@@ -88,7 +107,10 @@ public class Window extends JFrame{
 		}
 	}
 
-	// clear the path displayed from the window
+	/**
+	 * Clears the path displayed in the maze.
+	 * Reverts the color of the corresponding squares in the grid.
+	 */
 	public void remove_existing_path(){
 		for(int i=0;i<30;i++){
 			for(int j=0;j<30;j++){
@@ -102,12 +124,19 @@ public class Window extends JFrame{
 		}
 	}
 
-	// fetch the maze held by the window
+	/**
+	 * Fetches the maze held by the window.
+	 *
+	 * @return The maze object representing the maze held by the window.
+	 */
 	public Maze getMaze(){
 		return m;
 	}
 
-	// confirm with the user if he/she would like to start the game
+	/**
+	 * Prompts the user to start the game.
+	 * Displays a JFrame with a start button and sets up the game when the button is clicked.
+	 */
 	public void gameSetup(){
 		JFrame frame = new JFrame("Welcome to the game!");
 		GameStartButton start_button = new GameStartButton(this, frame,true);
@@ -123,7 +152,10 @@ public class Window extends JFrame{
 		this.addKeyListener(new KeyboardListener());
 	}
 
-	// prompt users to set the mode for the game
+	/**
+	 * Prompts the user to start the game.
+	 * Displays a JFrame with a start button and sets up the game when the button is clicked.
+	 */
 	public void setMode(){
 		JFrame mode_selection = new JFrame("Select your game difficulty");
 
@@ -148,7 +180,12 @@ public class Window extends JFrame{
 		mode_selection.setVisible(true);
 	}
 
-	// start the game with the difficulty level specified
+	/**
+	 * Starts the game with the specified difficulty mode.
+	 * Creates a ThreadsController object and calls its start() method.
+	 *
+	 * @param mode The difficulty mode of the game.
+	 */
 	public void start_game(int mode){
 		ThreadsController c = new ThreadsController(this);
 		c.setMode(mode);

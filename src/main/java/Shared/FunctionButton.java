@@ -10,12 +10,18 @@ import java.awt.*;
 /**
  * Constructs a FunctionButton object with the specified function code.
  * function code: 0 for Function A, 1 for Function B, 2 for Function C
+ *
+ * @author LIU Muyuan(Oakley)
  */
 public class FunctionButton extends JButton {
-    public FunctionButton(int function){
-        // set text
 
-        // set button font
+    /**
+     * Represents a button for invoking different functions.
+     *
+     * @param function The code representing the specific function associated with the button.
+     */
+    public FunctionButton(int function){
+        // set button texts
         Font buttonFont = new Font("Arial", Font.BOLD, 16);
         setFont(buttonFont);
         switch (function){
@@ -34,6 +40,12 @@ public class FunctionButton extends JButton {
         setBackground(Color.WHITE);
         setForeground(Color.BLACK);
 
+        /**
+         * ActionListener for the function button.
+         * Upon user's click, it invokes the specific function based on the function code.
+         *
+         * @param e The ActionEvent object representing the user's click.
+         */
         addActionListener(e -> {
             switch (function){
                 case 0:

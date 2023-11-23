@@ -94,10 +94,12 @@ public class ThreadsController extends Thread {
 				moveTom();
 			}
 
-			// display/update the images of Tom and Jerry if the game hasn't neded
-			if(checkGameEnds()){
-				moveExterne();
-				pauser();
+			// display/update the images of Tom and Jerry if the game hasn't ended
+			if (running){
+				if(checkGameEnds()){
+					moveExterne();
+					pauser();
+				}
 			}
 		}
 	}

@@ -157,13 +157,6 @@ public class Window extends JFrame{
 	 * Displays a JFrame with a start button and sets up the game when the button is clicked.
 	 */
 	public void setMode(){
-		// avoid delayed dispose of previous frame
-		try {
-			sleep(500);
-		} catch (InterruptedException ex) {
-			throw new RuntimeException(ex);
-		}
-
 		JFrame mode_selection = new JFrame("Select your game difficulty");
 
 		GridBagConstraints gbc = new GridBagConstraints();

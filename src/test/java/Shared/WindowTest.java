@@ -98,12 +98,7 @@ public class WindowTest {
 
     @Test
     public void testSetMode() {
-        assertThrows(RuntimeException.class, () -> {
-            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
-            window.setMode(); // target function
-        });
-
-        window.setMode(); // target function
+        window.setMode();
     }
 
     @Test

@@ -4,6 +4,8 @@ import Shared.Window;
 
 import javax.swing.*;
 
+import static java.lang.Thread.sleep;
+
 /**
  * The GameStartButton implements a button for users to start or restart the game
  *
@@ -33,9 +35,10 @@ public class GameStartButton extends JButton {
          */
         addActionListener(e -> {
             parent_frame.dispose(); // dispose the Jframe to which the start button is added
-            gameWindow.setMode();   // jump to the Jframe which allows users to set game mode
+            gameWindow.setMode();
             if (isInitialStart)
                 gameWindow.setVisible(true);
+            parent_frame.dispose();
         });
     }
 }

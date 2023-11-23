@@ -4,8 +4,17 @@ import Function_A.Board_MST;
 import Shared.*;
 import javax.swing.*;
 import java.util.LinkedList;
-
+/**
+ * The Main_B is for generating a map and find the shortest path between entry and exit
+ *
+ * @author LIU Muyuan (Oakley)
+ */
 public class Main_B {
+    /**
+     * The entry point of the program.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         Board_MST Board = new Board_MST();
         Board.build_maze_with_single_wall();

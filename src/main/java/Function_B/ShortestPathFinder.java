@@ -1,9 +1,15 @@
 package Function_B;
 import java.util.*;
 
+import Function_C.ThreadsController;
 import Function_C.VertexLocation;
 import Shared.*;
-
+/**
+ * The ShortestPathFinder class represents a class to find the shortest path in a map
+ * It extends the JFrame class from the javax.swing package.
+ *
+ * @author LIU Muyuan(Oakley)
+ */
 public class ShortestPathFinder {
     public int[][] map;
     public int numRows = 30;
@@ -16,7 +22,11 @@ public class ShortestPathFinder {
     LinkedList<int[]> shortestpath;
     Queue<int[]> queue;
 
-
+    /**
+     * Explicit constructor for the class; initialize all the class members
+     *
+     * @param m                 The maze for this round of game
+     */
     public ShortestPathFinder(Maze m) {
         map = m.maze;
         visited = new byte[numRows][numCols];
@@ -28,6 +38,13 @@ public class ShortestPathFinder {
         queue = new LinkedList<>();
     }
 
+    /**
+     * The method constructs the shortest path between two given VertexLocation
+     *
+     * @param a                 The start of the path
+     * @param b                 The end of the path
+     *
+     */
     public LinkedList<int[]> findShortestPath(VertexLocation a, VertexLocation b) {
         int startRow = a.x;
         int startCol = a.y;
@@ -58,6 +75,16 @@ public class ShortestPathFinder {
         return shortestpath;
     }
 
+    /**
+     * The method runs breadth-first search on the map
+     * It is called in {@link ShortestPathFinder#findShortestPath(VertexLocation, VertexLocation)} to update the class members
+     *
+     * @param startRow                  The row index of the start point
+     * @param startCol                  The column index of the start point
+     * @param endRow                    The row index of the end point
+     * @param endCol                    The column index of the end point
+     *
+     */
     private void bfs(int startRow, int startCol, int endRow, int endCol) {
         queue.clear();
         queue.offer(new int[]{startRow, startCol});
@@ -90,6 +117,14 @@ public class ShortestPathFinder {
         }
     }
 
+    /**
+     * The method helps Tom to find out the next move on the shortest path to Jerry
+     * It is used in class {@link ThreadsController}
+     *
+     * @param a                 The start of the path, which is the location of Jerry
+     * @param b                 The end of the path, which is the location of Tom
+     *
+     */
     public int[] find_next(VertexLocation a, VertexLocation b){
         findShortestPath(a, b);
         int[] next = new int[2];
@@ -98,10 +133,21 @@ public class ShortestPathFinder {
         return next;
     }
 
+    /**
+     * The method helps {@link ShortestPathFinder#bfs} to detect whether a vertex should be added to the queue
+     *
+     * @param row                 The row index of the vertex
+     * @param col                 The column index of the vertex
+     *
+     */
     public boolean isValidMove(int row, int col) {
         return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && visited[row][col] == 0;
     }
 
+    /**
+     * The method is used in {@link ShortestPathFinder#findShortestPath(VertexLocation, VertexLocation)} to reset the class members of the class {@link ShortestPathFinder}
+     *
+     */
     public void resetState() {
         for (int i = 0; i < numRows; i++) {
             Arrays.fill(visited[i], (byte) 0);

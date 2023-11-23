@@ -4,8 +4,6 @@ import Shared.Window;
 
 import javax.swing.*;
 
-import static java.lang.Thread.sleep;
-
 /**
  * The GameStartButton implements a button for users to start or restart the game
  *

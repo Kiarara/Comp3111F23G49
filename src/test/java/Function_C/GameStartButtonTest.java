@@ -1,7 +1,6 @@
 package Function_C;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 import javax.swing.JFrame;

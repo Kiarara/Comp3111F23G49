@@ -6,10 +6,16 @@ import java.awt.*;
 /**
  * The GameControlFrame class represents a frame that controls the game functions.
  * It extends the JFrame class from the javax.swing package.
+ *
+ * @author LIU Muyuan(Oakley)
  */
 public class GameControlFrame extends JFrame {
 
-    // constructor of a GameControlFrame
+    /**
+     * Constructs a GameControlFrame.
+     * It sets the title of the frame, creates function buttons, and arranges them in a panel.
+     * The panel is then added to the center of the frame using BorderLayout.
+     */
     public GameControlFrame() {
         // Set the title of the frame
         super("Game Control");
@@ -37,10 +43,14 @@ public class GameControlFrame extends JFrame {
         setLayout(new BorderLayout());
         add(centerPanel, BorderLayout.CENTER);
         setSize(200, 200);
-
     }
 
-    // the main function for users to check Function A, B and C
+
+    /**
+     * The main method to start the application (Function A/B/C).
+     *
+     * @param args The command-line arguments.
+     */
     public static void main(String[] args) {
 
         // Create a new control frame

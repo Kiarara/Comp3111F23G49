@@ -6,8 +6,16 @@ import javax.swing.*;
 
 /**
  * The Main_C is for starting the Tom and Jerry Game
+ *
+ * @author PENG Xinyin(Kiara)
  */
 public class Main_C {
+
+	/**
+	 * The entry point of the program.
+	 *
+	 * @param args The command line arguments.
+	 */
 	public static void main(String[] args){
 
 		//Creating the window with the grids

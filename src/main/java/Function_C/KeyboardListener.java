@@ -5,8 +5,16 @@ import java.awt.event.KeyEvent;
 
 /**
  * The KeyboardListener Class is for fetching the keyboard input to modify Jerry's moving direction
+ *
+ * @author PENG Xinyin(Kiara)
  */
  public class KeyboardListener extends KeyAdapter{
+
+	/**
+	 * Invoked when a key is pressed.
+	 *
+	 * @param e The KeyEvent object representing the key event.
+	 */
 	 public void keyPressed(KeyEvent e){
 		 switch(e.getKeyCode()){
 			 case 39: // -> Right
@@ -21,7 +29,8 @@ import java.awt.event.KeyEvent;
 			 case 40:	// -> Top
 				 ThreadsController.directionJerry=4;
 				 break;
-			 default: 	break;
+			 default:
+				 break;
 		 }
 	 }
  	

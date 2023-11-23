@@ -10,6 +10,8 @@ import java.util.List;
 
 /**
  * The Maze class represents a maze with an entry and an exit point
+ *
+ * @author PENG Xinyin(Kiara)
  */
 public class Maze {
 
@@ -18,6 +20,12 @@ public class Maze {
 
     public int[][] maze; // the maze represented in 2D integer array
 
+    /**
+     * Constructs a Maze object by reading a maze from a CSV file.
+     *
+     * @param csv_file The path to the CSV file containing the maze data.
+     * @throws IOException If an I/O error occurs while reading the CSV file.
+     */
     public Maze(String csv_file) throws IOException {
         // reading a maze from the csv file specified
         BufferedReader br = new BufferedReader(new FileReader(csv_file));
@@ -48,12 +56,20 @@ public class Maze {
         }
     }
 
-    // return the location of the exit point of the maze
+    /**
+     * Returns the location of the exit point of the maze.
+     *
+     * @return The VertexLocation representing the exit point.
+     */
     public VertexLocation getExit(){
         return exit;
     }
 
-    // return the location of the entry point of the maze
+    /**
+     * Returns the location of the entry point of the maze.
+     *
+     * @return The VertexLocation representing the entry point.
+     */
     public VertexLocation getEntry(){
         return entry;
     }

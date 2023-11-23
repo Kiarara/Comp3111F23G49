@@ -402,7 +402,7 @@ public class TestBoard_MST {
         }
         assertEquals(count,0);
 
-        board_mst.wall_to_maze();
+        board_mst.build_maze_with_single_wall();
         //count number of white
         count = 0;
         for(int i=2;i<29;i++){

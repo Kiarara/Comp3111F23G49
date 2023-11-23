@@ -143,7 +143,11 @@ public class ThreadsControllerTest {
         // check when Jerry meets Tuffy
         test_tc.jerryPos.updateLocation(test_tc.tuffyPos.x, test_tc.tuffyPos.y);
         test_tc.checkTuffy(); // target function
-        assertEquals(-1, test_tc.Squares.get(test_tc.tuffyPos.x).get(test_tc.tuffyPos.y).getObject());
+
+        // check the tuffyPos is cleared
+        assertEquals(-1, test_tc.tuffyPos.x);
+        assertEquals(-1, test_tc.tuffyPos.y);
+        assertEquals(-1, test_tc.Squares.get(test_tc.jerryPos.x).get(test_tc.jerryPos.y).getObject());
 
 
     }

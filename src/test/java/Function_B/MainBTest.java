@@ -12,6 +12,7 @@ class MainBTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
+
         Main_B.main(null);
         String expectedOutput = "Shortest path found!";
         assertEquals(expectedOutput, outContent.toString());

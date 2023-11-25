@@ -28,7 +28,7 @@ public class Main_B {
         Window f1= new Window();
 
         //Setting up the window settings
-        f1.setTitle("Maze generated");
+        f1.setTitle("Maze generated with shortest path");
         f1.setSize(900,800);
         f1.setVisible(true);
         f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

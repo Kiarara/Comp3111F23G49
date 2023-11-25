@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.TimerTask;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import static Function_C.ThreadsController.directionJerry;
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +19,18 @@ public class ThreadsControllerTest {
     @BeforeEach
     void setUp() {
         test_game_window = new Window();
-        test_tc = new ThreadsController(test_game_window); // target function
+        test_tc = new ThreadsController(test_game_window);
+    }
+
+    @Test
+    public void testThreadsController(){
+        Window game_window = new Window();
+        ThreadsController tc = new ThreadsController(game_window); // target function
+        assertEquals(200, tc.tomSpeed);
+        assertEquals(20, tc.num_barrier_removed);
+        assertEquals(10, tc.updates_before_jerry_pause);
+        assertEquals(5, tc.num_of_freezer);
+        assertEquals(5000, tc.propEffectiveDuration);
     }
 
     @Test
@@ -148,8 +161,6 @@ public class ThreadsControllerTest {
         assertEquals(-1, test_tc.tuffyPos.x);
         assertEquals(-1, test_tc.tuffyPos.y);
         assertEquals(-1, test_tc.Squares.get(test_tc.jerryPos.x).get(test_tc.jerryPos.y).getObject());
-
-
     }
 
     @Test
@@ -247,10 +258,11 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testTuffyComes() {
+    public void testTuffyComes() throws InterruptedException {
         test_tc.setMode(0);
         test_tc.game_initialize();
 
+        CountDownLatch latch = new CountDownLatch(1);
         test_tc.tuffyComes(); // target function
         LinkedList<int[]> path_expected = test_tc.finder.findShortestPath(test_tc.m.getEntry(),test_tc.m.getExit());
         for (int[] path: path_expected)
@@ -263,8 +275,13 @@ public class ThreadsControllerTest {
                 for (int i = 0; i<30; ++i)
                     for (int j = 0; j<30; ++j)
                         assertNotEquals(2, test_tc.Squares.get(i).get(j).getColor());
+                latch.countDown();
             }
-        }, test_tc.propEffectiveDuration+500);
+        }, test_tc.propEffectiveDuration+2000);
+
+        boolean isCompleted = latch.await(1, TimeUnit.MINUTES);
+        assertTrue(isCompleted);
+
     }
 
     @Test

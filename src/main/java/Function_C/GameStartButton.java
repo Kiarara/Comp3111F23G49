@@ -36,7 +36,6 @@ public class GameStartButton extends JButton {
             gameWindow.setMode();
             if (isInitialStart)
                 gameWindow.setVisible(true);
-            parent_frame.dispose();
         });
     }
 }

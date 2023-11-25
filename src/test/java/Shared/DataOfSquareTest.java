@@ -2,6 +2,7 @@ package Shared;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class DataOfSquareTest {
@@ -12,6 +13,14 @@ public class DataOfSquareTest {
         dataOfSquare = new DataOfSquare(0);
     }
 
+    @Test
+    public void testDataOfSqaures() {
+        DataOfSquare data = new DataOfSquare(0); // target function
+        assertEquals(0, data.getColor());
+        assertEquals(3, data.C.size());
+        assertEquals(4, data.I.size());
+        assertEquals(-1, data.getObject());
+    }
     @Test
     public void testLightMeUp() {
         dataOfSquare.lightMeUp(1);

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.LinkedList;
 
+import static java.lang.Thread.sleep;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -15,16 +16,6 @@ public class WindowTest {
     ShortestPathFinder finder;
     private LinkedList<int[]> path;
 
-    @Test
-    public void testSetMaze() {
-        window = new Window();
-        window.set_maze("MazeMap_TnJ.csv"); // target function
-        assertNotNull(window.getMaze());
-        assertThrows(RuntimeException.class, () -> {
-            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
-            window.set_maze("fake_maze"); // target function
-        });
-    }
 
     @Before
     public void setUp() {
@@ -32,6 +23,26 @@ public class WindowTest {
         window.set_maze("MazeMap_TnJ.csv");
         finder = new ShortestPathFinder(window.m);
         path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
+    }
+
+    @Test
+    public void testWindow(){
+        Window w = new Window(); // target function
+        assertEquals(30, Window.height);
+        assertEquals(30, Window.width);
+        assertEquals(30, w.Grid.size());
+        assertEquals(30, w.Grid.get(0).size());
+    }
+
+    @Test
+    public void testSetMaze() {
+        Window w = new Window();
+        w.set_maze("MazeMap_TnJ.csv"); // target function
+        assertNotNull(w.m);
+        assertThrows(RuntimeException.class, () -> {
+            Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
+            w.set_maze("fake_maze"); // target function
+        });
     }
 
     @Test
@@ -55,10 +66,17 @@ public class WindowTest {
     }
 
     @Test
-    public void testDisplayPath() {
+    public void testGetMaze(){
+        Maze m = window.getMaze(); // target function
+        assertNotNull(m);
+    }
+
+    @Test
+    public void testDisplayPath() throws InterruptedException {
         path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
         window.display_path(path); // target function
 
+        sleep(1000);
         // Add assertions to verify the display of the path
         for (int i = 0; i<30; ++i){
             for (int j = 0; j<30; ++j)
@@ -67,12 +85,17 @@ public class WindowTest {
                     assertEquals(2, window.Grid.get(i).get(j).getColor());
             }
         }
+    }
 
+    @Test
+    public void testDisplayPath_throw(){
+        path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
         assertThrows(RuntimeException.class, () -> {
             Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
             window.display_path(path); // target function
         });
     }
+
 
     @Test
     public void testRemoveExistingPath() {

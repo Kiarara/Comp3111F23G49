@@ -143,7 +143,7 @@ public class ThreadsController extends Thread {
 		// generate a new maze
 		Board_MST Board = new Board_MST();
 		Board.build_maze_with_single_wall();
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<num_barrier_removed;i++) {
 			Board.build_more_path();
 		}
 		Board.saveMazeToFile();

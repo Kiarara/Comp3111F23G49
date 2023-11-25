@@ -3,6 +3,12 @@ import Shared.Window;
 
 import javax.swing.*;
 
+/**
+ * This is the main function for function A. It generates a maze
+ * and show in the gui.
+ *
+ * @author Benny (Wan Sze Chung)
+ */
 public class Main_A {
     public static void main(String[] args) {
 

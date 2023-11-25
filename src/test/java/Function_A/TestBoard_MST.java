@@ -2,7 +2,9 @@ package Function_A;
 
 import Shared.Maze;
 import org.junit.jupiter.api.Test;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import java.io.FileWriter;
 //import static org.junit.Assert.assertArrayEquals;
 //import static org.junit.Assert.assertEquals;
 //import java.util.Scanner;
@@ -170,6 +172,7 @@ public class TestBoard_MST {
         }
         assertTrue(board_mst.association_list.isEmpty());
         assertTrue(board_mst.mst.isEmpty());
+        assertFalse(board_mst.test);
     }
     @Test
     void expand_coor(){
@@ -430,6 +433,10 @@ public class TestBoard_MST {
         //for(int i=0;i<30;i++){
         assertArrayEquals(maze.maze, board_mst.grid);
         //}
+        assertThrows(RuntimeException.class, () -> {
+            board_mst.test = true;
+            board_mst.saveMazeToFile(); // target function
+        });
     }
     @Test
     void main_a() throws IOException {

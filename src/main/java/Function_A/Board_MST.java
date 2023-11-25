@@ -14,11 +14,11 @@ import java.util.Arrays;
  */
 public class Board_MST {
 
-    Random rand = new Random();
+    public Random rand;
     public int[][] grid;
     public ArrayList<Association> association_list;
     public ArrayList<int[]> mst;
-
+    public boolean test;
     /**
      * This is the constructor of the class,the map is 30*30,
      * nodes of the map are set up for the mst. Every node is a white square
@@ -39,6 +39,8 @@ public class Board_MST {
         }
         association_list = new ArrayList<>();
         mst = new ArrayList<>();
+        rand =  new Random();
+        test = false;
     }
 
     /**
@@ -215,12 +217,13 @@ public class Board_MST {
                 }
                 writer.append("\n");
             }
-
             writer.flush();
             writer.close();
+            if(test) {
+                writer.flush();
+            }
         } catch (IOException e) {
-            System.out.println("Error occurredduring saving the maze to a file.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

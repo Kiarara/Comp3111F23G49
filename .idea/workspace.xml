@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Added javadocs for each function in Function C and Shared">
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="adding java doc to function a">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Association.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Main_A.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Main_A.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/WeightComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/WeightComparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +90,7 @@
       <recent name="Function_C" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.java in COMP3111F23G49">
     <configuration name="Function_A in COMP3111F23G49 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <option name="TEST_OBJECT" value="directory" />
@@ -116,7 +113,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestBoard_MST.build_maze_with_single_wall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBoard_MST" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
@@ -126,13 +123,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="Function_A" />
       <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
-      <option name="METHOD_NAME" value="build_maze_with_single_wall" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestBoard_MST.build_more_path" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBoard_MST.saveMazeToFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
@@ -142,7 +138,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Function_A" />
       <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
-      <option name="METHOD_NAME" value="build_more_path" />
+      <option name="METHOD_NAME" value="saveMazeToFile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -170,17 +166,17 @@
       <item itemvalue="JAR Application.G49_Tom and Jerry" />
       <item itemvalue="JUnit.Function_A in COMP3111F23G49" />
       <item itemvalue="JUnit.Function_A in COMP3111F23G49 (1)" />
-      <item itemvalue="JUnit.TestBoard_MST.build_maze_with_single_wall" />
-      <item itemvalue="JUnit.TestBoard_MST.build_more_path" />
+      <item itemvalue="JUnit.TestBoard_MST" />
+      <item itemvalue="JUnit.TestBoard_MST.saveMazeToFile" />
       <item itemvalue="JUnit.java in COMP3111F23G49" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.java in COMP3111F23G49" />
+        <item itemvalue="JUnit.TestBoard_MST" />
+        <item itemvalue="JUnit.TestBoard_MST.saveMazeToFile" />
         <item itemvalue="JUnit.Function_A in COMP3111F23G49 (1)" />
         <item itemvalue="JUnit.Function_A in COMP3111F23G49" />
-        <item itemvalue="JUnit.TestBoard_MST.build_more_path" />
-        <item itemvalue="JUnit.TestBoard_MST.build_maze_with_single_wall" />
       </list>
     </recent_temporary>
   </component>
@@ -361,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700717575984</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="adding java doc to function a">
+      <option name="closed" value="true" />
+      <created>1700921103579</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1700921103579</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,7 +399,8 @@
     <MESSAGE value="Supplemented comments and java docs to explain the classes and functions" />
     <MESSAGE value="Modified a bit to Function A" />
     <MESSAGE value="Added javadocs for each function in Function C and Shared" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added javadocs for each function in Function C and Shared" />
+    <MESSAGE value="adding java doc to function a" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding java doc to function a" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -424,7 +429,7 @@
     <SUITE FILE_PATH="coverage/Comp3111F23G49$ExitButtonTest.ic" NAME="ExitButtonTest Coverage Results" MODIFIED="1700746536003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST.ic" NAME="TestBoard_MST Coverage Results" MODIFIED="1700903765853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST.ic" NAME="TestBoard_MST Coverage Results" MODIFIED="1700928630638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_A.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_expand_coor.ic" NAME="TestBoard_MST.expand_coor Coverage Results" MODIFIED="1700214423324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -460,7 +465,7 @@
     <SUITE FILE_PATH="coverage/COMP3111F23G49$GameControlFrameTest_setUp.ic" NAME="GameControlFrameTest.setUp Coverage Results" MODIFIED="1700469200485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Shared.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$java_in_COMP3111F23G49.ic" NAME="java in COMP3111F23G49 Coverage Results" MODIFIED="1700912286587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$java_in_COMP3111F23G49.ic" NAME="java in COMP3111F23G49 Coverage Results" MODIFIED="1700928845868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testDisplayMaze.ic" NAME="WindowTest.testDisplayMaze Coverage Results" MODIFIED="1700289913584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Shared.*</FILTER>
     </SUITE>
@@ -507,11 +512,11 @@
     <SUITE FILE_PATH="coverage/Comp3111F23G49$MainCTest.ic" NAME="MainCTest Coverage Results" MODIFIED="1700658175920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_saveMazeToFile.ic" NAME="TestBoard_MST.saveMazeToFile Coverage Results" MODIFIED="1700309122872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testPauser.ic" NAME="ThreadsControllerTest.testPauser Coverage Results" MODIFIED="1700467593166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_saveMazeToFile.ic" NAME="TestBoard_MST.saveMazeToFile Coverage Results" MODIFIED="1700928220938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_main_a.ic" NAME="TestBoard_MST.main_a Coverage Results" MODIFIED="1700294651133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_A.*</FILTER>

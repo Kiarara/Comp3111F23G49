@@ -1,8 +1,8 @@
 package Function_C;
 
 import Shared.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.TimerTask;
@@ -12,9 +12,10 @@ import java.util.concurrent.TimeUnit;
 import static Function_C.ThreadsController.directionJerry;
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ThreadsControllerTest {
-    private Window test_game_window;
-    private ThreadsController test_tc;
+    public Window test_game_window;
+    public ThreadsController test_tc;
 
     @BeforeEach
     void setUp() {
@@ -23,6 +24,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(1)
     public void testThreadsController(){
         Window game_window = new Window();
         ThreadsController tc = new ThreadsController(game_window); // target function
@@ -34,6 +36,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(2)
     public void testSetMode(){
         // Test setting the mode to easy
         test_tc.setMode(0); // target function
@@ -61,6 +64,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(3)
     public void testGameInitialize() {
         assertDoesNotThrow(() -> test_tc.game_initialize()); // target function
 
@@ -90,6 +94,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(4)
     public void testPauser(){
         // under normal conditions
         test_tc.pauser(); // target function
@@ -101,6 +106,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(5)
     public void testCheckGameEnds() {
         // initialize tom and jerry to entry and exit
         test_tc.game_initialize();
@@ -120,6 +126,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(15)
     public void testCheckFreezer()  {
         test_tc.setMode(1);
         test_tc.game_initialize();
@@ -144,6 +151,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(16)
     public void testCheckTuffy() {
 
         test_tc.setMode(1);
@@ -164,6 +172,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(6)
     public void testStopTheGame(){
         test_tc.stopTheGame(true); // target function
         assertFalse(test_tc.running);
@@ -175,6 +184,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(7)
     public void testMoveJerry() throws IOException {
         test_tc.m = new Maze("maze_for_testing.csv");
         test_tc.jerryPos = new VertexLocation(0,0);
@@ -197,6 +207,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(8)
     public void testMoveTom(){
         test_tc.setMode(0);
         test_tc.game_initialize();
@@ -207,6 +218,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(9)
     public void testMoveExterne(){
         test_tc.jerryPos = new VertexLocation(0,0);
         test_tc.tomPos = new VertexLocation(10,10);
@@ -224,6 +236,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(10)
     public void testClearObject(){
         test_tc.jerryPos = new VertexLocation(0,0);
         test_tc.tomPos = new VertexLocation(10,10);
@@ -243,21 +256,30 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testFreezeTom(){
+    @Order(11)
+    public void testFreezeTom() throws InterruptedException {
         test_tc.is_tom_frozen = false;
         test_tc.propEffectiveDuration = 2000;
         test_tc.freezeTom(); // target function
         assert(test_tc.is_tom_frozen);
+
+        CountDownLatch latch = new CountDownLatch(1);
+
         java.util.Timer timer = new java.util.Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 assert(!test_tc.is_tom_frozen);
+                latch.countDown();
             }
         }, 2500);
+
+        boolean isCompleted = latch.await(1, TimeUnit.MINUTES);
+        assertTrue(isCompleted);
     }
 
     @Test
+    @Order(12)
     public void testTuffyComes() throws InterruptedException {
         test_tc.setMode(0);
         test_tc.game_initialize();
@@ -285,11 +307,13 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(13)
     public void testExitOrRestart(){
         test_tc.exit_or_restart("Congratulations");
     }
 
     @Test
+    @Order(14)
     public void testRun(){
         test_tc.run();
     }

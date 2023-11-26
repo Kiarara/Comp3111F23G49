@@ -1,8 +1,8 @@
 package Shared;
 
 import Function_B.ShortestPathFinder;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.*;
 
 import java.util.LinkedList;
 
@@ -10,14 +10,15 @@ import static java.lang.Thread.sleep;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class WindowTest {
 
-    private Window window;
+    Window window;
     ShortestPathFinder finder;
-    private LinkedList<int[]> path;
+    LinkedList<int[]> path;
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         window = new Window();
         window.set_maze("MazeMap_TnJ.csv");
@@ -26,19 +27,21 @@ public class WindowTest {
     }
 
     @Test
+    @Order(1)
     public void testWindow(){
         Window w = new Window(); // target function
-        assertEquals(30, Window.height);
-        assertEquals(30, Window.width);
-        assertEquals(30, w.Grid.size());
-        assertEquals(30, w.Grid.get(0).size());
+        Assertions.assertEquals(30, Window.height);
+        Assertions.assertEquals(30, Window.width);
+        Assertions.assertEquals(30, w.Grid.size());
+        Assertions.assertEquals(30, w.Grid.get(0).size());
     }
 
     @Test
+    @Order(2)
     public void testSetMaze() {
         Window w = new Window();
         w.set_maze("MazeMap_TnJ.csv"); // target function
-        assertNotNull(w.m);
+        Assertions.assertNotNull(w.m);
         assertThrows(RuntimeException.class, () -> {
             Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
             w.set_maze("fake_maze"); // target function
@@ -46,32 +49,40 @@ public class WindowTest {
     }
 
     @Test
+    @Order(3)
     public void testDisplayMaze() {
-        window.display_maze();
+        window.display_maze(); // target function
         // Add assertions to verify the display of the maze
         for (int i = 0; i<30; ++i){
             for (int j = 0; j<30; ++j)
             {
                 if(window.m.maze[i][j] == 0)
-                    assertEquals(1, window.Grid.get(i).get(j).getColor());
+                    Assertions.assertEquals(1, window.Grid.get(i).get(j).getColor());
                 else
-                    assertEquals(0, window.Grid.get(i).get(j).getColor());
+                    Assertions.assertEquals(0, window.Grid.get(i).get(j).getColor());
             }
         }
+    }
 
+    @Test
+    @Order(4)
+    public void testDisplayMaze_throw(){
         assertThrows(RuntimeException.class, () -> {
             Thread.currentThread().interrupt();  // Force an InterruptedException to be thrown
             window.display_maze(); // target function
         });
     }
 
+
     @Test
+    @Order(5)
     public void testGetMaze(){
         Maze m = window.getMaze(); // target function
-        assertNotNull(m);
+        Assertions.assertNotNull(m);
     }
 
     @Test
+    @Order(6)
     public void testDisplayPath() throws InterruptedException {
         path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
         window.display_path(path); // target function
@@ -82,12 +93,13 @@ public class WindowTest {
             for (int j = 0; j<30; ++j)
             {
                 if(path.contains(new int[]{i, j}))
-                    assertEquals(2, window.Grid.get(i).get(j).getColor());
+                    Assertions.assertEquals(2, window.Grid.get(i).get(j).getColor());
             }
         }
     }
 
     @Test
+    @Order(7)
     public void testDisplayPath_throw(){
         path = finder.findShortestPath(window.m.getEntry(),window.m.getExit());
         assertThrows(RuntimeException.class, () -> {
@@ -96,15 +108,15 @@ public class WindowTest {
         });
     }
 
-
     @Test
+    @Order(8)
     public void testRemoveExistingPath() {
         window.display_path(path);
         window.remove_existing_path(); // target function
         for (int i = 0; i<30; ++i){
             for (int j = 0; j<30; ++j)
             {
-                assertNotEquals(2, window.Grid.get(i).get(j).getColor());
+                Assertions.assertNotEquals(2, window.Grid.get(i).get(j).getColor());
             }
         }
 
@@ -115,18 +127,21 @@ public class WindowTest {
     }
 
     @Test
+    @Order(9)
     public void testGameSetup() {
         window.gameSetup();
     }
 
     @Test
+    @Order(10)
     public void testSetMode() {
         window.setMode();
     }
 
     @Test
+    @Order(11)
     public void testStartGame() {
-        window.start_game(1);
+        Window w = new Window();
+        w.start_game(1); // target function
     }
-
 }

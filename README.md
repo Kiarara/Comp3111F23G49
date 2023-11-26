@@ -17,7 +17,7 @@ This is simple Java project which contains 3 main functions:
 
 **How to run the project:**
 Our team has created a main menu for trying different functions in one go, to initiate the main menu, you can
-* run the jar file named "COMP3111F23G49.jar" located in the directory
+* run the jar file named "COMP3111F23G49.jar" located in the ~/COMP3111F23G49/out/artifacts/COMP3111F23G49_jar
 * run the main function of the class "GameControlFrame" in the package named "Shared"
 
 To test each function separately, you can build and run the following functions: 

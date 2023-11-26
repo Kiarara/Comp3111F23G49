@@ -7,14 +7,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * This class is the class that makes the maze
+ *
+ * @author Benny (Wan Sze Chung)
+ */
 public class Board_MST {
 
-    Random rand = new Random();
+    public Random rand;
     public int[][] grid;
     public ArrayList<Association> association_list;
     public ArrayList<int[]> mst;
-
-    //initializing the board with all zeros
+    public boolean test;
+    /**
+     * This is the constructor of the class,the map is 30*30,
+     * nodes of the map are set up for the mst. Every node is a white square
+     * and separated by a black square. The black squares between two white
+     * squares are the edges between the nodes.
+     */
     public Board_MST() {
         grid = new int[30][30];
         for(int i=0;i<30;i++){
@@ -29,7 +39,15 @@ public class Board_MST {
         }
         association_list = new ArrayList<>();
         mst = new ArrayList<>();
+        rand =  new Random();
+        test = false;
     }
+
+    /**
+     * This function expands a node, putting the possible edges to the
+     * edges list
+     * @param coor the coordinate of the expanding node
+     */
     public void expand_coor(int[] coor){
         if(coor[0]>2){
             int[] up_coor={coor[0]-2,coor[1]};
@@ -88,6 +106,13 @@ public class Board_MST {
             }
         }
     }
+
+    /**
+     * This remove the redundant edges in the edges list since after
+     * a node is reached by the mst, there are still edges in the edges
+     * list connecting it
+     * @param coor the new expanded coordinate of the node
+     */
     public void remove_redundant(int[] coor){
         for (int i=0;i<association_list.size();i++){
             int[] expected_coor= association_list.get(i).get_coor(coor);
@@ -97,6 +122,10 @@ public class Board_MST {
             }
         }
     }
+
+    /**
+     * build the mst maze
+     */
     public void build_maze(){
         //start with randomly choosing a 0
         int []coor={2*rand.nextInt(14)+2,2*rand.nextInt(14)+2};
@@ -119,16 +148,24 @@ public class Board_MST {
         grid[ending][29]=0;
     }
 
+    /**
+     * since the mst maze only have 1 possible path between the
+     * starting and ending position, this function turns some black squares
+     * into white squares to create more path
+     */
     public void build_more_path(){
         boolean change=false;
         while(!change){
             int row= rand.nextInt(26)+2;
             int column;
+
             if (row%2==0){
                 column = 2*rand.nextInt(12)+3;
+                //System.out.println("row = "+row);
             }
             else{
                 column = 2*rand.nextInt(13)+2;
+                //System.out.println("col = "+column);
             }
             if(grid[row][column]==1){
                 change=true;
@@ -136,6 +173,13 @@ public class Board_MST {
             }
         }
     }
+
+    /**
+     * since the mst maze is build with walls with 2 squares thickness
+     * on the top and left, this function makes the maze with walls with
+     * 1 square thickness by changing some black squares into white on
+     * the top and left
+     */
     public void build_maze_with_single_wall(){
         build_maze();
         int change = 0;
@@ -155,6 +199,10 @@ public class Board_MST {
             }
         }
     }
+
+    /**
+     * This function saves the maze into a csv file
+     */
     public void saveMazeToFile() {
         try {
             FileWriter writer = new FileWriter("actual_maze.csv");
@@ -169,12 +217,13 @@ public class Board_MST {
                 }
                 writer.append("\n");
             }
-
             writer.flush();
             writer.close();
+            if(test) {
+                writer.flush();
+            }
         } catch (IOException e) {
-            System.out.println("Error occurredduring saving the maze to a file.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

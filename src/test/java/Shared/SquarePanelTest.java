@@ -11,10 +11,16 @@ import javax.swing.ImageIcon;
 public class SquarePanelTest {
 
     private SquarePanel squarePanel;
-
+    
     @Before
     public void setUp() {
         squarePanel = new SquarePanel(Color.RED); // Assuming RED represents a specific color
+    }
+
+    @Test
+    public void testSquarePanel(){
+        SquarePanel sp = new SquarePanel(Color.RED); // target function
+        assertEquals(Color.RED, sp.getBackground());
     }
 
     @Test

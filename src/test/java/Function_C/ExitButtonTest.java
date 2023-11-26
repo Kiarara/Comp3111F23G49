@@ -1,20 +1,23 @@
 package Function_C;
 
 import org.junit.Test;
-import org.mockito.Mockito;
-import static org.mockito.Mockito.verify;
 
-import javax.swing.*;
+import static org.junit.Assert.assertEquals;
+
+import static com.github.stefanbirkner.systemlambda.SystemLambda.*;
 
 
 public class ExitButtonTest {
 
     @Test
-    public void testExitButton(){
-        JFrame mock_parent_frame = Mockito.mock(JFrame.class);
+    public void testExitButton() throws Exception {
 
-        ExitButton button = new ExitButton();
-        button.doClick();
-        verify(mock_parent_frame).dispose();
+        ExitButton exitButton = new ExitButton(); // target function
+
+        // Catch exit with SystemLamda library
+        // Code that calls System.exit()
+        int exitStatus = catchSystemExit(exitButton::doClick);
+
+        assertEquals(0, exitStatus);
     }
 }

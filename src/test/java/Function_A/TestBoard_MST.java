@@ -2,7 +2,9 @@ package Function_A;
 
 import Shared.Maze;
 import org.junit.jupiter.api.Test;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import java.io.FileWriter;
 //import static org.junit.Assert.assertArrayEquals;
 //import static org.junit.Assert.assertEquals;
 //import java.util.Scanner;
@@ -23,7 +25,7 @@ public class TestBoard_MST {
         boolean actual_bool;
 
 
-        Association association_1 = new Association(up_coor,down_coor);
+        Association association_1 = new Association(up_coor,down_coor);//target function
         int [] expected = down_coor;
         int [] actual = association_1.right_or_down_vertex;
         assertArrayEquals(expected,actual);
@@ -88,7 +90,7 @@ public class TestBoard_MST {
         int [] expected = first_coor;
 
         Association assoiciation = new Association(first_coor,second_coor);
-        int [] actual = assoiciation.get_coor(second_coor);
+        int [] actual = assoiciation.get_coor(second_coor);//target function
         assertArrayEquals(expected,actual);
         expected = second_coor;
         actual = assoiciation.get_coor(first_coor);
@@ -106,7 +108,7 @@ public class TestBoard_MST {
 
         Association assoiciation_1 = new Association(left_coor,right_coor);
         int [] expected = right_coor;
-        int [] actual = assoiciation_1.get_new_coor();
+        int [] actual = assoiciation_1.get_new_coor();//target function
         assertArrayEquals(expected,actual);
 
         Association association_2 = new Association(right_coor,left_coor);
@@ -129,7 +131,7 @@ public class TestBoard_MST {
 
         WeightComparator weightComparator = new WeightComparator();
         expected = 1;
-        actual = weightComparator.compare(association_1,association_2);
+        actual = weightComparator.compare(association_1,association_2);//target function
         assertEquals(expected,actual);
 
         expected = -1;
@@ -145,7 +147,7 @@ public class TestBoard_MST {
     }
     @Test
     void Board_MST(){
-        Board_MST board_mst = new Board_MST();
+        Board_MST board_mst = new Board_MST();//target function
         int [] all_one = new int[30];
         for (int i=0;i<30;i++){
             all_one[i]=1;
@@ -170,6 +172,7 @@ public class TestBoard_MST {
         }
         assertTrue(board_mst.association_list.isEmpty());
         assertTrue(board_mst.mst.isEmpty());
+        assertFalse(board_mst.test);
     }
     @Test
     void expand_coor(){
@@ -181,7 +184,7 @@ public class TestBoard_MST {
         int [] expected_right_coor_0 = {10,14};
         int [] existed_coor = {4,4};
         board_mst.mst.add(existed_coor);
-        board_mst.expand_coor(coor_0);
+        board_mst.expand_coor(coor_0);//target function
         Association[] list = new Association[board_mst.association_list.size()];
         board_mst.association_list.toArray(list);
         assertArrayEquals(list[0].left_or_up_vertex,expected_up_coor_0);
@@ -234,14 +237,14 @@ public class TestBoard_MST {
         board_mst.mst.add(expected_left_coor_0);
         board_mst.mst.add(coor_0);
 
-        board_mst.remove_redundant(coor_0);
+        board_mst.remove_redundant(coor_0);//target function
         assertTrue(board_mst.association_list.isEmpty());
     }
 
     @Test
     void build_maze(){
         Board_MST board_mst = new Board_MST();
-        board_mst.build_maze();
+        board_mst.build_maze();//target function
         //check if the first two rows and the last row are all 1
         for(int i=0;i<30;i++){
             assertEquals(board_mst.grid[0][i],1);
@@ -312,7 +315,9 @@ public class TestBoard_MST {
     void build_more_path(){
         Board_MST board_mst = new Board_MST();
         board_mst.build_maze();
-        board_mst.build_more_path();
+        board_mst.rand.setSeed(3111);
+        //System.out.println("1");
+        board_mst.build_more_path();//target function
         //count the number of edges
         int count = 0;
         for(int i=2;i<29;i++){
@@ -330,7 +335,7 @@ public class TestBoard_MST {
             }
         }
         assertEquals(14*14,count);
-
+        //System.out.println("2");
         board_mst.build_more_path();
         count = 0;
         for(int i=2;i<29;i++){
@@ -348,7 +353,7 @@ public class TestBoard_MST {
             }
         }
         assertEquals(14*14+1,count);
-
+        //System.out.println("3");
         board_mst.build_more_path();
         count = 0;
         for(int i=2;i<29;i++){
@@ -366,6 +371,7 @@ public class TestBoard_MST {
             }
         }
         assertEquals(14*14+2,count);
+        //System.out.println("4");
         board_mst.build_more_path();
         count = 0;
         for(int i=2;i<29;i++){
@@ -385,7 +391,7 @@ public class TestBoard_MST {
         assertEquals(14*14+3,count);
     }
     @Test
-    void wall_to_maze(){
+    void build_maze_with_single_wall(){
         Board_MST board_mst = new Board_MST();
         //count number of white
         int count = 0;
@@ -402,7 +408,7 @@ public class TestBoard_MST {
         }
         assertEquals(count,0);
 
-        board_mst.build_maze_with_single_wall();
+        board_mst.build_maze_with_single_wall();//target function
         //count number of white
         count = 0;
         for(int i=2;i<29;i++){
@@ -416,21 +422,25 @@ public class TestBoard_MST {
         if(board_mst.grid[1][1]==0){
             count++;
         }
-        assertEquals(count,16);
+        assertEquals(count,17);
     }
     @Test
     void saveMazeToFile() throws IOException {
         Board_MST board_mst = new Board_MST();
         board_mst.build_maze();
-        board_mst.saveMazeToFile();
+        board_mst.saveMazeToFile();//target function
         Maze maze = new Maze("actual_maze.csv");
         //for(int i=0;i<30;i++){
         assertArrayEquals(maze.maze, board_mst.grid);
         //}
+        assertThrows(RuntimeException.class, () -> {
+            board_mst.test = true;
+            board_mst.saveMazeToFile(); // target function
+        });
     }
     @Test
     void main_a() throws IOException {
-        Main_A.main(null);
+        Main_A.main(null);//target function
         Maze maze = new Maze("actual_maze.csv");
         int count = 0;
         for(int i=2;i<29;i++){

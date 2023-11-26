@@ -3,6 +3,12 @@ package Function_A;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ *This class represents the association, meaning the edge between
+ * two nodes of the MST.
+ *
+ * @author Benny (Wan Sze Chung)
+ */
 public class Association {
     public int weight;
     public int [] left_or_up_vertex;
@@ -10,6 +16,11 @@ public class Association {
     public int [] middle_vertex;
     public boolean old_is_left_or_up;
 
+    /**
+     * This is the constructor of Association class
+     * @param first_coor This is the first coordinate of one node
+     * @param second_coor This is the coorinate of the second node
+     */
     public Association(int[] first_coor, int[] second_coor){
         //right_or_down_vertex = first_coor;
         //left_or_up_vertex = second_coor;
@@ -48,6 +59,17 @@ public class Association {
         }
     }
 
+    /**
+     * This function receives a coordinate as an input, if the association
+     * object has that input coordinate, it will return the other coordinate
+     * of that association object. Else if the association object does not
+     * have that input coordinate, it will return {-1,-1}, a null coordinate
+     *
+     * @param other_coor a coordinate of the nodes in the association
+     * @return the other coordinate of the association object if the input
+     * is one of the coordinate of the noes of the association object, else
+     * return {-1,-1}, a null coordinate
+     */
     public int[] get_coor(int[] other_coor){
         if(Arrays.equals(other_coor,right_or_down_vertex)){
             return left_or_up_vertex;
@@ -60,6 +82,12 @@ public class Association {
             return null_coor;
         }
     }
+
+    /**
+     * This function can help know the direction of the mst is growing
+     * @return the newer coordinate of the nodes of the
+     * association object, meaning the second coordinate in the constructor
+     */
     public int[] get_new_coor(){
         if(old_is_left_or_up){
             return right_or_down_vertex;

@@ -94,10 +94,12 @@ public class ThreadsController extends Thread {
 				moveTom();
 			}
 
-			// display/update the images of Tom and Jerry if the game hasn't neded
-			if(checkGameEnds()){
-				moveExterne();
-				pauser();
+			// display/update the images of Tom and Jerry if the game hasn't ended
+			if (running){
+				if(checkGameEnds()){
+					moveExterne();
+					pauser();
+				}
 			}
 		}
 	}
@@ -141,7 +143,7 @@ public class ThreadsController extends Thread {
 		// generate a new maze
 		Board_MST Board = new Board_MST();
 		Board.build_maze_with_single_wall();
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<num_barrier_removed;i++) {
 			Board.build_more_path();
 		}
 		Board.saveMazeToFile();
@@ -183,14 +185,17 @@ public class ThreadsController extends Thread {
 
 		boolean tuffy_is_here = false;
 		while (!tuffy_is_here){
-			int nibbles_row = rand.nextInt(29);
-			int nibbles_col = rand.nextInt(28) +1;
-			if(m.maze[nibbles_row][nibbles_col] == 0){
-				if(Squares.get(nibbles_row).get(nibbles_col).getObject() != 2)
+			int tuffy_row = rand.nextInt(29);
+			int tuffy_col = rand.nextInt(28) +1;
+			if(m.maze[tuffy_row][tuffy_col] == 0){
+				if(Squares.get(tuffy_row).get(tuffy_col).getObject() != 2)
 				{
-					Squares.get(nibbles_row).get(nibbles_col).changeObject(3);
-					tuffy_is_here = true;
-					tuffyPos = new VertexLocation(nibbles_row,nibbles_col);
+					tuffyPos = new VertexLocation(tuffy_row,tuffy_col);
+					if (finder.findShortestPath(jerryPos,tuffyPos) != null)
+					{
+						Squares.get(tuffy_row).get(tuffy_col).changeObject(3);
+						tuffy_is_here = true;
+					}
 				}
 			}
 		}
@@ -252,6 +257,7 @@ public class ThreadsController extends Thread {
 	void checkTuffy() {
 		if(jerryPos.isSame(tuffyPos)){
 			Squares.get(tuffyPos.x).get(tuffyPos.y).clearObject();
+			tuffyPos.updateLocation(-1,-1);
 			tuffyComes();
 		}
 

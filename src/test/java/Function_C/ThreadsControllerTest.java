@@ -1,26 +1,42 @@
 package Function_C;
 
 import Shared.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.TimerTask;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import static Function_C.ThreadsController.directionJerry;
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ThreadsControllerTest {
-    private Window test_game_window;
-    private ThreadsController test_tc;
+    public Window test_game_window;
+    public ThreadsController test_tc;
 
     @BeforeEach
     void setUp() {
         test_game_window = new Window();
-        test_tc = new ThreadsController(test_game_window); // target function
+        test_tc = new ThreadsController(test_game_window);
     }
 
     @Test
+    @Order(1)
+    public void testThreadsController(){
+        Window game_window = new Window();
+        ThreadsController tc = new ThreadsController(game_window); // target function
+        assertEquals(200, tc.tomSpeed);
+        assertEquals(20, tc.num_barrier_removed);
+        assertEquals(10, tc.updates_before_jerry_pause);
+        assertEquals(5, tc.num_of_freezer);
+        assertEquals(5000, tc.propEffectiveDuration);
+    }
+
+    @Test
+    @Order(2)
     public void testSetMode(){
         // Test setting the mode to easy
         test_tc.setMode(0); // target function
@@ -48,6 +64,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(3)
     public void testGameInitialize() {
         assertDoesNotThrow(() -> test_tc.game_initialize()); // target function
 
@@ -77,6 +94,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(4)
     public void testPauser(){
         // under normal conditions
         test_tc.pauser(); // target function
@@ -88,6 +106,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(5)
     public void testCheckGameEnds() {
         // initialize tom and jerry to entry and exit
         test_tc.game_initialize();
@@ -107,6 +126,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(15)
     public void testCheckFreezer()  {
         test_tc.setMode(1);
         test_tc.game_initialize();
@@ -131,6 +151,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(16)
     public void testCheckTuffy() {
 
         test_tc.setMode(1);
@@ -143,12 +164,15 @@ public class ThreadsControllerTest {
         // check when Jerry meets Tuffy
         test_tc.jerryPos.updateLocation(test_tc.tuffyPos.x, test_tc.tuffyPos.y);
         test_tc.checkTuffy(); // target function
-        assertEquals(-1, test_tc.Squares.get(test_tc.tuffyPos.x).get(test_tc.tuffyPos.y).getObject());
 
-
+        // check the tuffyPos is cleared
+        assertEquals(-1, test_tc.tuffyPos.x);
+        assertEquals(-1, test_tc.tuffyPos.y);
+        assertEquals(-1, test_tc.Squares.get(test_tc.jerryPos.x).get(test_tc.jerryPos.y).getObject());
     }
 
     @Test
+    @Order(6)
     public void testStopTheGame(){
         test_tc.stopTheGame(true); // target function
         assertFalse(test_tc.running);
@@ -160,6 +184,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(7)
     public void testMoveJerry() throws IOException {
         test_tc.m = new Maze("maze_for_testing.csv");
         test_tc.jerryPos = new VertexLocation(0,0);
@@ -182,6 +207,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(8)
     public void testMoveTom(){
         test_tc.setMode(0);
         test_tc.game_initialize();
@@ -192,6 +218,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(9)
     public void testMoveExterne(){
         test_tc.jerryPos = new VertexLocation(0,0);
         test_tc.tomPos = new VertexLocation(10,10);
@@ -209,6 +236,7 @@ public class ThreadsControllerTest {
     }
 
     @Test
+    @Order(10)
     public void testClearObject(){
         test_tc.jerryPos = new VertexLocation(0,0);
         test_tc.tomPos = new VertexLocation(10,10);
@@ -228,25 +256,35 @@ public class ThreadsControllerTest {
     }
 
     @Test
-    public void testFreezeTom(){
+    @Order(11)
+    public void testFreezeTom() throws InterruptedException {
         test_tc.is_tom_frozen = false;
         test_tc.propEffectiveDuration = 2000;
         test_tc.freezeTom(); // target function
         assert(test_tc.is_tom_frozen);
+
+        CountDownLatch latch = new CountDownLatch(1);
+
         java.util.Timer timer = new java.util.Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 assert(!test_tc.is_tom_frozen);
+                latch.countDown();
             }
         }, 2500);
+
+        boolean isCompleted = latch.await(1, TimeUnit.MINUTES);
+        assertTrue(isCompleted);
     }
 
     @Test
-    public void testTuffyComes() {
+    @Order(12)
+    public void testTuffyComes() throws InterruptedException {
         test_tc.setMode(0);
         test_tc.game_initialize();
 
+        CountDownLatch latch = new CountDownLatch(1);
         test_tc.tuffyComes(); // target function
         LinkedList<int[]> path_expected = test_tc.finder.findShortestPath(test_tc.m.getEntry(),test_tc.m.getExit());
         for (int[] path: path_expected)
@@ -259,16 +297,23 @@ public class ThreadsControllerTest {
                 for (int i = 0; i<30; ++i)
                     for (int j = 0; j<30; ++j)
                         assertNotEquals(2, test_tc.Squares.get(i).get(j).getColor());
+                latch.countDown();
             }
-        }, test_tc.propEffectiveDuration+500);
+        }, test_tc.propEffectiveDuration+2000);
+
+        boolean isCompleted = latch.await(1, TimeUnit.MINUTES);
+        assertTrue(isCompleted);
+
     }
 
     @Test
+    @Order(13)
     public void testExitOrRestart(){
         test_tc.exit_or_restart("Congratulations");
     }
 
     @Test
+    @Order(14)
     public void testRun(){
         test_tc.run();
     }

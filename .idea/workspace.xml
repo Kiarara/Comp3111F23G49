@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Modify the unit test for FunctionB.main">
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="adding java doc to function a">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Function_B/ShortestPathFinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_B/ShortestPathFinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_A/TestBoard_MST.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,20 +63,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main__Oakley__v5",
-    "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49",
-    "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -92,69 +90,67 @@
       <recent name="Function_C" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main_C" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Function_C.Main_C" />
+  <component name="RunManager" selected="JUnit.java in COMP3111F23G49">
+    <configuration name="Function_A in COMP3111F23G49 (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Function_C.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/Function_A" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExitButtonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Function_A in COMP3111F23G49" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Function_C.*" />
+          <option name="PATTERN" value="Function_A.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Function_C" />
-      <option name="MAIN_CLASS_NAME" value="Function_C.ExitButtonTest" />
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestBoard_MST" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP3111F23G49" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Function_A.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WindowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBoard_MST.saveMazeToFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3111F23G49" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Shared.*" />
+          <option name="PATTERN" value="Function_A.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shared" />
-      <option name="MAIN_CLASS_NAME" value="Shared.WindowTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WindowTest.testSetMaze" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP3111F23G49" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Shared.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Shared" />
-      <option name="MAIN_CLASS_NAME" value="Shared.WindowTest" />
-      <option name="METHOD_NAME" value="testSetMaze" />
+      <option name="PACKAGE_NAME" value="Function_A" />
+      <option name="MAIN_CLASS_NAME" value="Function_A.TestBoard_MST" />
+      <option name="METHOD_NAME" value="saveMazeToFile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="COMP3111F23G49.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/COMP3111F23G49.jar" />
-      <method v="2" />
+    <configuration name="java in COMP3111F23G49" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP3111F23G49" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="G49_Tom and Jerry" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/COMP3111F23G49_jar/COMP3111F23G49.jar" />
@@ -167,20 +163,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main_C" />
       <item itemvalue="JAR Application.G49_Tom and Jerry" />
-      <item itemvalue="JAR Application.COMP3111F23G49.jar" />
-      <item itemvalue="JUnit.ExitButtonTest" />
-      <item itemvalue="JUnit.WindowTest" />
-      <item itemvalue="JUnit.WindowTest.testSetMaze" />
+      <item itemvalue="JUnit.Function_A in COMP3111F23G49" />
+      <item itemvalue="JUnit.Function_A in COMP3111F23G49 (1)" />
+      <item itemvalue="JUnit.TestBoard_MST" />
+      <item itemvalue="JUnit.TestBoard_MST.saveMazeToFile" />
+      <item itemvalue="JUnit.java in COMP3111F23G49" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExitButtonTest" />
-        <item itemvalue="JAR Application.COMP3111F23G49.jar" />
-        <item itemvalue="JUnit.WindowTest.testSetMaze" />
-        <item itemvalue="JUnit.WindowTest" />
-        <item itemvalue="Application.Main_C" />
+        <item itemvalue="JUnit.java in COMP3111F23G49" />
+        <item itemvalue="JUnit.TestBoard_MST" />
+        <item itemvalue="JUnit.TestBoard_MST.saveMazeToFile" />
+        <item itemvalue="JUnit.Function_A in COMP3111F23G49 (1)" />
+        <item itemvalue="JUnit.Function_A in COMP3111F23G49" />
       </list>
     </recent_temporary>
   </component>
@@ -361,39 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700717575984</updated>
     </task>
-    <task id="LOCAL-00022" summary="Added javadocs for each function in Function B">
+    <task id="LOCAL-00022" summary="adding java doc to function a">
       <option name="closed" value="true" />
-      <created>1700736067340</created>
+      <created>1700921103579</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1700736067340</updated>
+      <updated>1700921103579</updated>
     </task>
-    <task id="LOCAL-00023" summary="Added javadocs for each function in Function B">
-      <option name="closed" value="true" />
-      <created>1700743372783</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1700743372783</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Modify the unit test for FunctionB.main">
-      <option name="closed" value="true" />
-      <created>1700800139157</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1700800139157</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Modify the unit test for FunctionB.main">
-      <option name="closed" value="true" />
-      <created>1700800201830</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1700800201830</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -427,158 +399,189 @@
     <MESSAGE value="Supplemented comments and java docs to explain the classes and functions" />
     <MESSAGE value="Modified a bit to Function A" />
     <MESSAGE value="Added javadocs for each function in Function C and Shared" />
-    <MESSAGE value="Added javadocs for each function in Function B" />
-    <MESSAGE value="Modify the unit test for FunctionB.main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modify the unit test for FunctionB.main" />
+    <MESSAGE value="adding java doc to function a" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding java doc to function a" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ExitButtonTest.ic" NAME="ExitButtonTest Coverage Results" MODIFIED="1700467448354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$SquarePanelTest.ic" NAME="SquarePanelTest Coverage Results" MODIFIED="1700467904288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$FunctionButtonTest.ic" NAME="FunctionButtonTest Coverage Results" MODIFIED="1700468935085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$GameStartButtonTest.ic" NAME="GameStartButtonTest Coverage Results" MODIFIED="1700739706419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$Function_A_in_COMP3111F23G49__1_.ic" NAME="Function_A in COMP3111F23G49 (1) Coverage Results" MODIFIED="1700912192460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_Association.ic" NAME="TestBoard_MST.Association Coverage Results" MODIFIED="1700657539421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testGameInitialize.ic" NAME="ThreadsControllerTest.testGameInitialize Coverage Results" MODIFIED="1700458802927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$ExitButtonTest.ic" NAME="ExitButtonTest Coverage Results" MODIFIED="1700746536003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST.ic" NAME="TestBoard_MST Coverage Results" MODIFIED="1700928630638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_expand_coor.ic" NAME="TestBoard_MST.expand_coor Coverage Results" MODIFIED="1700214423324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_compare.ic" NAME="TestBoard_MST.compare Coverage Results" MODIFIED="1700152836056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testisRunning.ic" NAME="ThreadsControllerTest.testisRunning Coverage Results" MODIFIED="1700458749487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testClearObject.ic" NAME="ThreadsControllerTest.testClearObject Coverage Results" MODIFIED="1700464622165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testMoveExterne.ic" NAME="ThreadsControllerTest.testMoveExterne Coverage Results" MODIFIED="1700464635542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_compare.ic" NAME="TestBoard_MST.compare Coverage Results" MODIFIED="1700152836056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$board_test_get_coor.ic" NAME="board_test.get_coor Coverage Results" MODIFIED="1700038484689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>board.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$GameStartButtonTest.ic" NAME="GameStartButtonTest Coverage Results" MODIFIED="1700467456070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$Function_C.ic" NAME="Function_C Coverage Results" MODIFIED="1700738768665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ExitButtonTest_testExitButton.ic" NAME="ExitButtonTest.testExitButton Coverage Results" MODIFIED="1700454136004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_remove_redundant.ic" NAME="TestBoard_MST.remove_redundant Coverage Results" MODIFIED="1700213784303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$GameControlFrameTest_setUp.ic" NAME="GameControlFrameTest.setUp Coverage Results" MODIFIED="1700469200485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$java_in_COMP3111F23G49.ic" NAME="java in COMP3111F23G49 Coverage Results" MODIFIED="1700928845868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testDisplayMaze.ic" NAME="WindowTest.testDisplayMaze Coverage Results" MODIFIED="1700289913584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$MainCTest_testMainC.ic" NAME="MainCTest.testMainC Coverage Results" MODIFIED="1700467731954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$Function_A_in_COMP3111F23G49.ic" NAME="Function_A in COMP3111F23G49 Coverage Results" MODIFIED="1700912156487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testMoveTom.ic" NAME="ThreadsControllerTest.testMoveTom Coverage Results" MODIFIED="1700462963715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$GameControlFrameTest_testMain.ic" NAME="GameControlFrameTest.testMain Coverage Results" MODIFIED="1700469542786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_new_coor.ic" NAME="TestBoard_MST.get_new_coor Coverage Results" MODIFIED="1700138638998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$KeyboardListenerTest.ic" NAME="KeyboardListenerTest Coverage Results" MODIFIED="1700467462263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest_updateLocation.ic" NAME="VertexLocationTest.updateLocation Coverage Results" MODIFIED="1700450411363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testRun.ic" NAME="ThreadsControllerTest.testRun Coverage Results" MODIFIED="1700465925755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ModeButtonTest_testModeButton.ic" NAME="ModeButtonTest.testModeButton Coverage Results" MODIFIED="1700450369085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_coor.ic" NAME="TestBoard_MST.get_coor Coverage Results" MODIFIED="1700134986829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$DataOfSquareTest.ic" NAME="DataOfSquareTest Coverage Results" MODIFIED="1700289700665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$ExitButtonTest_testExitButton.ic" NAME="ExitButtonTest.testExitButton Coverage Results" MODIFIED="1700739260485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$Function_B_in_COMP3111F23G49.ic" NAME="Function_B in COMP3111F23G49 Coverage Results" MODIFIED="1700907551219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$ShortestPathFinderTest.ic" NAME="ShortestPathFinderTest Coverage Results" MODIFIED="1700739680819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_B.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$MainCTest.ic" NAME="MainCTest Coverage Results" MODIFIED="1700658175920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testPauser.ic" NAME="ThreadsControllerTest.testPauser Coverage Results" MODIFIED="1700467593166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_saveMazeToFile.ic" NAME="TestBoard_MST.saveMazeToFile Coverage Results" MODIFIED="1700928220938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_main_a.ic" NAME="TestBoard_MST.main_a Coverage Results" MODIFIED="1700294651133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$MazeTest.ic" NAME="MazeTest Coverage Results" MODIFIED="1700289859388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$Main_A.ic" NAME="Main_A Coverage Results" MODIFIED="1700120337985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_maze.ic" NAME="TestBoard_MST.build_maze Coverage Results" MODIFIED="1700225301642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest.ic" NAME="WindowTest Coverage Results" MODIFIED="1700294730219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$_default_.ic" NAME="&lt;default&gt; Coverage Results" MODIFIED="1700738996327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testCheckFreezer.ic" NAME="ThreadsControllerTest.testCheckFreezer Coverage Results" MODIFIED="1700459613709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$Main_BTest.ic" NAME="Main_BTest Coverage Results" MODIFIED="1700739658892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_B.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_Board_MST.ic" NAME="TestBoard_MST.Board_MST Coverage Results" MODIFIED="1700210940347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$Function_C_in_COMP3111F23G49.ic" NAME="Function_C in COMP3111F23G49 Coverage Results" MODIFIED="1700907591289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_more_path.ic" NAME="TestBoard_MST.build_more_path Coverage Results" MODIFIED="1700912132275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1700657519539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testFreezeTom.ic" NAME="ThreadsControllerTest.testFreezeTom Coverage Results" MODIFIED="1700464907529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testCheckTuffy.ic" NAME="ThreadsControllerTest.testCheckTuffy Coverage Results" MODIFIED="1700466273731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testSetMaze.ic" NAME="WindowTest.testSetMaze Coverage Results" MODIFIED="1700289933604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Shared.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_maze_with_single_wall.ic" NAME="TestBoard_MST.build_maze_with_single_wall Coverage Results" MODIFIED="1700912121560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_A.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest.ic" NAME="ThreadsControllerTest Coverage Results" MODIFIED="1700467476644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest_copyConstructorTest.ic" NAME="VertexLocationTest.copyConstructorTest Coverage Results" MODIFIED="1700450815107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1698156003906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Comp3111F23G49$Function_B.ic" NAME="Function_B Coverage Results" MODIFIED="1700739581225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_B.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testMoveJerry.ic" NAME="ThreadsControllerTest.testMoveJerry Coverage Results" MODIFIED="1700462588826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Function_C.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$ModeButtonTest.ic" NAME="ModeButtonTest Coverage Results" MODIFIED="1700467470287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_C.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111F23G49$TestBoard_MST.ic" NAME="TestBoard_MST Coverage Results" MODIFIED="1700302490224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest_updateLocation.ic" NAME="VertexLocationTest.updateLocation Coverage Results" MODIFIED="1700450411363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$FunctionButtonTest.ic" NAME="FunctionButtonTest Coverage Results" MODIFIED="1700468935085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest_copyConstructorTest.ic" NAME="VertexLocationTest.copyConstructorTest Coverage Results" MODIFIED="1700450815107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$board_test_get_coor.ic" NAME="board_test.get_coor Coverage Results" MODIFIED="1700038484689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>board.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest.ic" NAME="ThreadsControllerTest Coverage Results" MODIFIED="1700467476644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_maze.ic" NAME="TestBoard_MST.build_maze Coverage Results" MODIFIED="1700225301642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$ExitButtonTest.ic" NAME="ExitButtonTest Coverage Results" MODIFIED="1700746480657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testisRunning.ic" NAME="ThreadsControllerTest.testisRunning Coverage Results" MODIFIED="1700458749487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$GameStartButtonTest.ic" NAME="GameStartButtonTest Coverage Results" MODIFIED="1700467456070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$Main_A.ic" NAME="Main_A Coverage Results" MODIFIED="1700120337985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ExitButtonTest_testExitButton.ic" NAME="ExitButtonTest.testExitButton Coverage Results" MODIFIED="1700454136004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testFreezeTom.ic" NAME="ThreadsControllerTest.testFreezeTom Coverage Results" MODIFIED="1700464907529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_coor.ic" NAME="TestBoard_MST.get_coor Coverage Results" MODIFIED="1700130873624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testGameInitialize.ic" NAME="ThreadsControllerTest.testGameInitialize Coverage Results" MODIFIED="1700458802927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testCheckTuffy.ic" NAME="ThreadsControllerTest.testCheckTuffy Coverage Results" MODIFIED="1700466273731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$MainCTest_testMainC.ic" NAME="MainCTest.testMainC Coverage Results" MODIFIED="1700467731954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testCheckFreezer.ic" NAME="ThreadsControllerTest.testCheckFreezer Coverage Results" MODIFIED="1700459613709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST.ic" NAME="TestBoard_MST Coverage Results" MODIFIED="1700305269227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_Association.ic" NAME="TestBoard_MST.Association Coverage Results" MODIFIED="1700138029550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ModeButtonTest_testModeButton.ic" NAME="ModeButtonTest.testModeButton Coverage Results" MODIFIED="1700450369085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testDisplayMaze.ic" NAME="WindowTest.testDisplayMaze Coverage Results" MODIFIED="1700289913584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$GameControlFrameTest_testMain.ic" NAME="GameControlFrameTest.testMain Coverage Results" MODIFIED="1700469542786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_build_more_path.ic" NAME="TestBoard_MST.build_more_path Coverage Results" MODIFIED="1700225909735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest.ic" NAME="WindowTest Coverage Results" MODIFIED="1700470035827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$WindowTest_testSetMaze.ic" NAME="WindowTest.testSetMaze Coverage Results" MODIFIED="1700470027575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$GameControlFrameTest_setUp.ic" NAME="GameControlFrameTest.setUp Coverage Results" MODIFIED="1700469200485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testMoveTom.ic" NAME="ThreadsControllerTest.testMoveTom Coverage Results" MODIFIED="1700462963715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$SquarePanelTest.ic" NAME="SquarePanelTest Coverage Results" MODIFIED="1700467904288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$MazeTest.ic" NAME="MazeTest Coverage Results" MODIFIED="1700467911579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$ShortestPathFinderTest.ic" NAME="ShortestPathFinderTest Coverage Results" MODIFIED="1700144360050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_B.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_expand_coor.ic" NAME="TestBoard_MST.expand_coor Coverage Results" MODIFIED="1700214423324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$KeyboardListenerTest.ic" NAME="KeyboardListenerTest Coverage Results" MODIFIED="1700467462263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_saveMazeToFile.ic" NAME="TestBoard_MST.saveMazeToFile Coverage Results" MODIFIED="1700294066030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$DataOfSquareTest.ic" NAME="DataOfSquareTest Coverage Results" MODIFIED="1700467920016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Shared.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_get_new_coor.ic" NAME="TestBoard_MST.get_new_coor Coverage Results" MODIFIED="1700138638998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testRun.ic" NAME="ThreadsControllerTest.testRun Coverage Results" MODIFIED="1700465925755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testPauser.ic" NAME="ThreadsControllerTest.testPauser Coverage Results" MODIFIED="1700467593166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_remove_redundant.ic" NAME="TestBoard_MST.remove_redundant Coverage Results" MODIFIED="1700213784303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_Board_MST.ic" NAME="TestBoard_MST.Board_MST Coverage Results" MODIFIED="1700210940347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ExitButtonTest.ic" NAME="ExitButtonTest Coverage Results" MODIFIED="1700467448354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$VertexLocationTest.ic" NAME="VertexLocationTest Coverage Results" MODIFIED="1700467514024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Comp3111F23G49$TestBoard_MST_main_a.ic" NAME="TestBoard_MST.main_a Coverage Results" MODIFIED="1700294651133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_A.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111F23G49$ThreadsControllerTest_testMoveJerry.ic" NAME="ThreadsControllerTest.testMoveJerry Coverage Results" MODIFIED="1700462588826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Function_C.*</FILTER>
     </SUITE>
   </component>
 </project>

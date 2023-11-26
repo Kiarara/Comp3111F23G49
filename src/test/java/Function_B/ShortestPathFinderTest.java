@@ -2,12 +2,17 @@ package Function_B;
 
 import Shared.*;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.LinkedList;
 
 class ShortestPathFinderTest {
-
     @Test
     void ShortestPathFinder() throws IOException {
         Maze m = new Maze("MazeMap_TnJ.csv");
@@ -132,5 +137,18 @@ class ShortestPathFinderTest {
         assertArrayEquals(finder.prevRow,IntZeros);
     }
 
+    @Test
+    public void saveMazeToFile() throws IOException {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Maze m = new Maze("MazeMap_TnJ.csv");
+        ShortestPathFinder finder = new ShortestPathFinder(m);
+        finder.findShortestPath(m.getEntry(),m.getExit());
+        finder.saveMazeToFile();
+
+        String expectedOutput = "Successfully save the file.";
+        assertEquals(expectedOutput, outContent.toString());
+    }
 
 }

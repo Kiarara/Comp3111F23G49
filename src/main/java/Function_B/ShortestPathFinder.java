@@ -1,9 +1,12 @@
 package Function_B;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 import Function_C.ThreadsController;
 import Function_C.VertexLocation;
 import Shared.*;
+import java.io.FileWriter;
 /**
  * The ShortestPathFinder class represents a class to find the shortest path in a map
  * It extends the JFrame class from the javax.swing package.
@@ -154,6 +157,38 @@ public class ShortestPathFinder {
             Arrays.fill(distance[i], (byte) 0);
             Arrays.fill(prevRow[i], 0);
             Arrays.fill(prevCol[i], 0);
+        }
+    }
+
+    /**
+     * The method will generate a csv file named "FunctionB_output.csv" for reference
+     *
+     */
+    public void saveMazeToFile() {
+        try {
+            FileWriter writer = new FileWriter("FunctionB_output.csv");
+            for (int i = 0; i < shortestpath.size(); i++) {
+                writer.append("[");
+                writer.append(String.valueOf(shortestpath.get(i)[0]));
+                if (Integer.toString(shortestpath.get(i)[0]).length() == 1) writer.append(" ");
+                writer.append(",");
+                if (Integer.toString(shortestpath.get(i)[1]).length() == 1) writer.append(" ");
+                writer.append(String.valueOf(shortestpath.get(i)[1]));
+                writer.append("]");
+                if (i % 8 == 7 ) {
+                    writer.append("\n");
+                }
+                else if (i < shortestpath.size()-1) {
+                    writer.append(",\t");
+                }
+            }
+            System.out.print("Successfully save the file.");
+            writer.flush();
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("Error occurred during saving the maze to a file.");
+            e.printStackTrace();
         }
     }
 

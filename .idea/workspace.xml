@@ -9,12 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Added javadocs for each function in Function B">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Function_B/MainBTest.java" afterDir="false" />
+    <list default="true" id="679f57eb-0f05-4ed8-8a21-4d6b196aeb29" name="Changes" comment="Modify the unit test for FunctionB.main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actual_maze.csv" beforeDir="false" afterPath="$PROJECT_DIR$/actual_maze.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_A/Board_MST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/Main_B.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Function_B/Main_BTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Function_B/ShortestPathFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Function_B/ShortestPathFinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Function_B/ShortestPathFinderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main_Oakley_v4" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,7 +71,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "main__Oakley__v5",
     "last_opened_file_path": "/Users/kpeng/IdeaProjects/COMP3111F23G49",
     "onboarding.tips.debug.path": "/Users/kpeng/IdeaProjects/COMP3111F23G49/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Artifacts",
@@ -376,7 +377,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700743372783</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Modify the unit test for FunctionB.main">
+      <option name="closed" value="true" />
+      <created>1700800139157</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1700800139157</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Modify the unit test for FunctionB.main">
+      <option name="closed" value="true" />
+      <created>1700800201830</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1700800201830</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +428,8 @@
     <MESSAGE value="Modified a bit to Function A" />
     <MESSAGE value="Added javadocs for each function in Function C and Shared" />
     <MESSAGE value="Added javadocs for each function in Function B" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added javadocs for each function in Function B" />
+    <MESSAGE value="Modify the unit test for FunctionB.main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify the unit test for FunctionB.main" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -147,7 +147,7 @@ class ShortestPathFinderTest {
         finder.findShortestPath(m.getEntry(),m.getExit());
         finder.saveMazeToFile();
 
-        String expectedOutput = "Successfully save the file.";
+        String expectedOutput = "Successfully save the file. ";
         assertEquals(expectedOutput, outContent.toString());
     }
 

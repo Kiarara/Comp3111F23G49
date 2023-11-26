@@ -15,10 +15,20 @@ import java.util.List;
  */
 public class Maze {
 
+    /**
+     * Entry point of the maze
+     */
     VertexLocation entry;
+
+    /**
+     * Exit point of the maze
+     */
     VertexLocation exit;
 
-    public int[][] maze; // the maze represented in 2D integer array
+    /**
+     * The maze represented in 2D integer array
+     */
+    public int[][] maze;
 
     /**
      * Constructs a Maze object by reading a maze from a CSV file.

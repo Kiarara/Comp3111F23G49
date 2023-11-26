@@ -21,31 +21,96 @@ import javax.swing.*;
  */
 public class ThreadsController extends Thread {
 
-	// The game_window setting
+	/**
+	 * The array list of all the squares
+	 */
 	ArrayList<ArrayList<DataOfSquare>> Squares;
+
+	/**
+	 * game window which holds the maze and helps display the maze and path
+	 */
 	final private Window game_window;
+
+	/**
+	 * the position of Tom
+	 */
 	VertexLocation tomPos;
+
+	/**
+	 * the position of Jerry
+	 */
 	VertexLocation jerryPos;
+
+	/**
+	 * the moving direction of Jerry
+	 */
 	public static int directionJerry;
 
-	// maze fetched and the finder used for finding shortest path
+	/**
+	 * maze fetched
+	 */
 	Maze m;
+
+	/**
+	 * the finder used for finding shortest path
+	 */
 	ShortestPathFinder finder;
+
+	/**
+	 * whether the game has ended
+	 */
 	public boolean running=false;
 
-	// for mode setting
+	/**
+	 * how fast Tom and Jerry moves in general
+	 */
 	long tomSpeed = 200;
+
+	/**
+	 *  how many possible paths to the exit
+	 */
 	int num_barrier_removed = 20;
+
+	/**
+	 * how frequent Jerry needs to be paused while Tom keeps moving
+	 */
 	int updates_before_jerry_pause = 10;
+
+	/**
+	 * the number of freezers provided that could allow Jerry to freeze Tom
+	 */
 	int num_of_freezer = 5;
+
+	/**
+	 * how long props will be effective
+	 */
 	long propEffectiveDuration = 5000;
 
-	// for props setting
+	/**
+	 * the location of freezers
+	 */
 	ArrayList<VertexLocation> freezerLocs;
+
+	/**
+	 * whether tom is frozen
+	 */
 	boolean is_tom_frozen = false;
+
+	/**
+	 * the shortest path to exit
+	 */
 	LinkedList<int[]> shortest_path_for_jerry;
+
+	/**
+	 * the location of Tuffy
+	 */
 	VertexLocation tuffyPos;
 
+	/**
+	 * The constructor of ThreadsController
+	 *
+	 * @param this_window this_window will mainly be used for maze display
+	 */
 	// Constructor
 	public ThreadsController(Window this_window){
 		//Get all the threads
@@ -217,8 +282,6 @@ public class ThreadsController extends Thread {
 	 *
 	 * @return true if the game continues, false if the game ends
 	 */
-	// checking if the game ends
-	// i.e. if Jerry get caught or Jerry reaches the exit point
 	boolean checkGameEnds() {
 		VertexLocation exit = m.getExit();
 		boolean gameWin = exit.isSame(jerryPos);

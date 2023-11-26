@@ -46,7 +46,7 @@ public class ShortestPathFinder {
      *
      * @param a                 The start of the path
      * @param b                 The end of the path
-     *
+     * @return                  A linkedlist representing the shortest path find
      */
     public LinkedList<int[]> findShortestPath(VertexLocation a, VertexLocation b) {
         int startRow = a.x;
@@ -126,7 +126,7 @@ public class ShortestPathFinder {
      *
      * @param a                 The start of the path, which is the location of Jerry
      * @param b                 The end of the path, which is the location of Tom
-     *
+     * @return                  The second-last location on the path, which determines the move of Tom
      */
     public int[] find_next(VertexLocation a, VertexLocation b){
         findShortestPath(a, b);
@@ -141,7 +141,7 @@ public class ShortestPathFinder {
      *
      * @param row                 The row index of the vertex
      * @param col                 The column index of the vertex
-     *
+     * @return                    Whether the move is valid
      */
     public boolean isValidMove(int row, int col) {
         return row >= 0 && row < numRows && col >= 0 && col < numCols && map[row][col] == 0 && visited[row][col] == 0;

@@ -6,8 +6,16 @@ package Function_C;
  * @author PENG Xinyin(Kiara)
  */
 public class VertexLocation {
-	  public  int x;
-	  public  int y;
+
+	/**
+	 * the row of location
+	 */
+	public  int x;
+
+	/**
+	 * the coloum of location
+	 */
+	public  int y;
 
 	/**
 	 * Constructs a new VertexLocation with the specified x and y coordinates.

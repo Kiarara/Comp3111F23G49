@@ -12,12 +12,30 @@ import javax.swing.*;
  */
 public class DataOfSquare {
 
-	
-	//ArrayList that'll contain the colors and the images to show
+
+	/**
+	 * ArrayList that'll contain the colors to show
+	 */
 	ArrayList<Color> C =new ArrayList<>();
+
+	/**
+	 * ArrayList that'll contain the images to show
+	 */
 	ArrayList<ImageIcon> I = new ArrayList<>();
+
+	/**
+	 * The actual square to modify
+	 */
 	SquarePanel square;
+
+	/**
+	 * The current color of the square
+	 */
 	int color;
+
+	/**
+	 * The current object of the square
+	 */
 	int obj;
 
 	/**

@@ -21,9 +21,25 @@ import static java.lang.Thread.sleep;
  * @author PENG Xinyin(Kiara)
  */
 public class Window extends JFrame{
+
+	/**
+	 * the array list that eventually contains all the squares
+	 */
 	public static ArrayList<ArrayList<DataOfSquare>> Grid;
+
+	/**
+	 * the width of the window
+	 */
 	public static int width = 30;
+
+	/**
+	 * the height of the window
+	 */
 	public static int height = 30;
+
+	/**
+	 * the maze to be displayed
+	 */
 	Maze m;
 
 

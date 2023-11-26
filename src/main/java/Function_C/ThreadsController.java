@@ -305,7 +305,7 @@ public class ThreadsController extends Thread {
 	}
 
 	/**
-	 * Moves Tom internally by updating the stored location based on the calculated next position。
+	 * Moves Tom internally by updating the stored location based on the calculated next position
 	 */
 	void moveTom() {
 		 int[] next = finder.find_next(jerryPos, tomPos);

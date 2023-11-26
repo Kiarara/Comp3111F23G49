@@ -13,11 +13,26 @@ import java.util.Arrays;
  * @author Benny (Wan Sze Chung)
  */
 public class Board_MST {
-
+    /**
+     * setting random
+     */
     public Random rand;
+    /**
+     * the grid of the maze
+     */
     public int[][] grid;
+    /**
+     * let the computer choose the association with the lowest weight
+     * in the list
+     */
     public ArrayList<Association> association_list;
+    /**
+     * The array list of which nodes is reached
+     */
     public ArrayList<int[]> mst;
+    /**
+     * It is for the testing for function saveMazeToFile
+     */
     public boolean test;
     /**
      * This is the constructor of the class,the map is 30*30,

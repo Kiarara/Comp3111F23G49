@@ -10,10 +10,26 @@ import java.util.Random;
  * @author Benny (Wan Sze Chung)
  */
 public class Association {
+    /**
+     * It is the weight of the edges
+     */
     public int weight;
+    /**
+     * It is the left or up vertex coordination, which is a node
+     */
     public int [] left_or_up_vertex;
+    /**
+     * It is the right or down vertex coordination, which is a node
+     */
     public int [] right_or_down_vertex;
+    /**
+     * It is the coordination of the edge between two nodes
+     */
     public int [] middle_vertex;
+    /**
+     * It stands for if the first coordinate of the constructor is
+     * the left or up vertex
+     */
     public boolean old_is_left_or_up;
 
     /**

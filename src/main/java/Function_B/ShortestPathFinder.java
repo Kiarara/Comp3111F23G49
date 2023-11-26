@@ -49,7 +49,10 @@ public class ShortestPathFinder {
      * The queue for running bfs algorithm
      */
     Queue<int[]> queue;
-
+    /**
+     * It is used for the test case
+     */
+    public boolean test;
     /**
      * Explicit constructor for the class; initialize all the class members
      *
@@ -64,6 +67,7 @@ public class ShortestPathFinder {
 
         shortestpath = new LinkedList<>();
         queue = new LinkedList<>();
+        test = false;
     }
 
     /**
@@ -210,10 +214,12 @@ public class ShortestPathFinder {
             System.out.print("Successfully save the file. ");
             writer.flush();
             writer.close();
+            if(test){
+                writer.flush();
+            }
 
         } catch (IOException e) {
-            System.out.println("Error occurred during saving the maze to a file.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

@@ -149,6 +149,10 @@ class ShortestPathFinderTest {
 
         String expectedOutput = "Successfully save the file. ";
         assertEquals(expectedOutput, outContent.toString());
+        assertThrows(RuntimeException.class, () -> {
+            finder.test = true;
+            finder.saveMazeToFile(); // target function
+        });
     }
 
 }

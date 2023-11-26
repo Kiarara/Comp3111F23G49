@@ -13,15 +13,41 @@ import Shared.*;
  * @author LIU Muyuan(Oakley)
  */
 public class ShortestPathFinder {
+    /**
+     * The array of the data
+     */
     public int[][] map;
+    /**
+     * The row number of the map
+     */
     public int numRows = 30;
+    /**
+     * The column number of the map
+     */
     public int numCols = 30;
+    /**
+     * The array which stores whether a vertex has been visited or not
+     */
     public byte[][] visited;
+    /**
+     * The array which stores the distance from entry to this vertex
+     */
     public byte[][] distance;
+    /**
+     * The array which stores the row index of the previous vertex when we run bfs on the map
+     */
     public int[][] prevRow;
+    /**
+     * The array which stores the column index of the previous vertex when we run bfs on the map
+     */
     public int[][] prevCol;
-
+    /**
+     * The linked list which stored the shortest path data in the format of [row, column]
+     */
     LinkedList<int[]> shortestpath;
+    /**
+     * The queue for running bfs algorithm
+     */
     Queue<int[]> queue;
 
     /**

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.*;
 import java.util.LinkedList;
 
 import static java.lang.Thread.sleep;
-import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

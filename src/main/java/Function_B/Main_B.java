@@ -40,13 +40,14 @@ public class Main_B {
         Maze m = f1.getMaze();
         ShortestPathFinder finder = new ShortestPathFinder(m);
         finder.findShortestPath(m.getEntry(), m.getExit());
-
+        finder.saveMazeToFile();
 
         if (finder.shortestpath != null) {
             LinkedList<int[]> path = finder.findShortestPath(m.getEntry(), m.getExit());
             f1.display_path(path);
             System.out.print("Shortest path found!");
         }
+
 
     }
 }

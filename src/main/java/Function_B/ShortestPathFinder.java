@@ -6,7 +6,6 @@ import java.util.*;
 import Function_C.ThreadsController;
 import Function_C.VertexLocation;
 import Shared.*;
-import java.io.FileWriter;
 /**
  * The ShortestPathFinder class represents a class to find the shortest path in a map
  * It extends the JFrame class from the javax.swing package.

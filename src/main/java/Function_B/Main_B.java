@@ -33,13 +33,14 @@ public class Main_B {
         f1.setVisible(true);
         f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         f1.setLocationRelativeTo(null);
-
         f1.set_maze("actual_maze.csv");
         f1.display_maze();
 
+        // find the shortest path
         Maze m = f1.getMaze();
         ShortestPathFinder finder = new ShortestPathFinder(m);
         finder.findShortestPath(m.getEntry(), m.getExit());
+        // save the shortest path to "FunctionB_output.csv"
         finder.saveMazeToFile();
 
         if (finder.shortestpath != null) {

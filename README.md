@@ -30,3 +30,4 @@ Simply run the unit tseting files in the folder named "test"
 Note that: 
 * There could be windows popping out during testing. In those situations, you could just ignore and wait for the test cases to finish, after which those windows will be closes
 * There could be some warnings caused by Java/library version, which should not affect the results of the testing
+* There could be some exception thrown by outdated instruction given by timed event or button click, which should not affect the results of the testing, and won't appear if those test cases are test separately

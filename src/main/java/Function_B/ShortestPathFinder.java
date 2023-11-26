@@ -207,7 +207,7 @@ public class ShortestPathFinder {
                     writer.append(",\t");
                 }
             }
-            System.out.print("Successfully save the file.");
+            System.out.print("Successfully save the file. ");
             writer.flush();
             writer.close();
 

@@ -14,7 +14,7 @@ class MainBTest {
 
 
         Main_B.main(null);
-        String expectedOutput = "Shortest path found!";
+        String expectedOutput = "Successfully save the file. Shortest path found!";
         assertEquals(expectedOutput, outContent.toString());
     }
 }
